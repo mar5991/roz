@@ -1,0 +1,79 @@
+0 30	1 7		#	261	#			SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	291	#			SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7	2 6	#	246	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	296	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	311	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	327	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30		3 6	#	307	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	347	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	357	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30		3 6	#	352	#	CelestynowOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa		
+0 30			#	377	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	387	#		OtwockWschodnia.trasa	SrednicaZachod.trasa		
+0 30		3 6	#	367	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30			#	407	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	417	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30		3 6	#	412	#	CelestynowOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa		
+0 30			#	437	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	447	#		OtwockWschodnia.trasa	SrednicaZachod.trasa		
+0 30	1 7	2 6	#	426	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	471	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	486	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	501	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7	2 6	#	486	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	531	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	546	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	561	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7	2 6	#	546	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	591	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	606	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	621	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7	2 6	#	606	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	651	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	666	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	681	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7	2 6	#	666	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	711	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	726	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	741	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7	2 6	#	726	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	771	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	786	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	801	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7	2 6	#	786	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	831	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	847	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30			#	857	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	887	#		GoclawekWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30		3 6	#	847	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	887	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	906	#		FalenicaWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	907	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	917	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	957	#			SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30		3 6	#	907	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	947	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	957	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	987	#		GoclawekWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	977	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	987	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30		3 6	#	967	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30		3 6	#	992	#	CelestynowOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30			#	1017	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	1026	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	1041	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7	2 6	#	1026	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	1071	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	1086	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	1101	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7	2 6	#	1086	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7	2 6	#	1116	#	CelestynowOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7		#	1146	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	1166	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7	2 6	#	1146	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa		
+0 30	1 7		#	1186	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	1206	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7	2 6	#	1206	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	1266	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+0 30	1 7	2 6	#	1266	#	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+0 30	1 7		#	1336	#		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa

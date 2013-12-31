@@ -1,0 +1,380 @@
+Z0_KM 0.5 120 20
+3 30	
+	276	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z1_KM 0.5 120 20
+3 30	
+	311	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z2_KM 0.5 120 20
+3 30	
+	311	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z3_KM 0.5 120 20
+3 30	
+	341	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z4_KM 0.5 120 20
+3 30	
+	336	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z5_KM 0.5 120 20
+3 30	
+	361	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z6_KM 0.5 120 20
+3 30	
+	356	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z7_KM 0.5 120 20
+3 30	
+	381	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z8_KM 0.5 120 20
+3 30	
+	376	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z9_KM 0.5 120 20
+3 30	
+	401	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z10_KM 0.5 120 20
+3 30	
+	396	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z11_KM 0.5 120 20
+3 30	
+	421	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z12_KM 0.5 120 20
+3 30	
+	416	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z13_KM 0.5 120 20
+3 30	
+	441	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z14_KM 0.5 120 20
+3 30	
+	436	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z15_KM 0.5 120 20
+3 30	
+	461	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z16_KM 0.5 120 20
+3 30	
+	456	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z17_KM 0.5 120 20
+3 30	
+	497	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z18_KM 0.5 120 20
+3 30	
+	486	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z19_KM 0.5 120 20
+3 30	
+	486	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z20_KM 0.5 120 20
+3 30	
+	527	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z21_KM 0.5 120 20
+3 30	
+	516	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z22_KM 0.5 120 20
+3 30	
+	516	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z23_KM 0.5 120 20
+3 30	
+	557	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z24_KM 0.5 120 20
+3 30	
+	546	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z25_KM 0.5 120 20
+3 30	
+	546	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z26_KM 0.5 120 20
+3 30	
+	587	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z27_KM 0.5 120 20
+3 30	
+	576	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z28_KM 0.5 120 20
+3 30	
+	591	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z29_KM 0.5 120 20
+3 30	
+	617	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z30_KM 0.5 120 20
+3 30	
+	591	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z31_KM 0.5 120 20
+3 30	
+	621	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z32_KM 0.5 120 20
+3 30	
+	647	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z33_KM 0.5 120 20
+3 30	
+	636	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z34_KM 0.5 120 20
+3 30	
+	636	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z35_KM 0.5 120 20
+3 30	
+	677	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z36_KM 0.5 120 20
+3 30	
+	666	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z37_KM 0.5 120 20
+3 30	
+	681	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z38_KM 0.5 120 20
+3 30	
+	707	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z39_KM 0.5 120 20
+3 30	
+	681	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z40_KM 0.5 120 20
+3 30	
+	711	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z41_KM 0.5 120 20
+3 30	
+	737	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z42_KM 0.5 120 20
+3 30	
+	726	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z43_KM 0.5 120 20
+3 30	
+	741	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z44_KM 0.5 120 20
+3 30	
+	767	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z45_KM 0.5 120 20
+3 30	
+	756	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z46_KM 0.5 120 20
+3 30	
+	756	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z47_KM 0.5 120 20
+3 30	
+	797	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z48_KM 0.5 120 20
+3 30	
+	786	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z49_KM 0.5 120 20
+3 30	
+	786	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z50_KM 0.5 120 20
+3 30	
+	827	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z51_KM 0.5 120 20
+3 30	
+	816	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z52_KM 0.5 120 20
+3 30	
+	816	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z53_KM 0.5 120 20
+3 30	
+	857	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z54_KM 0.5 120 20
+3 30	
+	846	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z55_KM 0.5 120 20
+3 30	
+	861	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z56_KM 0.5 120 20
+3 30	
+	856	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z57_KM 0.5 120 20
+3 30	
+	881	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z58_KM 0.5 120 20
+3 30	
+	907	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z59_KM 0.5 120 20
+3 30	
+	886	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z60_KM 0.5 120 20
+3 30	
+	927	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z61_KM 0.5 120 20
+3 30	
+	921	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z62_KM 0.5 120 20
+3 30	
+	916	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z63_KM 0.5 120 20
+3 30	
+	926	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z64_KM 0.5 120 20
+3 30	
+	951	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z65_KM 0.5 120 20
+3 30	
+	946	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z66_KM 0.5 120 20
+3 30	
+	971	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z67_KM 0.5 120 20
+3 30	
+	966	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z68_KM 0.5 120 20
+3 30	
+	991	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z69_KM 0.5 120 20
+3 30	
+	986	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z70_KM 0.5 120 20
+3 30	
+	1011	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z71_KM 0.5 120 20
+3 30	
+	1006	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z72_KM 0.5 120 20
+3 30	
+	1031	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z73_KM 0.5 120 20
+3 30	
+	1026	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z74_KM 0.5 120 20
+3 30	
+	1041	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z75_KM 0.5 120 20
+3 30	
+	1082	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z76_KM 0.5 120 20
+3 30	
+	1071	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z77_KM 0.5 120 20
+3 30	
+	1071	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z78_KM 0.5 120 20
+3 30	
+	1112	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z79_KM 0.5 120 20
+3 30	
+	1101	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z80_KM 0.5 120 20
+3 30	
+	1101	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z81_KM 0.5 120 20
+3 30	
+	1142	
+				SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z82_KM 0.5 120 20
+3 30	
+	1131	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z83_KM 0.5 120 20
+3 30	
+	1131	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z84_KM 0.5 120 20
+3 30	
+	1161	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z85_KM 0.5 120 20
+3 30	
+	1161	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z86_KM 0.5 120 20
+3 30	
+	1191	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z87_KM 0.5 120 20
+3 30	
+	1206	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z88_KM 0.5 120 20
+3 30	
+	1206	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Kalwaria.trasa
+Z89_KM 0.5 120 20
+3 30	
+	1236	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z90_KM 0.5 120 20
+3 30	
+	1251	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecCZP11.trasa	CZP11Mszczonow.trasa
+Z91_KM 0.5 120 20
+3 30	
+	1251	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z92_KM 0.5 120 20
+3 30	
+	1296	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z93_KM 0.5 120 20
+3 30	
+	1311	
+	MinskMilosna.trasa	MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa	ZachodniaSluzewiec.trasa	SluzewiecChopin.trasa	
+Z94_KM 0.5 120 20
+3 30	
+	1356	
+		MilosnaRembertow.trasa	RembertowWschodnia.trasa	SrednicaZachod.trasa			

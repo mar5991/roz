@@ -1,0 +1,316 @@
+Y0_KM 0.5 120 20
+0 30			
+	262	
+			SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y1_KM 0.5 120 20
+0 30			
+	292	
+			SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y2_KM 0.5 120 20
+0 30			
+	250	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y3_KM 0.5 120 20
+0 30			
+	297	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y4_KM 0.5 120 20
+0 30			
+	312	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y5_KM 0.5 120 20
+0 30	1 7		
+	321	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y6_KM 0.5 120 20
+0 30	1 7		
+	304	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y7_KM 0.5 120 20
+0 30	1 7		
+	341	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y8_KM 0.5 120 20
+0 30	1 7		
+	351	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y9_KM 0.5 120 20
+0 30	1 7		
+	349	
+	CelestynowOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa		
+Y10_KM 0.5 120 20
+0 30	1 7		
+	371	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y11_KM 0.5 120 20
+0 30	1 7		
+	381	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa		
+Y12_KM 0.5 120 20
+0 30	1 7		
+	364	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y13_KM 0.5 120 20
+0 30	1 7		
+	401	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y14_KM 0.5 120 20
+0 30	1 7		
+	411	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y15_KM 0.5 120 20
+0 30	1 7		
+	409	
+	CelestynowOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa		
+Y16_KM 0.5 120 20
+0 30	1 7		
+	431	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y17_KM 0.5 120 20
+0 30	1 7		
+	441	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa		
+Y18_KM 0.5 120 20
+0 30			
+	430	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y19_KM 0.5 120 20
+0 30			
+	472	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y20_KM 0.5 120 20
+0 30			
+	487	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y21_KM 0.5 120 20
+0 30			
+	502	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y22_KM 0.5 120 20
+0 30			
+	490	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y23_KM 0.5 120 20
+0 30			
+	532	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y24_KM 0.5 120 20
+0 30			
+	547	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y25_KM 0.5 120 20
+0 30			
+	562	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y26_KM 0.5 120 20
+0 30			
+	550	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y27_KM 0.5 120 20
+0 30			
+	592	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y28_KM 0.5 120 20
+0 30			
+	607	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y29_KM 0.5 120 20
+0 30			
+	622	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y30_KM 0.5 120 20
+0 30			
+	610	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y31_KM 0.5 120 20
+0 30			
+	652	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y32_KM 0.5 120 20
+0 30			
+	667	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y33_KM 0.5 120 20
+0 30			
+	682	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y34_KM 0.5 120 20
+0 30			
+	670	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y35_KM 0.5 120 20
+0 30			
+	712	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y36_KM 0.5 120 20
+0 30			
+	727	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y37_KM 0.5 120 20
+0 30			
+	742	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y38_KM 0.5 120 20
+0 30			
+	730	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y39_KM 0.5 120 20
+0 30			
+	772	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y40_KM 0.5 120 20
+0 30			
+	787	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y41_KM 0.5 120 20
+0 30			
+	802	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y42_KM 0.5 120 20
+0 30			
+	790	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y43_KM 0.5 120 20
+0 30			
+	832	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y44_KM 0.5 120 20
+0 30	2 7		
+	841	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y45_KM 0.5 120 20
+0 30	2 7		
+	851	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y46_KM 0.5 120 20
+0 30	2 7		
+	881	
+		GoclawekWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y47_KM 0.5 120 20
+0 30	2 7		
+	844	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y48_KM 0.5 120 20
+0 30	2 7		
+	881	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y49_KM 0.5 120 20
+0 30	2 7		
+	900	
+		FalenicaWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y50_KM 0.5 120 20
+0 30	2 7		
+	901	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y51_KM 0.5 120 20
+0 30	2 7		
+	911	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y52_KM 0.5 120 20
+0 30	2 7		
+	951	
+			SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y53_KM 0.5 120 20
+0 30	2 7		
+	904	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y54_KM 0.5 120 20
+0 30	2 7		
+	941	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y55_KM 0.5 120 20
+0 30	2 7		
+	951	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y56_KM 0.5 120 20
+0 30	2 7		
+	981	
+		GoclawekWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y57_KM 0.5 120 20
+0 30	2 7		
+	971	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y58_KM 0.5 120 20
+0 30	2 7		
+	981	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y59_KM 0.5 120 20
+0 30	2 7		
+	964	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y60_KM 0.5 120 20
+0 30	2 7		
+	989	
+	CelestynowOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y61_KM 0.5 120 20
+0 30	2 7		
+	1011	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y62_KM 0.5 120 20
+0 30			
+	1027	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y63_KM 0.5 120 20
+0 30			
+	1042	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y64_KM 0.5 120 20
+0 30			
+	1030	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y65_KM 0.5 120 20
+0 30			
+	1072	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y66_KM 0.5 120 20
+0 30			
+	1087	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y67_KM 0.5 120 20
+0 30			
+	1102	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y68_KM 0.5 120 20
+0 30			
+	1090	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y69_KM 0.5 120 20
+0 30			
+	1120	
+	CelestynowOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y70_KM 0.5 120 20
+0 30			
+	1147	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y71_KM 0.5 120 20
+0 30			
+	1167	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y72_KM 0.5 120 20
+0 30			
+	1150	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa		
+Y73_KM 0.5 120 20
+0 30			
+	1187	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y74_KM 0.5 120 20
+0 30			
+	1207	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y75_KM 0.5 120 20
+0 30			
+	1210	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y76_KM 0.5 120 20
+0 30			
+	1267	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	
+Y77_KM 0.5 120 20
+0 30			
+	1270	
+	PilawaOtwock.trasa	OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa
+Y78_KM 0.5 120 20
+0 30			
+	1337	
+		OtwockWschodnia.trasa	SrednicaZachod.trasa	ZachodniaPruszkow.trasa	PruszkowGrodzisk.trasa

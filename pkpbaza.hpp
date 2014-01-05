@@ -1,3 +1,5 @@
+#ifndef PKPBAZAHPP
+#define PKPBAZAHPP
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -6,17 +8,7 @@
 #include <vector>
 using namespace std;
 
-struct predkosci_torowe
-{
-	int m_ograniczenia;
-	double predkosckph;
-	double predkoscmps()
-	{
-		return predkosckph/3.6;
-	}
-};
-
-string kodgen(int id)
+/*string kodgen(int id)
 {
 	stringstream tmp;
 	tmp<<id;
@@ -24,7 +16,7 @@ string kodgen(int id)
 	string wynik;
 	tmp>>wynik;
 	return wynik;
-}
+}*/
 
 int czasprzejazdu(double vstart_mps, double vstop_mps, double vmax, double odl, double przyspieszenie)
 {
@@ -211,6 +203,10 @@ struct baza_sieci_wewn
 		nazwy_stacji.push_back(nazwa);
 		tory_stacja.push_back(pusty);
 	}
+	vector <pair <int, int> > lista_przystanki(int id_toru)
+	{
+		return (tory[id_toru])->przystanki;
+	}
 	void dodaj_tor(stringstream& alfa)
 	{
 		tor* nowy=new tor;
@@ -282,12 +278,30 @@ struct punkt_posr
 
 struct pociag
 {
+	int distance;
+	int stracony_czas;
 	string kod;
 	vector <punkt_posr> punkty;
 	int czas_przejazdu()
 	{
 		int s1=punkty.size();
 		return punkty[s1-1].czas_przyjazdu-punkty[0].czas_odjazdu;
+	}
+	int stacja_poczatkowa()
+	{
+		return punkty[0].id_infr;
+	}
+	int stacja_koncowa()
+	{
+		return punkty[punkty.size()-1].id_infr;
+	}
+	int czas_start()
+	{
+		return punkty[0].czas_odjazdu;
+	}
+	int czas_stop()
+	{
+		return punkty[punkty.size()-1].czas_przyjazdu;
 	}
 };
 
@@ -488,48 +502,89 @@ struct baza_pociagow_wewn
 			}
 			return punkty;
 	}
+	vector <punkt_posr> generuj_puste_stacje(kand_pociag& kand)
+	{
+		vector <punkt_posr> empty;
+		int s1=kand.tory_przejazdowe.size();
+		for(int i=0; i<=s1; i++)
+		{
+			punkt_posr nowy;
+			nowy.typ=0;
+			nowy.id_infr=kand.stacje_postojowe[i].first;
+			empty.push_back(nowy);
+		}
+		return empty;
+	}
 	void dodaj_pociag(kand_pociag kand)
 	{
 		pociag nowy;
+		nowy.stracony_czas=0;
+		nowy.distance=0;
 		nowy.kod=kand.kod;
 		vector <int> czasyprzejazdu=wyznacz_czasy_przejazdu(kand);
 		int s1=kand.tory_przejazdowe.size();
+		vector <punkt_posr> posrednie_stacje=generuj_puste_stacje(kand);
+		vector <vector <punkt_posr> > posrednie_przystanki(s1);
 		int akttime=kand.time_start;
-		for(int i=0; i<s1; i++)
+		int nkola=0;
+		while(kand.stacje_postojowe[nkola].first!=kand.stacja_srodkowa)
+			nkola++;
+		int graniczny=nkola;
+		int akttime2=akttime-kand.stacje_postojowe[graniczny].second;
+		for(int i=graniczny-1; i>=0; i--)
 		{
+			nowy.distance+=(tory[kand.tory_przejazdowe[i]].alpha)->dlugosc_m;
 			tory_pociagi[kand.tory_przejazdowe[i]].insert(kand.kod);
 			stacje_pociagi[kand.stacje_postojowe[i].first].insert(kand.kod);
-			punkt_posr p1;
-			p1.czas_przyjazdu=akttime;
-			akttime+=kand.stacje_postojowe[i].second;
+			bool czyprzec=0;
+			if(tory[kand.tory_przejazdowe[i]].alpha->stacja_poczatkowa==kand.stacje_postojowe[i+1].first)
+				czyprzec=1;
+			while(!tory[kand.tory_przejazdowe[i]].czy_pociag(akttime2-czasyprzejazdu[i], czasyprzejazdu[i], czyprzec))
+			{
+				nowy.stracony_czas+=10;
+				akttime2-=10;
+			}
+			tory[kand.tory_przejazdowe[i]].dodaj_pociag(kand.kod, akttime2-czasyprzejazdu[i], czasyprzejazdu[i], czyprzec);
+			posrednie_stacje[i+1].czas_przyjazdu=akttime2;
+			posrednie_stacje[i].czas_odjazdu=akttime2-czasyprzejazdu[i];
+			vector <punkt_posr> abc=dodaj_przystanki(akttime2-czasyprzejazdu[i], czasyprzejazdu[i], czyprzec, kand, i);
+			posrednie_przystanki[i]=abc;
+			akttime2-=czasyprzejazdu[i]+kand.stacje_postojowe[i].second;
+		}
+		for(int i=graniczny; i<s1; i++)
+		{
+			nowy.distance+=(tory[kand.tory_przejazdowe[i]].alpha)->dlugosc_m;
+			tory_pociagi[kand.tory_przejazdowe[i]].insert(kand.kod);
+			stacje_pociagi[kand.stacje_postojowe[i].first].insert(kand.kod);
 			bool czyprzec=0;
 			if(tory[kand.tory_przejazdowe[i]].alpha->stacja_poczatkowa==kand.stacje_postojowe[i+1].first)
 				czyprzec=1;
 			while(!tory[kand.tory_przejazdowe[i]].czy_pociag(akttime, czasyprzejazdu[i], czyprzec))
 			{
-				akttime+=20;
+				nowy.stracony_czas+=10;
+				akttime+=10;
 			}
-			p1.czas_odjazdu=akttime;
-			p1.id_infr=kand.stacje_postojowe[i].first;
-			p1.typ=0;
-			nowy.punkty.push_back(p1);
+			posrednie_stacje[i].czas_odjazdu=akttime;
+			posrednie_stacje[i+1].czas_przyjazdu=akttime+czasyprzejazdu[i];
 			tory[kand.tory_przejazdowe[i]].dodaj_pociag(kand.kod, akttime, czasyprzejazdu[i], czyprzec);
 			vector <punkt_posr> abc=dodaj_przystanki(akttime, czasyprzejazdu[i], czyprzec, kand, i);
-			int s9=abc.size();
-			for(int j=0; j<s9; j++)
-			{
-				nowy.punkty.push_back(abc[j]);
-			}
-			akttime+=czasyprzejazdu[i];
+			posrednie_przystanki[i]=abc;
+			akttime+=czasyprzejazdu[i]+kand.stacje_postojowe[i+1].second;
 		}
+
 		stacje_pociagi[kand.stacje_postojowe[s1].first].insert(kand.kod);
-		punkt_posr p1;
-		p1.id_infr=kand.stacje_postojowe[s1].first;
-		p1.czas_przyjazdu=akttime;
-		akttime+=kand.stacje_postojowe[s1].second;
-		p1.czas_odjazdu=akttime;
-		p1.typ=0;
-		nowy.punkty.push_back(p1);
+		posrednie_stacje[s1].czas_odjazdu=posrednie_stacje[s1].czas_przyjazdu+kand.stacje_postojowe[s1].second;
+		posrednie_stacje[0].czas_przyjazdu=posrednie_stacje[0].czas_odjazdu-kand.stacje_postojowe[0].second;
+		for(int i=0; i<s1; i++)
+		{
+			nowy.punkty.push_back(posrednie_stacje[i]);
+			int s2=posrednie_przystanki[i].size();
+			for(int j=0; j<s2; j++)
+			{
+				nowy.punkty.push_back(posrednie_przystanki[i][j]);
+			}
+		}
+		nowy.punkty.push_back(posrednie_stacje[s1]);
 		pociagi.push_back(nowy);
 	}
 };
@@ -664,6 +719,10 @@ class baza_sieci
 	{
 		return bz1->nazwy_stacji[id];
 	}
+	string nazwa_przystanku(int id)
+	{
+		return bz1->przystanki[id];
+	}
 	int numer_stacji_pocz(int id_toru)
 	{
 		return bz1->tory[id_toru]->stacja_poczatkowa;
@@ -671,6 +730,10 @@ class baza_sieci
 	int numer_stacji_konc(int id_toru)
 	{
 		return bz1->tory[id_toru]->stacja_koncowa;
+	}
+	int liczba_stacji()
+	{
+		return bz1->nazwy_stacji.size();
 	}
 	int liczba_torow()
 	{
@@ -680,6 +743,10 @@ class baza_sieci
 	{
 		bz1=new baza_sieci_wewn;
 		bz1->dodaj_siec(siec);
+	}
+	vector <pair <int, int> > przystanki(int id_toru)
+	{
+		return bz1->lista_przystanki(id_toru);
 	}
 	baza_pociagow generuj_baze()
 	{
@@ -691,3 +758,4 @@ class baza_sieci
 		delete bz1;
 	}
 };
+#endif

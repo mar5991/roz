@@ -1,3 +1,5 @@
+#ifndef GENALGHPP
+#define GENALGHPP
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -86,3 +88,4 @@ class genalgo
 		return 0;
 	}
 };
+#endif

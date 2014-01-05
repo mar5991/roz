@@ -8,7 +8,7 @@ int main(int argc, char** argv)
 	int licznik=0;
 	while(cin.getline(data, 10000))
 	{
-		cout<<argv[1]<<kodgen(licznik)<<" "<<0.8<<" "<<160<<" "<<20<<endl;
+		cout<<argv[1]<<kodgen(licznik)<<" "<<0.5<<" "<<120<<" "<<20<<" "<<2<<endl;
 		string alfa=data;
 		int s1=alfa.length();
 		for(int i=0; i<s1; i++)

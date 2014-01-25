@@ -1,0 +1,5 @@
+pkpbaza.hpp -> Tworzenie bazy danych torów i pociągów
+genalgo.hpp -> Algorytmy genetyczne
+genalgopoc.hpp -> Tworzenie rozkładu jazdy i bazy danych z wykorzystaniem algorytmów genetycznych
+t6.hpp -> Dodatkowe narzędzia (wizualizacja danych - HTML)
+cegla.hpp -> Tworzenie "cegły".

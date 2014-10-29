@@ -11,7 +11,30 @@ vector <PostojPociagu> Pociag::getPostojePociagu()
 			wynik[i].stacja=przejazdyPrzezTorSzlakowy[i]->ruchPoTorze->tor->getStacjaPoczatkowa();
 			wynik[i+1].stacja=przejazdyPrzezTorSzlakowy[i]->ruchPoTorze->tor->getStacjaKoncowa();
 		}
-		return wynik;
+		vector <vector <PostojPociagu> > pom2;
+		for(int i=0; i<przejazdyPrzezTorSzlakowy.size(); i++)
+		{
+			vector <PostojPociagu> wynikPom;
+			for(int j=0; j<przejazdyPrzezTorSzlakowy[i]->postojePociagu.size(); j++)
+			{
+				PostojPociagu foo2;
+				PostojPociaguNaPrzystanku foo=przejazdyPrzezTorSzlakowy[i]->postojePociagu[j];
+				foo2.timePrzyjazd=foo.przyjazd;
+				foo2.timeOdjazd=foo.odjazd;
+				foo2.typ=true;
+				foo2.przystanek=przejazdyPrzezTorSzlakowy[i]->ruchPoTorze->tor->getPrzystanki()[j].second;
+				wynikPom.push_back(foo2);
+			}
+			pom2.push_back(wynikPom);
+		}
+		vector <PostojPociagu> glownyWynik;
+		for(int i=0; i<przejazdyPrzezTorSzlakowy.size(); i++)
+		{
+			glownyWynik.push_back(wynik[i]);
+			glownyWynik.insert(glownyWynik.end(), pom2[i].begin(), pom2[i].end());
+		}
+		glownyWynik.push_back(wynik[przejazdyPrzezTorSzlakowy.size()]);
+		return glownyWynik;
 	}
 int czasPrzejazduWSekundach(double vstart_mps, double vstop_mps, double vmax, double odl, double przyspieszenie)
 {

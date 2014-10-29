@@ -54,8 +54,8 @@ void generujpociag(int nkol, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* baz
 			a2="<a href=\"stacja"+inttostring(po.stacja->getId())+".html\">"+ignoruj_podkreslniki(po.stacja->getNazwa())+"</a>";
 cout<<po.stacja->getNazwa()<<" STANICA"<<endl;
 }
-	//	else
-	//		a2="<a href=\"przystanek"+inttostring(po.id_infr)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_przystanku(po.id_infr))+"</a>";
+		else
+			a2="<a href=\"przystanek"+inttostring(po.przystanek->getId())+".html\">"+ignoruj_podkreslniki(po.przystanek->getNazwa())+"</a>";
 		plik<<a2<<" ";
 		plik<<totimesec(po.timePrzyjazd)<<" "<<totimesec(po.timeOdjazd)<<"</br>"<<endl;
 	}

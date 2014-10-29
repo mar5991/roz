@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include "pkpbaza.hpp"
+#include "bazainfry.hpp"
 #include "genalg.hpp"
 #include <cmath>
 struct kand_pociag_roz
@@ -72,39 +73,41 @@ struct kand_pociag_roz
 };
 class algopoc : genalgo
 {
-	baza_sieci* baz;
+	BazaInfryKolejowej* baz;
 	vector <string> sciezki;
 	vector <kand_pociag_roz> kandydaci;
 	int ocen(vector <int> przyklad)
 	{
 		int wynik=0;
-		baza_pociagow przykladowa=baz->generuj_baze();
+		BazaRuchuKolejowego* przykladowa=new BazaRuchuKolejowego(baz);
 		int s1=kandydaci.size();
 		for(int i=0; i<s1; i++)
 		{
 			kand_pociag kanx=kandydaci[i].generuj(przyklad);
-			przykladowa.dodaj_pociag(kanx);
+			przykladowa->dodaj_pociag(kanx);
 		}
+		vector <Pociag*> pociagi=przykladowa->getPociagi();
 		for(int i=0; i<s1; i++)
 		{
-			wynik+=przykladowa.poc(i).czas_przejazdu();
+			wynik+=pociagi[i]->czasPrzejazdu();
 		}
+		//TODO DELETE
 		cout<<"OCENA "<<wynik/60<<endl;
 		return 2000000-wynik/500;
 	}
 	public:
-	baza_pociagow generuj(vector <int> lista)
+	BazaRuchuKolejowego* generuj(vector <int> lista)
 	{
-		baza_pociagow wynik=baz->generuj_baze();
+		BazaRuchuKolejowego* wynik=new BazaRuchuKolejowego(baz);
 		int s1=kandydaci.size();
 		for(int i=0; i<s1; i++)
 		{
 			kand_pociag kanx=kandydaci[i].generuj(lista);
-			wynik.dodaj_pociag(kanx);
+			wynik->dodaj_pociag(kanx);
 		}
 		return wynik;
 	}
-	algopoc(int liczba_genow, int liczba_osobnikow, int ile_wywalic, int do_mutacji, baza_sieci* baza, vector <string> pocdata) : genalgo(liczba_genow, liczba_osobnikow, ile_wywalic, do_mutacji), baz(baza), sciezki(pocdata)
+	algopoc(int liczba_genow, int liczba_osobnikow, int ile_wywalic, int do_mutacji, BazaInfryKolejowej* baza, vector <string> pocdata) : genalgo(liczba_genow, liczba_osobnikow, ile_wywalic, do_mutacji), baz(baza), sciezki(pocdata)
 	{
 		int s9=pocdata.size();
 		for(int g=0; g<s9; g++)
@@ -187,7 +190,7 @@ class algopoc : genalgo
 	}
 };
 
-
+/*
 baza_pociagow utworzbaze (baza_sieci* baza, vector <string> pocdata)
 {
 	vector <kand_pociag_roz> kandydaci;
@@ -217,5 +220,5 @@ baza_pociagow utworzbaze (baza_sieci* baza, vector <string> pocdata)
 	}
 	return wynik;
 
-}
+}*/
 #endif

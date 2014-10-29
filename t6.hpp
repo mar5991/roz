@@ -32,31 +32,39 @@ string ignoruj_podkreslniki(string data)
 	return data;
 }
 
-void generujpociag(int nkol, baza_sieci& bazaa, baza_pociagow& bazab)
+void generujpociag(int nkol, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab)
 {
-	pociag foo=bazab.poc(nkol);
-	string str="data/pociag"+foo.kod+".html";
+	Pociag* foo=(bazab->getPociagi())[nkol];
+	string str="data/pociag"+foo->idPociagu+".html";
 	fstream plik(str.c_str(), fstream::trunc | fstream::out);
 	plik<<"<!DOCTYPE html>\n<html lang=\"pl\">\n<head> <meta charset=\"utf8\"> </head>\n<body>\n";
-	plik<<"stracony czas (sekundy): "<<foo.stracony_czas<<"</br>\n";
-	int s1=foo.punkty.size();
+	//plik<<"stracony czas (sekundy): "<<foo.stracony_czas<<"</br>\n";
+	
+	vector <PostojPociagu> postoje = foo->getPostojePociagu();
+
+	int s1=postoje.size();
 	for(int j=0; j<s1; j++)
 	{
-		punkt_posr po=foo.punkty[j];
+		cout<<"ok "<<j<<endl;
+		PostojPociagu po = postoje[j];
 		string a2;
+		cout<<"TYP "<<po.typ<<endl;
 		if(po.typ==0)
-			a2="<a href=\"stacja"+inttostring(po.id_infr)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(po.id_infr))+"</a>";
-		else
-			a2="<a href=\"przystanek"+inttostring(po.id_infr)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_przystanku(po.id_infr))+"</a>";
+		{
+			a2="<a href=\"stacja"+inttostring(po.stacja->getId())+".html\">"+ignoruj_podkreslniki(po.stacja->getNazwa())+"</a>";
+cout<<po.stacja->getNazwa()<<" STANICA"<<endl;
+}
+	//	else
+	//		a2="<a href=\"przystanek"+inttostring(po.id_infr)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_przystanku(po.id_infr))+"</a>";
 		plik<<a2<<" ";
-		plik<<totimesec(po.czas_przyjazdu)<<" "<<totimesec(po.czas_odjazdu)<<"</br>"<<endl;
+		plik<<totimesec(po.timePrzyjazd)<<" "<<totimesec(po.timeOdjazd)<<"</br>"<<endl;
 	}
 	plik<<"</body></html>";
 	plik.close();
 }
 
 
-void generujzestawienie (vector <vector <string> > data, baza_sieci& bazaa, baza_pociagow& bazab)
+/*void generujzestawienie (vector <vector <string> > data, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab)
 {
 	string str="data/zestawienie.html";
 	fstream plik(str.c_str(), fstream::trunc | fstream::out);
@@ -77,7 +85,7 @@ void generujzestawienie (vector <vector <string> > data, baza_sieci& bazaa, baza
 		int s2=data[i].size();
 		for(int j=0; j<s2; j++)
 		{
-			pociag akt=bazab.poc(data[i][j]);
+			Pociag* akt=bazab->getPociag(data[i][j]);
 			if(j==0)
 			{
 				obieg_stacja_poczatkowa=akt.stacja_poczatkowa();
@@ -123,8 +131,8 @@ void generujzestawienie (vector <vector <string> > data, baza_sieci& bazaa, baza
 	}
 	plik<<"</table></body></html>";
 	plik.close();
-}
-
+}*/
+/*
 vector <pair <int, string> > tablica_odjazdow(int id1, int id2, baza_pociagow* b2) //para czas odjazdu, id_pociagu
 {
 	vector <pair <int, string> > wynik;
@@ -154,7 +162,8 @@ vector <pair <int, string> > tablica_odjazdow(int id1, int id2, baza_pociagow* b
 	sort(wynik.begin(), wynik.end());
 	return wynik;
 }
-
+*/
+/*
 vector <pair <int, string> > pociagi_poczatkowe(int id, baza_pociagow* b2)
 {
 	vector <pair <int, string> > wynik;
@@ -337,14 +346,33 @@ void generujstacje (baza_sieci& bazaa, baza_pociagow* bazab, int i)
 	plik<<"</html>";
 	plik.close();
 }
-
-void generujtorhtml (baza_sieci& bazaa, baza_pociagow* bazab, int nkol)
+*/
+void generujtorhtml (BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab, int nkol)
 {
 	string str="data/linia"+inttostring(nkol)+".html";
 	fstream plik(str.c_str(), fstream::trunc | fstream::out);
-	int stacja_pocz=bazaa.numer_stacji_pocz(nkol);
-	int stacja_konc=bazaa.numer_stacji_konc(nkol);
-	vector <pair<pair <int, bool>, string> > czasy;
+	vector <TorSzlakowy*> torySzlakowe = bazaa->wszystkieTory();
+	int stacja_pocz=torySzlakowe[nkol]->getStacjaPoczatkowa()->getId();
+	int stacja_konc=torySzlakowe[nkol]->getStacjaKoncowa()->getId();
+	plik<<"<b>"<<torySzlakowe[nkol]->getStacjaPoczatkowa()->getNazwa()<<"</b>"<<endl;
+	plik<<"</br><b>"<<torySzlakowe[nkol]->getStacjaKoncowa()->getNazwa()<<"</b>"<<endl;
+	RuchPociagowPoTorzeSzlakowym* ruch = bazab->torToRuch[torySzlakowe[nkol]];
+	for(int i=0; i<ruch->ruchKierunekNormalny.size(); i++)
+	{
+		plik<<"<i>";
+		plik<<ruch->ruchKierunekNormalny[i]->pociag->idPociagu<<" - "<<endl;
+		plik<<totimesec(ruch->ruchKierunekNormalny[i]->czasWjazduNaTor)<<" - "<<endl;
+		plik<<totimesec(ruch->ruchKierunekNormalny[i]->czasWyjazduZToru)<<";</br>"<<endl;
+		plik<<"</i>";
+	}
+	for(int i=0; i<ruch->ruchKierunekPrzeciwny.size(); i++)
+	{
+		plik<<ruch->ruchKierunekPrzeciwny[i]->pociag->idPociagu<<" - "<<endl;
+		plik<<totimesec(ruch->ruchKierunekPrzeciwny[i]->czasWjazduNaTor)<<" - "<<endl;
+		plik<<totimesec(ruch->ruchKierunekPrzeciwny[i]->czasWyjazduZToru)<<";</br>"<<endl;
+	}
+	plik.close();
+	/*vector <pair<pair <int, bool>, string> > czasy;
 	vector <pociag_na_torze> alfa1=bazab->lista_toru_nor(nkol);
 	vector <pociag_na_torze> alfa2=bazab->lista_toru_prz(nkol);
 	int s1=alfa1.size();
@@ -442,7 +470,6 @@ void generujtorhtml (baza_sieci& bazaa, baza_pociagow* bazab, int nkol)
 	}
 	plik<<"</body>\n";
 	plik<<"</html>";
-	plik.close();
+	plik.close();*/
 }
-
 #endif

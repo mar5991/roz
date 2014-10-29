@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include "t6.hpp"
-#include "cegla.hpp"
+/*#include "cegla.hpp"*/
 #include "genalgpoc.hpp"
 using namespace std;
 int main()
@@ -12,7 +12,8 @@ int main()
 	cin>>baza_sciezka;
 	string abc;
 	vector <string> abcx;
-	baza_sieci bazaa(baza_sciezka);
+	BazaInfryKolejowejFromFile bui(baza_sciezka);
+	BazaInfryKolejowej* bazaa = new BazaInfryKolejowej(bui);
 	vector <int> wynik;
 	int x;
 	for(int i=0; i<8; i++)
@@ -20,26 +21,37 @@ int main()
 		cin>>x;
 		wynik.push_back(x);
 	}
+	cout<<"hutu.."<<endl;
 	while(cin>>abc)
 	{
 		abcx.push_back(abc);
 	}
-	algopoc alg(8, 25, 5, 5, &bazaa, abcx);
-	baza_pociagow bazab=alg.generuj(wynik);
-	int as1=bazab.liczba_pociagow();
+	cout<<"tutsi.."<<endl;
+	algopoc alg(8, 25, 5, 5, bazaa, abcx);
+	cout<<"KONIEC ALGORYTMU.."<<endl;
+	BazaRuchuKolejowego* bazab=alg.generuj(wynik);
+	cout<<"KONIEC ALGORYTMU2.."<<endl;
+	vector <Pociag*> pociagiW=bazab->getPociagi();
+	cout<<"KONIEC ALGORYTMU3.."<<endl;
+	int s1 = pociagiW.size();
 	vector <string> pociagi;
-	for(int i=0; i<as1; i++)
+	for(int i=0; i<s1; i++)
 	{
-		pociagi.push_back(bazab.poc(i).kod);
+		pociagi.push_back(pociagiW[i]->idPociagu);
+		cout<<"GENERUJ..."<<i<<endl;
 		generujpociag(i, bazaa, bazab);
 	}
+	/*
 	for(int i=0; i<bazaa.liczba_stacji(); i++)
 	{
 		generujstacje(bazaa, &bazab, i);
 	}
-	for(int j=0; j<bazaa.liczba_torow(); j++)
+	*/
+
+	for(int j=0; j<bazaa->wszystkieTory().size(); j++)
 	{
-		generujtorhtml(bazaa, &bazab, j);
+		generujtorhtml(bazaa, bazab, j);
+	}
 		/*cout<<"TOR "<<bazaa.nazwa_stacji(bazaa.numer_stacji_pocz(j))<<" - "<<bazaa.nazwa_stacji(bazaa.numer_stacji_konc(j))<<endl;
 		vector <pair <int, int> > czasy;
 		vector <pociag_na_torze> alfa1=bazab.lista_toru_nor(j);
@@ -60,8 +72,8 @@ int main()
 		{
 			cout<<totimesec(czasy[i].first)<<" "<<totimesec(czasy[i].second)<<endl;
 		}*/
-	}
-	vector <vector <string> > caboom=generujobiegi(bazaa, &bazab);
-	generujzestawienie(caboom, bazaa, bazab);
-	generuj_cegla2(bazaa, &bazab, pociagi, "data/cegla.html");
+//	}
+//	vector <vector <string> > caboom=generujobiegi(bazaa, &bazab);
+//	generujzestawienie(caboom, bazaa, bazab);
+//	generuj_cegla2(bazaa, &bazab, pociagi, "data/cegla.html");
 }

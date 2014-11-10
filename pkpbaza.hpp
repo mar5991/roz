@@ -6,6 +6,7 @@
 #include <set>
 #include <map>
 #include <cmath>
+#include <algorithm>
 #include <vector>
 #include "bazainfry.hpp"
 using namespace std;
@@ -37,6 +38,8 @@ struct PrzejazdPociaguPrzezTorSzlakowy
 	int czasWjazduNaTor;
 	int czasWyjazduZToru;
 	bool czyWlasciwyKierunekJazdy;
+	StacjaKolejowa* getStacjaPoczatkowa();
+	StacjaKolejowa* getStacjaKoncowa();
 };
 struct PostojPociagu
 {
@@ -48,8 +51,33 @@ struct PostojPociagu
 };
 struct Pociag
 {
+	private:
 	string idPociagu;
+	public:
+	Pociag(string id)
+	{
+		idPociagu=id;
+	}
 	vector <PrzejazdPociaguPrzezTorSzlakowy*> przejazdyPrzezTorSzlakowy;
+	string getIdPociagu()
+	{
+		return idPociagu;
+	}
+	string getTypPociagu()
+	{
+		string wynik;
+		bool dodaj=false;
+		for(int i=0; i<idPociagu.length(); i++)
+		{
+			if(dodaj)
+			{
+				wynik+=idPociagu[i];
+			}
+			if(idPociagu[i]=='_')
+				dodaj=true;
+		}
+		return wynik;
+	}
 	void dodajTorZPrzodu(PrzejazdPociaguPrzezTorSzlakowy* nowy)
 	{
 		przejazdyPrzezTorSzlakowy.push_back(nowy);
@@ -58,6 +86,26 @@ struct Pociag
 	{
 		przejazdyPrzezTorSzlakowy.insert(przejazdyPrzezTorSzlakowy.begin(), nowy);
 	}
+	StacjaKolejowa* getStacjaPoczatkowa();
+	StacjaKolejowa* getStacjaKoncowa();
+	int getCzasStart()
+	{
+		return przejazdyPrzezTorSzlakowy[0]->czasWjazduNaTor;
+	}
+	int getDistance();
+	int getCzasStop()
+	{
+		return przejazdyPrzezTorSzlakowy[liczbaOdwiedzonychTorow()-1]->czasWyjazduZToru;
+	}
+	int liczbaStacji()
+	{
+		return przejazdyPrzezTorSzlakowy.size()+1;
+	}
+	int liczbaOdwiedzonychTorow()
+	{
+		return przejazdyPrzezTorSzlakowy.size();
+	}
+	StacjaKolejowa* getStacja(int id);
 	void dodajTor(PrzejazdPociaguPrzezTorSzlakowy* nowy, bool wal)
 	{
 		if(wal)
@@ -67,7 +115,26 @@ struct Pociag
 	}
 	int czasPrzejazdu()
 	{
-		return przejazdyPrzezTorSzlakowy[przejazdyPrzezTorSzlakowy.size()-1]->czasWyjazduZToru-przejazdyPrzezTorSzlakowy[0]->czasWjazduNaTor;
+		return getCzasStop()-getCzasStart();
+	}
+	bool czyStopNaStacji(StacjaKolejowa* stacja)
+	{
+		if(getStacjaPoczatkowa()==stacja)
+			return true;
+		if(getStacjaKoncowa()==stacja)
+			return true;
+		for(int i=0; i<liczbaOdwiedzonychTorow()-1; i++)
+		{
+			if(przejazdyPrzezTorSzlakowy[i]->getStacjaKoncowa()==stacja)
+			{
+				if(przejazdyPrzezTorSzlakowy[i]->czasWyjazduZToru==przejazdyPrzezTorSzlakowy[i+1]->czasWjazduNaTor)
+				{
+					return false;
+				}
+				return true;
+			}
+		}
+		return false;
 	}
 	vector <PostojPociagu> getPostojePociagu();
 };
@@ -76,7 +143,13 @@ struct RuchPociagowPoTorzeSzlakowym
 	TorSzlakowy* tor;
 	vector <PrzejazdPociaguPrzezTorSzlakowy*> ruchKierunekNormalny;
 	vector <PrzejazdPociaguPrzezTorSzlakowy*> ruchKierunekPrzeciwny;
-
+	~RuchPociagowPoTorzeSzlakowym()
+	{
+		for(auto wsk : ruchKierunekNormalny)
+			delete wsk;
+		for(auto wsk : ruchKierunekPrzeciwny)
+			delete wsk;
+	}
 	bool czyDaSiePuscicPociagBrakSBL(int czasWjazdu, int czasPrzejazdu, vector <PrzejazdPociaguPrzezTorSzlakowy*> &jegoKierunek)
 	{
 		int czasWyjazdu=czasWjazdu+czasPrzejazdu;
@@ -95,7 +168,6 @@ struct RuchPociagowPoTorzeSzlakowym
 	bool czyDaSiePuscicPociagJegoKierunek(int czasWjazdu, int czasPrzejazdu, vector <PrzejazdPociaguPrzezTorSzlakowy*> &jegoKierunek, int sblDlaKierunku)
 	{
 		int czasWyjazdu=czasWjazdu+czasPrzejazdu;
-		cout<<czasWjazdu<<" # "<<czasWyjazdu<<endl;
 		if(sblDlaKierunku==-1)
 			return czyDaSiePuscicPociagBrakSBL(czasWjazdu, czasPrzejazdu, jegoKierunek);
 		int s1=jegoKierunek.size();
@@ -115,11 +187,7 @@ struct RuchPociagowPoTorzeSzlakowym
 		if(czyWlasciwyKierunekJazdy)
 		{
 			bool alpha=czyDaSiePuscicPociagJegoKierunek(czasWjazdu, czasPrzejazdu, ruchKierunekNormalny, tor->getSBL().normalny());
-			if(!alpha)
-				cout<<"QR1"<<endl;
 			bool beta=czyDaSiePuscicPociagBrakSBL(czasWjazdu, czasPrzejazdu, ruchKierunekPrzeciwny);
-			if(!alpha)
-				cout<<"QR2"<<endl;
 			return alpha && beta;
 		}
 		else
@@ -157,6 +225,7 @@ struct RuchPociagowPoTorzeSzlakowym
 			for(int i=0; i<przystankiNa.size(); i++)
 			{
 				PostojPociaguNaPrzystanku foo;
+				foo.przystanek=przystankiNa[i].second;
 				if(przystanki.find(przystankiNa[i].second)!=przystanki.end())
 				{
 					foo.przyjazd=czasWjazdu+surowyCzasPrzejazdu*przystankiNa[i].first/dlugoscToru+przerobionePostoje*czasNaPrzystanek;
@@ -168,13 +237,30 @@ struct RuchPociagowPoTorzeSzlakowym
 					foo.przyjazd=czasWjazdu+surowyCzasPrzejazdu*przystankiNa[i].first/dlugoscToru+przerobionePostoje*czasNaPrzystanek;
 					foo.odjazd=czasWjazdu+surowyCzasPrzejazdu*przystankiNa[i].first/dlugoscToru+przerobionePostoje*czasNaPrzystanek;
 				}
-				cout<<wynik.size()<<"@@@"<<endl;
 				wynik.push_back(foo);
 			}
 		}
 		else
 		{
-
+			int przerobionePostoje=0;
+			vector <pair <int, PrzystanekKolejowy*> > przystankiNa = tor->getPrzystanki();
+			for(int i=przystankiNa.size()-1; i>=0; i--)
+			{
+				PostojPociaguNaPrzystanku foo;
+				foo.przystanek=przystankiNa[i].second;
+				if(przystanki.find(przystankiNa[i].second)!=przystanki.end())
+				{
+					foo.przyjazd=czasWjazdu+surowyCzasPrzejazdu*(dlugoscToru-przystankiNa[i].first)/dlugoscToru+przerobionePostoje*czasNaPrzystanek;
+					przerobionePostoje++;
+					foo.odjazd=czasWjazdu+surowyCzasPrzejazdu*(dlugoscToru-przystankiNa[i].first)/dlugoscToru+przerobionePostoje*czasNaPrzystanek;
+				}
+				else
+				{
+					foo.przyjazd=czasWjazdu+surowyCzasPrzejazdu*(dlugoscToru-przystankiNa[i].first)/dlugoscToru+przerobionePostoje*czasNaPrzystanek;
+					foo.odjazd=czasWjazdu+surowyCzasPrzejazdu*(dlugoscToru-przystankiNa[i].first)/dlugoscToru+przerobionePostoje*czasNaPrzystanek;
+				}
+				wynik.push_back(foo);
+			}
 		}
 		return wynik;
 	}
@@ -202,6 +288,16 @@ struct RuchPociagowPoTorzeSzlakowym
 			return true;
 		}
 		return false;
+	}
+};
+bool srt3(pair <PrzejazdPociaguPrzezTorSzlakowy*, PrzejazdPociaguPrzezTorSzlakowy*>& alfa, pair <PrzejazdPociaguPrzezTorSzlakowy*, PrzejazdPociaguPrzezTorSzlakowy*>& beta);
+struct RuchPociagowPrzezStacje
+{
+	StacjaKolejowa* stacja;
+	vector <pair <PrzejazdPociaguPrzezTorSzlakowy*, PrzejazdPociaguPrzezTorSzlakowy*> > przejazdy;
+	RuchPociagowPrzezStacje (StacjaKolejowa* kand)
+	{
+		stacja = kand;
 	}
 };
 struct kand_pociag
@@ -249,30 +345,16 @@ struct kand_pociag
 	vector <int> tory_przejazdowe;
 	set <int> przystanki_postojowe;
 	vector <pair <int, int> > stacje_postojowe; //id, czas postoju w sekundach, postój 0 oznacza jego brak; liczba rekordów w wektorze: n+1, gdzie n=liczba rekordów w tory_przejazdowe
-	void wypelnijtrase(vector <string> sciezka)
-	{
-		tory_przejazdowe.clear();
-		przystanki_postojowe.clear();
-		stacje_postojowe.clear();
-		int s1=sciezka.size();
-		for(int i=0; i<s1; i++)
-		{
-			wypelnijtrase(sciezka[i]);
-			if(i<s1-1)
-			{
-				stacje_postojowe.pop_back();
-			}
-		}
-	}
 };
-
 struct BazaRuchuKolejowego
 {
 	vector <RuchPociagowPoTorzeSzlakowym*> tory;
 	vector <Pociag*> pociagi;
 	map <TorSzlakowy*, RuchPociagowPoTorzeSzlakowym*> torToRuch;
+	map <StacjaKolejowa*, RuchPociagowPrzezStacje*> stacjaToRuch;
 	BazaInfryKolejowej* bazaInfry;
-	BazaRuchuKolejowego(BazaInfryKolejowej* infra) : bazaInfry(infra)
+	
+	BazaRuchuKolejowego(vector <kand_pociag> kand, BazaInfryKolejowej* infra) : bazaInfry(infra)
 	{
 		vector <TorSzlakowy*> torySzlak=bazaInfry->wszystkieTory();
 		for(int i=0; i<torySzlak.size(); i++)
@@ -280,6 +362,11 @@ struct BazaRuchuKolejowego
 			tory.push_back(new RuchPociagowPoTorzeSzlakowym(torySzlak[i]));
 			torToRuch[torySzlak[i]]=tory[i];
 		}
+		for(int i=0; i<kand.size(); i++)
+		{
+			dodaj_pociag(kand[i]);
+		}
+		uzupelnijStacjaToRuch();
 	}
 	vector <Pociag*> getPociagi()
 	{
@@ -289,11 +376,55 @@ struct BazaRuchuKolejowego
 	{
 		for(int i=0; i<pociagi.size(); i++)
 		{
-			if(pociagi[i]->idPociagu==id)
+			if(pociagi[i]->getIdPociagu()==id)
 				return pociagi[i];
 		}
 		return NULL;
 
+	}
+	RuchPociagowPoTorzeSzlakowym* getRuchPoTorze(TorSzlakowy* tor)
+	{
+		return torToRuch[tor];
+	}
+	~BazaRuchuKolejowego()
+	{
+		for(int i=0; i<tory.size(); i++)
+			delete tory[i];
+		for(int i=0; i<pociagi.size(); i++)
+			delete pociagi[i];
+		for(auto& it1 : stacjaToRuch)
+			delete it1.second;
+	}
+	private:
+	void uzupelnijPociagiStacje(Pociag* p)
+	{
+		for(int i=0; i<(p->przejazdyPrzezTorSzlakowy.size()-1); i++)
+		{
+			StacjaKolejowa* teraz=p->przejazdyPrzezTorSzlakowy[i]->getStacjaKoncowa();
+			stacjaToRuch[teraz]->przejazdy.push_back(pair<PrzejazdPociaguPrzezTorSzlakowy*, PrzejazdPociaguPrzezTorSzlakowy*>(p->przejazdyPrzezTorSzlakowy[i], p->przejazdyPrzezTorSzlakowy[i+1]));
+		}
+		StacjaKolejowa* start = p->getStacjaPoczatkowa();
+		stacjaToRuch[start]->przejazdy.push_back(pair<PrzejazdPociaguPrzezTorSzlakowy*, PrzejazdPociaguPrzezTorSzlakowy*>(NULL, p->przejazdyPrzezTorSzlakowy[0]));
+		StacjaKolejowa* stop = p->getStacjaKoncowa();
+		stacjaToRuch[stop]->przejazdy.push_back(pair<PrzejazdPociaguPrzezTorSzlakowy*, PrzejazdPociaguPrzezTorSzlakowy*>(p->przejazdyPrzezTorSzlakowy[p->przejazdyPrzezTorSzlakowy.size()-1], NULL));
+	
+	}
+	void uzupelnijStacjaToRuch()
+	{
+		vector <StacjaKolejowa*> stacje=bazaInfry->wszystkieStacje();
+		for(int i=0; i<stacje.size(); i++)
+		{
+			RuchPociagowPrzezStacje* nowy = new RuchPociagowPrzezStacje(stacje[i]);
+			stacjaToRuch[stacje[i]]=nowy;
+		}
+		for(int i=0; i<pociagi.size(); i++)
+		{
+			uzupelnijPociagiStacje(pociagi[i]);
+		}
+		for(int i=0; i<stacje.size(); i++)
+		{
+			sort(stacjaToRuch[stacje[i]]->przejazdy.begin(), stacjaToRuch[stacje[i]]->przejazdy.end(), srt3);
+		}
 	}
 	bool czy_pociag(int time1, vector <int> id_torow, vector <int> czasy_przejazdu, vector <bool> czy_przec)
 	{
@@ -386,14 +517,10 @@ struct BazaRuchuKolejowego
 					}
 				}
 
-				cout<<timeruchu<<"tamr"<<endl;
 				timeruchu+=czasPrzejazduWSekundach(ap1, 0, double(tory[kand.tory_przejazdowe[i]]->tor->getPredkoscMaksymalnaWKPH())/3.6, posrednie[j]-ostposredni, kand.przyspieszenie);
-				cout<<timeruchu<<"tbmr"<<endl;
 				timeruchu+=kand.czas_postoju_przystanek;
-				cout<<timeruchu<<"tcmr"<<endl;
 				ostposredni=posrednie[j];
 			}
-			cout<<timeruchu<<"tmr"<<endl;
 			double ap1=0;
 			if(s3==0)
 			{
@@ -404,62 +531,50 @@ struct BazaRuchuKolejowego
 				}
 			}
 
-			cout<<timeruchu<<"tmr"<<endl;
 			double ap2=0;
 			if(kand.stacje_postojowe[i+1].second==0)
 			{
 				ap2=double(tory[kand.tory_przejazdowe[i]]->tor->getPredkoscMaksymalnaWKPH())/3.6;
 			}
 			int add=czasPrzejazduWSekundach(ap1, ap2, double(tory[kand.tory_przejazdowe[i]]->tor->getPredkoscMaksymalnaWKPH())/3.6, l1-ostposredni, kand.przyspieszenie);
-			cout<<timeruchu<<"tmr"<<endl;
 			timeruchu+=add;
 
-			cout<<timeruchu<<"tmr"<<endl;
 			czasyprzejazdu.push_back(timeruchu);
 		}
 		return czasyprzejazdu;
 	}
+	private:
 	void dodaj_pociag(kand_pociag kand)
 	{
-		Pociag* nowy = new Pociag;
-		cout<<"KOD "<<kand.kod<<endl;
-		nowy->idPociagu=kand.kod;
+		Pociag* nowy = new Pociag(kand.kod);
 		vector <int> czasyprzejazdu=wyznacz_czasy_przejazdu(kand);
 		int s1=kand.tory_przejazdowe.size();
-		// vector <punkt_posr> posrednie_stacje=generuj_puste_stacje(kand);
-		// vector <vector <punkt_posr> > posrednie_przystanki(s1);
 		int akttime=kand.time_start;
 		int nkola=0;
 		while(kand.stacje_postojowe[nkola].first!=kand.stacja_srodkowa)
 			nkola++;
 		int graniczny=nkola;
 		int akttime2=akttime-kand.stacje_postojowe[graniczny].second;
-		cout<<"PIERWSZE KOTY "<<kand.kod<<endl;
 		for(int i=graniczny-1; i>=0; i--)
 		{
 			bool czyprzec=0;
 			if(tory[kand.tory_przejazdowe[i]]->tor->getStacjaPoczatkowa()->getId()==kand.stacje_postojowe[i+1].first)
 				czyprzec=1;
-			cout<<"MAKAO "<<akttime<<" "<<akttime2<<" "<<i<<" "<<kand.kod<<endl;
 			while(!tory[kand.tory_przejazdowe[i]]->czyDaSiePuscicPociag(akttime2-czasyprzejazdu[i], czasyprzejazdu[i], !czyprzec))
 			{
 				akttime2-=10;
 			}
-			cout<<"PO MAKALE "<<i<<" "<<kand.kod<<endl;
 			tory[kand.tory_przejazdowe[i]]->dodajPociag(akttime2-czasyprzejazdu[i], czasyprzejazdu[i], czyprzec, nowy, false, transformPrzystanki(kand.przystanki_postojowe), 20);
 			akttime2-=czasyprzejazdu[i]+kand.stacje_postojowe[i].second;
 		}
-		cout<<"DRUGIE KOTY "<<kand.kod<<endl;
 
 		for(int i=graniczny; i<s1; i++)
 		{
-			cout<<i<<endl;
 			bool czyprzec=0;
 			if(tory[kand.tory_przejazdowe[i]]->tor->getStacjaPoczatkowa()->getId()==kand.stacje_postojowe[i+1].first)
 				czyprzec=1;
 			while(!tory[kand.tory_przejazdowe[i]]->czyDaSiePuscicPociag(akttime, czasyprzejazdu[i], !czyprzec))
 			{
-				cout<<akttime<<endl;
 				akttime+=10;
 			}
 			tory[kand.tory_przejazdowe[i]]->dodajPociag(akttime, czasyprzejazdu[i], czyprzec, nowy, true, transformPrzystanki(kand.przystanki_postojowe), 20);

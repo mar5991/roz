@@ -28,26 +28,18 @@ int main()
 	}
 	cout<<"tutsi.."<<endl;
 	algopoc alg(8, 25, 5, 5, bazaa, abcx);
-	cout<<"KONIEC ALGORYTMU.."<<endl;
 	BazaRuchuKolejowego* bazab=alg.generuj(wynik);
-	cout<<"KONIEC ALGORYTMU2.."<<endl;
 	vector <Pociag*> pociagiW=bazab->getPociagi();
-	cout<<"KONIEC ALGORYTMU3.."<<endl;
 	int s1 = pociagiW.size();
-	vector <string> pociagi;
 	for(int i=0; i<s1; i++)
 	{
-		pociagi.push_back(pociagiW[i]->idPociagu);
-		cout<<"GENERUJ..."<<i<<endl;
 		generujpociag(i, bazaa, bazab);
 	}
-	/*
-	for(int i=0; i<bazaa.liczba_stacji(); i++)
+	BazaObiegow caboom(bazaa, bazab);
+	for(int i=0; i<bazaa->wszystkieStacje().size(); i++)
 	{
-		generujstacje(bazaa, &bazab, i);
+		generujstacje(i, bazaa, bazab, caboom);
 	}
-	*/
-
 	for(int j=0; j<bazaa->wszystkieTory().size(); j++)
 	{
 		generujtorhtml(bazaa, bazab, j);
@@ -73,7 +65,6 @@ int main()
 			cout<<totimesec(czasy[i].first)<<" "<<totimesec(czasy[i].second)<<endl;
 		}*/
 //	}
-//	vector <vector <string> > caboom=generujobiegi(bazaa, &bazab);
-//	generujzestawienie(caboom, bazaa, bazab);
+	generujzestawienie(caboom, bazaa, bazab);
 //	generuj_cegla2(bazaa, &bazab, pociagi, "data/cegla.html");
 }

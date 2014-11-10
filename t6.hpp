@@ -7,9 +7,63 @@
 #include "genalgpoc.hpp"
 #include "pkpbaza.hpp"
 #include "genalg.hpp"
+#include "BazaObiegow.hpp"
+#include "LiczbaPociagowStacja.hpp"
 #include <cmath>
 using namespace std;
 
+struct htmlgen
+{
+	static string zlozTabele(string tableclass, string lineclass, string cellclass, vector <vector <string> > tabela)
+	{
+		string wynik;
+		int s1=tabela.size();
+		for(int i=0; i<s1; i++)
+		{
+			string wynik0;
+			for(int j=0; j<tabela[i].size(); j++)
+			{
+				wynik0+=div(cellclass, "", tabela[i][j]);
+			}
+			wynik+=div(lineclass, "", wynik0);
+		}
+		return div(tableclass, "", wynik);
+	}
+	static void zlozHtml(string content, string file_out, string css_file)
+	{
+		fstream plik(file_out.c_str(), fstream::trunc | fstream::out);
+		string wynik;
+		wynik+="<!DOCTYPE html>\n<html lang=\"pl\">\n<head> <meta charset=\"utf8\">";
+		wynik+="<link rel=\"stylesheet\" type=\"text/css\" href=\""+css_file+"\">";
+		wynik+="</head>\n<body>\n";
+		wynik+=content+"\n";
+		wynik+="</body></html>";
+		plik<<wynik<<endl;
+		plik.close();
+	}
+	static string div(string classname, string id, string info)
+	{
+		string wynik;
+		wynik+="<div class=\"";
+		wynik+=classname;
+		wynik+="\" id=\"";
+		wynik+=id;
+		wynik+="\">";
+		wynik+=info;
+		wynik+="</div>";
+		return wynik;
+	}
+	static string link(string link, string info)
+	{
+		string wynik;
+		wynik+="<a href=\"";
+		wynik+=link;
+		wynik+="\">";
+		wynik+=info;
+		wynik+="</a>";
+		return wynik;
+	}
+};
 
 string inttostring(int alfa)
 {
@@ -19,8 +73,6 @@ string inttostring(int alfa)
 	tmp>>wynik;
 	return wynik;
 }
-
-
 string ignoruj_podkreslniki(string data)
 {
 	int s1=data.length();
@@ -32,45 +84,279 @@ string ignoruj_podkreslniki(string data)
 	return data;
 }
 
+bool cmpVectors(vector <int> alfa, vector <int> beta)
+{
+	for(int i=0; i<min(alfa.size(), beta.size()); i++)
+	{
+		if(alfa[i]!=beta[i])
+			return false;
+	}
+	return true;
+}
+
+
+string przystanekLink(PrzystanekKolejowy* przystanek)
+{
+	return htmlgen::link("przystanek"+inttostring(przystanek->getId())+".html", ignoruj_podkreslniki(przystanek->getNazwa()));
+}
+string stacjaLink(StacjaKolejowa* stacja)
+{
+	return htmlgen::link("stacja"+inttostring(stacja->getId())+".html", ignoruj_podkreslniki(stacja->getNazwa()));
+}
+string torLinkShort(TorSzlakowy* tor)
+{
+	return htmlgen::link("linia"+inttostring(tor->getId())+".html", "Tor "+inttostring(tor->getId()));
+}
+string torLinkLong(TorSzlakowy* tor)
+{
+	return htmlgen::link("linia"+inttostring(tor->getId())+".html", "Tor "+inttostring(tor->getId())+" "+ignoruj_podkreslniki(tor->getStacjaPoczatkowa()->getNazwa())+" - "+ignoruj_podkreslniki(tor->getStacjaKoncowa()->getNazwa()));
+}
 void generujpociag(int nkol, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab)
 {
+	cout<<nkol<<endl;
 	Pociag* foo=(bazab->getPociagi())[nkol];
-	string str="data/pociag"+foo->idPociagu+".html";
-	fstream plik(str.c_str(), fstream::trunc | fstream::out);
-	plik<<"<!DOCTYPE html>\n<html lang=\"pl\">\n<head> <meta charset=\"utf8\"> </head>\n<body>\n";
-	//plik<<"stracony czas (sekundy): "<<foo.stracony_czas<<"</br>\n";
-	
+	string str="data/pociag"+foo->getIdPociagu()+".html";
+	cout<<"okok"<<endl;
+	stringstream plik;
 	vector <PostojPociagu> postoje = foo->getPostojePociagu();
-
 	int s1=postoje.size();
 	for(int j=0; j<s1; j++)
 	{
-		cout<<"ok "<<j<<endl;
 		PostojPociagu po = postoje[j];
 		string a2;
-		cout<<"TYP "<<po.typ<<endl;
 		if(po.typ==0)
 		{
 			a2="<a href=\"stacja"+inttostring(po.stacja->getId())+".html\">"+ignoruj_podkreslniki(po.stacja->getNazwa())+"</a>";
-cout<<po.stacja->getNazwa()<<" STANICA"<<endl;
 }
 		else
 			a2="<a href=\"przystanek"+inttostring(po.przystanek->getId())+".html\">"+ignoruj_podkreslniki(po.przystanek->getNazwa())+"</a>";
 		plik<<a2<<" ";
 		plik<<totimesec(po.timePrzyjazd)<<" "<<totimesec(po.timeOdjazd)<<"</br>"<<endl;
 	}
-	plik<<"</body></html>";
-	plik.close();
+	htmlgen::zlozHtml(plik.str(), str, "style.css");
+	cout<<"FFFFF"<<endl;
 }
 
+vector <vector <int> > tabelaZajetosciTorowStacyjnych2(LiczbaPociagowStacja& lps, vector <string> typy)
+{
+	vector <vector <int> > wynik;
+	int czasStartStan=0;
+	vector <int> partialInfo(typy.size()*2+2);
+	for(int i=0; i<lps.DLUGOSC_DNIA; i++)
+	{
+		vector <int> newPartialInfo;
+		for(int j=0; j<typy.size(); j++)
+		{
+			newPartialInfo.push_back(lps.zajetoscTorowOdstawczych(typy[j], i));
+		}
+		newPartialInfo.push_back(lps.zajetoscTorowOdstawczych(i));
+		for(int j=0; j<typy.size(); j++)
+		{
+			newPartialInfo.push_back(lps.zajetoscWszystkichTorow(typy[j], i));
+		}
+		newPartialInfo.push_back(lps.zajetoscWszystkichTorow(i));
+		if(!cmpVectors(partialInfo, newPartialInfo))
+		{
+			if(i!=0)
+			{
+				vector <int> tmp;
+				tmp.push_back(czasStartStan);
+				tmp.push_back(i-1);
+				tmp.insert(tmp.end(), partialInfo.begin(), partialInfo.end());
+				wynik.push_back(tmp);
+				czasStartStan=i;
+			}
+			partialInfo=newPartialInfo;
+		}
+	}
+	vector <int> tmp;
+	tmp.push_back(czasStartStan);
+	tmp.push_back(lps.DLUGOSC_DNIA-1);
+	tmp.insert(tmp.end(), partialInfo.begin(), partialInfo.end());
+	wynik.push_back(tmp);
+	return wynik;
+}
+string tabelaZajetosciTorowStacyjnych(LiczbaPociagowStacja& lps, vector <string> typy)
+{
+	string wynik;
+	vector <vector <int> > praLista=tabelaZajetosciTorowStacyjnych2(lps, typy);
+	for(int i=0; i<praLista.size(); i++)
+	{
+		string wynikLine;
+		wynikLine+=htmlgen::div("tabelazajetosci_time1", "", totimesec(praLista[i][0]));
+		wynikLine+=htmlgen::div("tabelazajetosci_time1", "", totimesec(praLista[i][1]));
+		for(int j=0; j<typy.size(); j++)
+		{
+			wynikLine+=htmlgen::div("tabelazajetosci_l1", "", inttostring(praLista[i][j+2]));
+		}
+			wynikLine+=htmlgen::div("tabelazajetosci_l2", "", inttostring(praLista[i][typy.size()+2]));
+		for(int j=0; j<typy.size(); j++)
+		{
+			wynikLine+=htmlgen::div("tabelazajetosci_l1", "", inttostring(praLista[i][typy.size()+j+3]));
+		}
+			wynikLine+=htmlgen::div("tabelazajetosci_l2", "", inttostring(praLista[i][typy.size()*2+3]));
+		wynik+=htmlgen::div("tabelazajetosci_line", "", wynikLine);
+	}
+	wynik=htmlgen::div("tabelazajetosci", "", wynik);
+	return wynik;
+}
 
-/*void generujzestawienie (vector <vector <string> > data, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab)
+void generujstacje(int nkol, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab, BazaObiegow& bazac)
+{
+	string str="data/stacja"+inttostring(nkol)+".html";
+	StacjaKolejowa* stanica = bazaa->wszystkieStacje()[nkol];
+	LiczbaPociagowStacja liczbaPoc(bazac, stanica, bazaa, bazab);
+	RuchPociagowPrzezStacje* ruch = bazab->stacjaToRuch[stanica];
+	string acc_all;
+	acc_all+=htmlgen::div("header", "", ignoruj_podkreslniki(stanica->getNazwa()));
+	acc_all+=htmlgen::div("header2", "", "Tory szlakowe połączone ze stacją");
+	string acc_table, acc0;
+	acc0+=htmlgen::div("ruch_stacja_pociag_time", "", "Id pociągu");
+	acc0+=htmlgen::div("ruch_stacja_pociag_text", "", "Ze stacji");
+	acc0+=htmlgen::div("ruch_stacja_pociag_text", "", "Poprzednia stacja");
+	acc0+=htmlgen::div("ruch_stacja_pociag_time", "", "Tor wj.");
+	acc0+=htmlgen::div("ruch_stacja_pociag_time", "", "Czas wj.");
+	acc0+=htmlgen::div("ruch_stacja_pociag_time", "", "Czas wyj.");
+	acc0+=htmlgen::div("ruch_stacja_pociag_time", "", "Tor wyj.");
+	acc0+=htmlgen::div("ruch_stacja_pociag_text", "", "Następna stacja");
+	acc0+=htmlgen::div("ruch_stacja_pociag_text", "", "Do stacji");
+	acc_table+=htmlgen::div("head_line", "", acc0);
+	for(int i=0; i<ruch->przejazdy.size(); i++)
+	{
+		acc0="";
+		string acc3, acc4, acc5, acc6, acc7, acc8;
+		string type="normal_line";
+		Pociag* poc;
+		if(ruch->przejazdy[i].first!=NULL)
+		{
+			acc3=totimesec(ruch->przejazdy[i].first->czasWyjazduZToru);
+			acc5=stacjaLink(ruch->przejazdy[i].first->getStacjaPoczatkowa());
+			acc7=torLinkShort(ruch->przejazdy[i].first->ruchPoTorze->tor);
+			poc=ruch->przejazdy[i].first->pociag;
+		}
+		else
+		{
+			poc=ruch->przejazdy[i].second->pociag;
+			if(bazac.poprzedniPociag(poc)!=NULL)
+			{
+				Pociag* poprz=bazac.poprzedniPociag(poc);
+				acc5="<i>"+ignoruj_podkreslniki(poprz->getIdPociagu()+" "+totimemin(poprz->getCzasStop()))+"</i>";
+			}
+			type="start_line";
+		}
+		if(ruch->przejazdy[i].second!=NULL)
+		{
+			if(ruch->przejazdy[i].first!=NULL)
+			{
+				if(ruch->przejazdy[i].first->czasWyjazduZToru==ruch->przejazdy[i].second->czasWjazduNaTor)
+				{
+					type="nostop_line";
+				}
+			}
+			acc4=totimesec(ruch->przejazdy[i].second->czasWjazduNaTor);
+			acc6=stacjaLink(ruch->przejazdy[i].second->getStacjaKoncowa());
+			acc8=torLinkShort(ruch->przejazdy[i].second->ruchPoTorze->tor);
+		}
+		else
+		{
+			type="stop_line";
+			if(bazac.nastepnyPociag(poc)!=NULL)
+			{
+				Pociag* poprz=bazac.nastepnyPociag(poc);
+				acc6="<i>"+ignoruj_podkreslniki(poprz->getIdPociagu()+" "+totimemin(poprz->getCzasStart()))+"</i>";
+			}
+		}
+		string acc9=htmlgen::link("pociag"+poc->getIdPociagu()+".html", ignoruj_podkreslniki(poc->getIdPociagu()));
+		string acc1=stacjaLink(poc->getStacjaPoczatkowa());
+		if(poc->getStacjaPoczatkowa()==stanica)
+			acc1="";
+		string acc2=stacjaLink(poc->getStacjaKoncowa());
+		if(poc->getStacjaKoncowa()==stanica)
+			acc2="";
+		acc0+=htmlgen::div("ruch_stacja_pociag_time", "", acc9);
+		acc0+=htmlgen::div("ruch_stacja_pociag_text", "", acc1);
+		acc0+=htmlgen::div("ruch_stacja_pociag_text", "", acc5);
+		acc0+=htmlgen::div("ruch_stacja_pociag_time", "", acc7);
+		acc0+=htmlgen::div("ruch_stacja_pociag_time", "", acc3);
+		acc0+=htmlgen::div("ruch_stacja_pociag_time", "", acc4);
+		acc0+=htmlgen::div("ruch_stacja_pociag_time", "", acc8);
+		acc0+=htmlgen::div("ruch_stacja_pociag_text", "", acc6);
+		acc0+=htmlgen::div("ruch_stacja_pociag_text", "", acc2);
+		acc_table+=htmlgen::div(type, "", acc0);
+	}
+	acc_table=htmlgen::div("ruch_stacja_pociag", "", acc_table);
+	set <TorSzlakowy*> toryWych=stanica->getToryWychodzace();
+	set <TorSzlakowy*>::iterator it1=toryWych.begin();
+	while(it1!=toryWych.end())
+	{
+		acc_all+=torLinkLong(*it1)+"</br>";
+		it1++;
+	}
+	acc_all+=htmlgen::div("header2", "", "Tabela ruchu przez stację - całość");
+	acc_all+=acc_table;
+	acc_all+=htmlgen::div("header2", "", "Zajętość torów przez pociągi");
+	acc_all+=tabelaZajetosciTorowStacyjnych(liczbaPoc, bazac.wszystkieTypy());
+	htmlgen::zlozHtml(acc_all, str, "style.css");
+}
+
+string warnings(BazaObiegow& bazac, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab)
+{
+	string wynik;
+	vector <string> typ=bazac.wszystkieTypy();
+	for(int i=0; i<bazaa->wszystkieStacje().size(); i++)
+	{
+		LiczbaPociagowStacja liczbaPoc(bazac, bazaa->wszystkieStacje()[i], bazaa, bazab);
+		for(int j=0; j<typ.size(); j++)
+		{
+			if(liczbaPoc.obiegiPoczatkowe(typ[j])!=liczbaPoc.obiegiKoncowe(typ[j]))
+			{
+				wynik+="<b>"+ignoruj_podkreslniki(bazaa->wszystkieStacje()[i]->getNazwa());
+				wynik+=+": Obiegi typu "+typ[j]+" niezrównoważone; wjazdowe: ";
+				wynik+=inttostring(liczbaPoc.obiegiPoczatkowe(typ[j]))+" wyjazdowe: "+inttostring(liczbaPoc.obiegiKoncowe(typ[j]))+"</b></br>";
+			}
+		}
+	}
+	return wynik;
+}
+string zestawienieTabelaStacje(BazaObiegow& bazac, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab)
+{
+	string wynik;
+	vector <string> typ=bazac.wszystkieTypy();
+	for(int i=0; i<bazaa->wszystkieStacje().size(); i++)
+	{
+		LiczbaPociagowStacja liczbaPoc(bazac, bazaa->wszystkieStacje()[i], bazaa, bazab);
+		
+		wynik+=inttostring(i)+" "+stacjaLink(bazaa->wszystkieStacje()[i])+" ";
+		wynik+=inttostring(liczbaPoc.obiegiPoczatkowe())+" ";
+		wynik+=inttostring(liczbaPoc.maksymalnaZajetoscOdstawczych())+" ";
+		wynik+=inttostring(liczbaPoc.maksymalnaZajetoscWszystkich())+" ";
+		wynik+="</br>\n";
+	}
+	return wynik;
+}
+void generujzestawienie (BazaObiegow& bazac, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab)
 {
 	string str="data/zestawienie.html";
-	fstream plik(str.c_str(), fstream::trunc | fstream::out);
-	plik<<"<!DOCTYPE html>\n<html lang=\"pl\">\n<head> <meta charset=\"utf8\"> </head>\n<body><table>\n";
-	int s1=data.size();
+	stringstream plik;
+	plik<<warnings(bazac, bazaa, bazab);
+	plik<<"<table>";
+	int s1=bazac.liczbaObiegow();
 	vector <string> obiegi_linijki;
+	plik<<zestawienieTabelaStacje(bazac, bazaa, bazab)<<endl;
+	for(int i=0; i<bazaa->wszystkiePrzystanki().size(); i++)
+		plik<<i<<" "<<przystanekLink(bazaa->wszystkiePrzystanki()[i])<<"</br>"<<endl;
+	plik<<"</br>"<<endl;
+	
+	for(int i=0; i<bazaa->wszystkieTory().size(); i++)
+	{
+		plik<<torLinkLong(bazaa->wszystkieTory()[i])<<" >> "<<endl;
+		vector <pair <int, PrzystanekKolejowy*> > przyst=bazaa->wszystkieTory()[i]->getPrzystanki();
+		for(int j=0; j<przyst.size(); j++)
+		{
+			plik<<przyst[j].second->getId()<<" "<<przystanekLink(przyst[j].second)<<" >> "<<endl;
+		}
+		plik<<"</br>"<<endl;
+	}
 	for(int i=0; i<s1; i++)
 	{
 		int obieg_distance=0;
@@ -79,36 +365,37 @@ cout<<po.stacja->getNazwa()<<" STANICA"<<endl;
 		int obieg_czas_stop;
 		int obieg_czas_jazd=0;
 		int obieg_stracony=0;
-		int obieg_stacja_koncowa;
-		int obieg_stacja_poczatkowa;
+		StacjaKolejowa* obieg_stacja_koncowa;
+		StacjaKolejowa* obieg_stacja_poczatkowa;
 		plik<<"<tr><td colspan=\"8\"><b>OBIEG "<<i<<"</b></br></td></tr>"<<endl;
-		int s2=data[i].size();
+		vector <Pociag*> data=bazac.getObieg(i);
+		int s2=data.size();
 		for(int j=0; j<s2; j++)
 		{
-			Pociag* akt=bazab->getPociag(data[i][j]);
+			Pociag* akt=data[j];
 			if(j==0)
 			{
-				obieg_stacja_poczatkowa=akt.stacja_poczatkowa();
-				obieg_czas_calk=akt.czas_start();
-				obieg_czas_start=akt.czas_start();
+				obieg_stacja_poczatkowa=akt->getStacjaPoczatkowa();
+				obieg_czas_calk=akt->getCzasStart();
+				obieg_czas_start=akt->getCzasStart();
 			}
 			if(j==s2-1)
 			{
-				obieg_stacja_koncowa=akt.stacja_koncowa();
-				obieg_czas_calk=akt.czas_stop()-obieg_czas_calk;
-				obieg_czas_stop=akt.czas_stop();
+				obieg_stacja_koncowa=akt->getStacjaKoncowa();
+				obieg_czas_calk=akt->getCzasStop()-obieg_czas_calk;
+				obieg_czas_stop=akt->getCzasStop();
 			}
-			obieg_czas_jazd+=akt.czas_przejazdu();
-			obieg_distance+=akt.distance;
-			obieg_stracony+=akt.stracony_czas;
+			obieg_czas_jazd+=akt->czasPrzejazdu();
+			obieg_distance+=akt->getDistance();
+			//TODO obieg_stracony+=akt.stracony_czas;
 			plik<<"<tr>";
-			string a1="<td><a href=\"pociag"+data[i][j]+".html\">"+data[i][j]+"</a></td><td>"+inttostring(akt.stracony_czas)+"<td>";
-			string a2="<td>"+inttostring(akt.czas_przejazdu()/60)+"</td>";
-			string a21="<td>"+inttostring(akt.distance)+"</td>";
-			string a33="<a href=\"stacja"+inttostring(akt.stacja_poczatkowa())+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(akt.stacja_poczatkowa()))+"</a>";
-			string a34=totimemin(akt.czas_start());
-			string a44=totimemin(akt.czas_stop());
-			string a43="<a href=\"stacja"+inttostring(akt.stacja_koncowa())+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(akt.stacja_koncowa()))+"</a>";
+			string a1="<td><a href=\"pociag"+akt->getIdPociagu()+".html\">"+akt->getIdPociagu()+"</a></td><td>"+inttostring(/*STRACONYCZAS TODO*/ 0)+"<td>";
+			string a2="<td>"+inttostring(akt->czasPrzejazdu()/60)+"</td>";
+			string a21="<td>"+inttostring(akt->getDistance())+"</td>";
+			string a33="<a href=\"stacja"+inttostring(akt->getStacjaPoczatkowa()->getId())+".html\">"+ignoruj_podkreslniki(akt->getStacjaPoczatkowa()->getNazwa())+"</a>";
+			string a34=totimemin(akt->getCzasStart());
+			string a44=totimemin(akt->getCzasStop());
+			string a43="<a href=\"stacja"+inttostring(akt->getStacjaKoncowa()->getId())+".html\">"+ignoruj_podkreslniki(akt->getStacjaKoncowa()->getNazwa())+"</a>";
 			string a3="<td>"+a33+"</td><td>"+a34+"</td>";
 			string a4="<td>"+a43+"</td><td>"+a44+"</td>";
 			plik<<a1<<a2<<a21<<a3<<a4<<endl;
@@ -118,8 +405,8 @@ cout<<po.stacja->getNazwa()<<" STANICA"<<endl;
 		string a21="<td>"+inttostring(obieg_czas_jazd/60)+"</td>";
 		string a22="<td>"+inttostring(obieg_stracony/60)+"</td>";
 		string a23="<td>"+inttostring(obieg_distance)+"</td>";
-		string a24="<td><a href=\"stacja"+inttostring(obieg_stacja_poczatkowa)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(obieg_stacja_poczatkowa))+"</a></td>";
-		string a25="<td><a href=\"stacja"+inttostring(obieg_stacja_koncowa)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(obieg_stacja_koncowa))+"</a></td>";
+		string a24="<td><a href=\"stacja"+inttostring(obieg_stacja_poczatkowa->getId())+".html\">"+ignoruj_podkreslniki(obieg_stacja_poczatkowa->getNazwa())+"</a></td>";
+		string a25="<td><a href=\"stacja"+inttostring(obieg_stacja_koncowa->getId())+".html\">"+ignoruj_podkreslniki(obieg_stacja_koncowa->getNazwa())+"</a></td>";
 		string a26="<td>"+totimemin(obieg_czas_start)+"</td>";
 		string a27="<td>"+totimemin(obieg_czas_stop)+"</td>";
 		obiegi_linijki.push_back("<tr>"+a2+a21+a22+a23+a24+a26+a25+a27+"</tr>");
@@ -129,347 +416,148 @@ cout<<po.stacja->getNazwa()<<" STANICA"<<endl;
 	{
 		plik<<obiegi_linijki[i]<<endl;
 	}
-	plik<<"</table></body></html>";
-	plik.close();
-}*/
-/*
-vector <pair <int, string> > tablica_odjazdow(int id1, int id2, baza_pociagow* b2) //para czas odjazdu, id_pociagu
-{
-	vector <pair <int, string> > wynik;
-	set <string> s1=b2->lista_pociagow_stacja(id1);
-	set <string>::iterator it1=s1.begin();
-	while(it1!=s1.end())
-	{
-		string teraz=*it1;
-		pociag aktualny=b2->poc(teraz);
-		int s1=aktualny.punkty.size();
-		bool juz=0;
-		int kodgen;
-		for(int i=0; i<s1; i++)
-		{
-			if(aktualny.punkty[i].typ==0 && aktualny.punkty[i].id_infr==id1 && aktualny.punkty[i].czas_odjazdu!=aktualny.punkty[i].czas_przyjazdu)
-			{
-				juz=1;
-				kodgen=i;
-			}
-			if(aktualny.punkty[i].typ==0 && aktualny.punkty[i].id_infr==id2 && juz && aktualny.punkty[i].czas_odjazdu!=aktualny.punkty[i].czas_przyjazdu)
-			{
-				wynik.push_back(pair<int, string>(aktualny.punkty[kodgen].czas_odjazdu, teraz));
-			}
-		}
-		it1++;
-	}
-	sort(wynik.begin(), wynik.end());
-	return wynik;
-}
-*/
-/*
-vector <pair <int, string> > pociagi_poczatkowe(int id, baza_pociagow* b2)
-{
-	vector <pair <int, string> > wynik;
-	set <string> s1=b2->lista_pociagow_stacja(id);
-	set <string>::iterator it1=s1.begin();
-	while(it1!=s1.end())
-	{
-		string teraz=*it1;
-		pociag aktualny=b2->poc(teraz);
-		if(aktualny.punkty[0].typ==0 && aktualny.punkty[0].id_infr==id)
-			wynik.push_back(pair<int, string>(aktualny.punkty[0].czas_odjazdu, teraz));
-		it1++;
-	}
-	sort(wynik.begin(), wynik.end());
-	return wynik;
+	plik<<"</table>";
+	htmlgen::zlozHtml(plik.str(), str, "style.css");
 }
 
-vector <pair <int, string> > pociagi_koncowe(int id, baza_pociagow* b2)
+vector <pair <int, bool> > tabelaRuchuPoc2(PrzejazdPociaguPrzezTorSzlakowy* rpoc)
 {
-	vector <pair <int, string> > wynik;
-	set <string> s1=b2->lista_pociagow_stacja(id);
-	set <string>::iterator it1=s1.begin();
-	while(it1!=s1.end())
+	vector <pair<int, bool > > wynik;
+	if(rpoc->czyWlasciwyKierunekJazdy)
 	{
-		string teraz=*it1;
-		pociag aktualny=b2->poc(teraz);
-		int s3=aktualny.punkty.size();
-		if(aktualny.punkty[s3-1].typ==0 && aktualny.punkty[s3-1].id_infr==id)
-			wynik.push_back(pair<int, string>(aktualny.punkty[s3-1].czas_przyjazdu, teraz));
-		it1++;
+		wynik.push_back(pair<int, bool>(rpoc->czasWjazduNaTor, rpoc->pociag->czyStopNaStacji(rpoc->getStacjaPoczatkowa())));
+		for(int i=0; i<rpoc->postojePociagu.size(); i++)
+		{
+			int w1=rpoc->postojePociagu[i].odjazd;
+			int w2=rpoc->postojePociagu[i].przyjazd;
+			if(w1==w2)
+			{
+				wynik.push_back(pair<int, bool>(w1, false));
+			}
+			else
+				wynik.push_back(pair<int, bool>(w1, true));
+		}
+		wynik.push_back(pair<int, bool>(rpoc->czasWyjazduZToru, rpoc->pociag->czyStopNaStacji(rpoc->getStacjaKoncowa())));
 	}
-	sort(wynik.begin(), wynik.end());
-	return wynik;
-}
+	else
+	{
+		wynik.push_back(pair<int, bool>(rpoc->czasWyjazduZToru, rpoc->pociag->czyStopNaStacji(rpoc->getStacjaKoncowa())));
+		for(int i=rpoc->postojePociagu.size()-1; i>=0; i--)
+		{
+			int w1=rpoc->postojePociagu[i].odjazd;
+			int w2=rpoc->postojePociagu[i].przyjazd;
+			if(w1==w2)
+			{
+				wynik.push_back(pair<int, bool>(w1, false));
+			}
+			else
+				wynik.push_back(pair<int, bool>(w1, true));
+		}
 
-pair <string, string> odszukaj_najblizsze(map <string, int> kon, map <string, int> poc)
-{
-	pair <string, string> wynik("", "");
-	int minwynik=2000;
-	map <string, int>::iterator it1=kon.begin();
-	int licznik=0;
-	while(it1!=kon.end())
-	{
-		map <string, int>::iterator it2=poc.begin();
-		while(it2!=poc.end())
-		{
-			int konakt=it1->second/60;
-			int pocakt=it2->second/60;
-			if((pocakt-konakt)>=3)
-			{
-				if((pocakt-konakt)<minwynik)
-				{
-					minwynik=pocakt-konakt;
-					wynik=pair <string, string>(it1->first, it2->first);
-				}
-			}
-			it2++;
-		}
-		licznik++;
-		it1++;
+		wynik.push_back(pair<int, bool>(rpoc->czasWjazduNaTor, rpoc->pociag->czyStopNaStacji(rpoc->getStacjaPoczatkowa())));
 	}
 	return wynik;
 }
-
-vector <vector <string> > generujobiegi(baza_sieci& bazaa, baza_pociagow* bazab)
+string tabelaRuchuPoc (vector <pair<int, bool> > tr1)
 {
-	vector <vector <string> > wynik;
-	map<string, string> nastepny;
-	map<string, string> poprzedni;
-	int s1=bazaa.liczba_stacji();
-	for(int i=0; i<s1; i++)
+	string wynik;
+	for(int i=0; i<tr1.size(); i++)
 	{
-		vector <pair <int, string> > pkon=pociagi_koncowe(i, bazab);
-		vector <pair <int, string> > ppoc=pociagi_poczatkowe(i, bazab);
-		map<string, int> pp;
-		map<string, int> pk;
-		int k11=pkon.size();
-		for(int j=0; j<k11; j++)
+		string wtf;
+		if(!tr1[i].second)
 		{
-			nastepny[pkon[j].second]="";
-			pk[pkon[j].second]=pkon[j].first;
-		}
-		k11=ppoc.size();
-		for(int j=0; j<k11; j++)
-		{
-			poprzedni[ppoc[j].second]="";
-			pp[ppoc[j].second]=ppoc[j].first;
-		}
-		pair <string, string> naj=odszukaj_najblizsze(pk, pp);
-		int licznik=0;
-		while(naj.first!="")
-		{
-			licznik++;
-			pk.erase(pk.find(naj.first));
-			pp.erase(pp.find(naj.second));
-			nastepny[naj.first]=naj.second;
-			poprzedni[naj.second]=naj.first;
-			naj=odszukaj_najblizsze(pk, pp);
-		}
-	}
-	map <string, string>::iterator it1=poprzedni.begin();
-	while(it1!=poprzedni.end())
-	{
-		if(it1->second=="")
-		{
-			vector <string> obieg;
-			string aktu=it1->first;
-			while(aktu!="")
-			{
-				obieg.push_back(aktu);
-				aktu=nastepny[aktu];
-			}
-			wynik.push_back(obieg);
-		}
-		it1++;
-	}
-	return wynik;
-}
-void generujstacje (baza_sieci& bazaa, baza_pociagow* bazab, int i)
-{
-	string str="data/stacja"+inttostring(i)+".html";
-	fstream plik(str.c_str(), fstream::trunc | fstream::out);
-	plik<<"<!DOCTYPE html>\n<html lang=\"pl\">\n<head> <meta charset=\"utf8\"> </head>\n<body>\n";
-	plik<<"STACJA: "<<bazaa.nazwa_stacji(i)<<"</br>"<<endl;
-	set <int> pot=bazaa.powiazane_tory(i, 1);
-	set <int>::iterator it1=pot.begin();
-	vector <pair <int, string> > pkon=pociagi_koncowe(i, bazab);
-	vector <pair <int, string> > ppoc=pociagi_poczatkowe(i, bazab);
-	while(it1!=pot.end())
-	{
-		string a2="<a href=\"linia"+inttostring(*it1)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(bazaa.numer_stacji_pocz(*it1)))+" - "+ignoruj_podkreslniki(bazaa.nazwa_stacji(bazaa.numer_stacji_konc(*it1)))+"</a>";
-		plik<<a2<<"</br>"<<endl;
-		it1++;
-	}
-	for(int j=0; j<bazaa.liczba_stacji(); j++)
-	{
-		if(i!=j)
-		{
-			vector <pair <int, string> > wynik1=tablica_odjazdow(i, j, bazab);
-			vector <vector <pair <int, string> > > godzinowe(24);
-			int s2=wynik1.size();
-			for(int g=0; g<s2; g++)
-			{
-				godzinowe[((wynik1[g].first)/60/60)%24].push_back(wynik1[g]);
-			}
-			if(wynik1.size()>0)
-			{
-				string a2="<a href=\"stacja"+inttostring(j)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(j))+"</a>";
-				plik<<a2<<"</br>";
-				for(int h=0; h<24; h++)
-				{
-					int s2=godzinowe[h].size();
-					if(s2>0)
-					{
-						for(int g=0; g<s2; g++)
-						{
-							string txt1=totimemin(godzinowe[h][g].first);
-							string a1="<a href=\"pociag"+godzinowe[h][g].second+".html\">"+txt1+"</a>";
-							plik<<a1<<" ";
-						}
-						plik<<"</br>"<<endl;
-					}
-				}
-				plik<<"</br>"<<endl;
-			}
-		}
-	}
-	int s17=pkon.size();
-	for(int j=0; j<s17; j++)
-	{
-		plik<<pkon[j].second<<" "<<totimemin(pkon[j].first)<<"</br>"<<endl;
-	}
-	s17=ppoc.size();
-	plik<<"</br>";
-	for(int j=0; j<s17; j++)
-	{
-		plik<<ppoc[j].second<<" "<<totimemin(ppoc[j].first)<<"</br>"<<endl;
-	}
-	plik<<"</body>\n";
-	plik<<"</html>";
-	plik.close();
-}
-*/
-void generujtorhtml (BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab, int nkol)
-{
-	string str="data/linia"+inttostring(nkol)+".html";
-	fstream plik(str.c_str(), fstream::trunc | fstream::out);
-	vector <TorSzlakowy*> torySzlakowe = bazaa->wszystkieTory();
-	int stacja_pocz=torySzlakowe[nkol]->getStacjaPoczatkowa()->getId();
-	int stacja_konc=torySzlakowe[nkol]->getStacjaKoncowa()->getId();
-	plik<<"<b>"<<torySzlakowe[nkol]->getStacjaPoczatkowa()->getNazwa()<<"</b>"<<endl;
-	plik<<"</br><b>"<<torySzlakowe[nkol]->getStacjaKoncowa()->getNazwa()<<"</b>"<<endl;
-	RuchPociagowPoTorzeSzlakowym* ruch = bazab->torToRuch[torySzlakowe[nkol]];
-	for(int i=0; i<ruch->ruchKierunekNormalny.size(); i++)
-	{
-		plik<<"<i>";
-		plik<<ruch->ruchKierunekNormalny[i]->pociag->idPociagu<<" - "<<endl;
-		plik<<totimesec(ruch->ruchKierunekNormalny[i]->czasWjazduNaTor)<<" - "<<endl;
-		plik<<totimesec(ruch->ruchKierunekNormalny[i]->czasWyjazduZToru)<<";</br>"<<endl;
-		plik<<"</i>";
-	}
-	for(int i=0; i<ruch->ruchKierunekPrzeciwny.size(); i++)
-	{
-		plik<<ruch->ruchKierunekPrzeciwny[i]->pociag->idPociagu<<" - "<<endl;
-		plik<<totimesec(ruch->ruchKierunekPrzeciwny[i]->czasWjazduNaTor)<<" - "<<endl;
-		plik<<totimesec(ruch->ruchKierunekPrzeciwny[i]->czasWyjazduZToru)<<";</br>"<<endl;
-	}
-	plik.close();
-	/*vector <pair<pair <int, bool>, string> > czasy;
-	vector <pociag_na_torze> alfa1=bazab->lista_toru_nor(nkol);
-	vector <pociag_na_torze> alfa2=bazab->lista_toru_prz(nkol);
-	int s1=alfa1.size();
-	int s2=alfa2.size();
-	for(int i=0; i<s1; i++)
-	{
-		czasy.push_back(pair<pair<int, bool>, string>(pair<int, bool>(alfa1[i].time_start, 0), alfa1[i].id));
-	}
-	for(int i=0; i<s2; i++)
-	{
-		czasy.push_back(pair<pair<int, bool>, string>(pair<int, bool>(alfa2[i].time_start, 1), alfa2[i].id));
-	}
-	int s4=czasy.size();
-	sort(czasy.begin(), czasy.end());
-	vector <vector <string> > tabelka;
-	vector <string> lewakolumna(2);
-	vector <pair <int, int> > przyst=bazaa.przystanki(nkol);
-	string a1="<a href=\"stacja"+inttostring(stacja_pocz)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(stacja_pocz))+"</a>";
-	string a2="<a href=\"stacja"+inttostring(stacja_konc)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(stacja_konc))+"</a>";
-	lewakolumna.push_back(a1);
-	int s99=przyst.size();
-	for(int i=0; i<s99; i++)
-	{
-		//TODO EDIT
-		string a2="<a href=\"przystanek"+inttostring(przyst[i].second)+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_przystanku(przyst[i].second))+"</a>";
-		lewakolumna.push_back(a2);
-	}
-	lewakolumna.push_back(a2);
-	lewakolumna.push_back("");
-	//tabelka.push_back(lewakolumna);
-	for(int i=0; i<s4; i++)
-	{
-		pociag teraz=bazab->poc(czasy[i].second);
-		vector <string> tabelka1;
-		string c5="<a href=\"pociag"+czasy[i].second+".html\">"+czasy[i].second+"</a>";
-		tabelka1.push_back(c5);
-		string c1="<a href=\"stacja"+inttostring(teraz.stacja_poczatkowa())+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(teraz.stacja_poczatkowa()))+"</a>";
-		tabelka1.push_back(c1);
-		bool czyprzec=czasy[i].first.second;
-		if(!czyprzec)
-		{
-			int s7=teraz.punkty.size();
-			int pkt_kol=0;
-			while(teraz.punkty[pkt_kol].id_infr!=stacja_pocz || teraz.punkty[pkt_kol].typ!=0)
-			{
-				pkt_kol++;
-			}
-			string galfa=totimemin(teraz.punkty[pkt_kol].czas_odjazdu);
-			if(teraz.punkty[pkt_kol].czas_odjazdu==teraz.punkty[pkt_kol].czas_przyjazdu)
-				galfa="<i>"+galfa+"</i>";
-			tabelka1.push_back(galfa);
-			pkt_kol++;
-			while(teraz.punkty[pkt_kol].id_infr!=stacja_konc || teraz.punkty[pkt_kol].typ!=0)
-			{
-				string g1=totimemin(teraz.punkty[pkt_kol].czas_odjazdu);
-				if(teraz.punkty[pkt_kol].czas_odjazdu==teraz.punkty[pkt_kol].czas_przyjazdu)
-					g1="<i>"+g1+"</i>";
-				tabelka1.push_back(g1);
-				pkt_kol++;
-			}
-			galfa=totimemin(teraz.punkty[pkt_kol].czas_przyjazdu);
-			if(teraz.punkty[pkt_kol].czas_odjazdu==teraz.punkty[pkt_kol].czas_przyjazdu)
-				galfa="<i>"+galfa+"</i>";
-			tabelka1.push_back(galfa);
+			wtf=htmlgen::div("tortable_cell_time_nonstop", "", totimesec(tr1[i].first));
 		}
 		else
 		{
+			wtf=htmlgen::div("tortable_cell_time", "", totimesec(tr1[i].first));
 		}
-		string c2="<a href=\"stacja"+inttostring(teraz.stacja_koncowa())+".html\">"+ignoruj_podkreslniki(bazaa.nazwa_stacji(teraz.stacja_koncowa()))+"</a>";
-		tabelka1.push_back(c2);
-		tabelka.push_back(tabelka1);
+		wynik+=wtf;
 	}
-	plik<<"<!DOCTYPE html>\n<html lang=\"pl\">\n<head> <meta charset=\"utf8\"> </head>\n<body>\n";
-	plik<<"<a href=\"stacja"<<stacja_pocz<<".html\">"<<ignoruj_podkreslniki(bazaa.nazwa_stacji(stacja_pocz))<<"</a>"<<"-";
-	plik<<"<a href=\"stacja"<<stacja_konc<<".html\">"<<ignoruj_podkreslniki(bazaa.nazwa_stacji(stacja_konc))<<"</a>"<<"</br>\n";
-	int s5=lewakolumna.size();
-	int s6=tabelka.size();
-	for(int g=0; g<(((s6-1)/10)+1); g++)
+	return wynik;
+}
+
+bool srt2 (PrzejazdPociaguPrzezTorSzlakowy* alfa, PrzejazdPociaguPrzezTorSzlakowy* beta)
+{
+	if(alfa->czasWjazduNaTor<beta->czasWjazduNaTor)
+		return true;
+	return false;
+}
+
+string tabelaRuchu(RuchPociagowPoTorzeSzlakowym* ruch)
+{
+	vector <PrzejazdPociaguPrzezTorSzlakowy*> przejazdy;
+	for(int i=0; i<ruch->ruchKierunekNormalny.size(); i++)
+		przejazdy.push_back(ruch->ruchKierunekNormalny[i]);
+	for(int i=0; i<ruch->ruchKierunekPrzeciwny.size(); i++)
+		przejazdy.push_back(ruch->ruchKierunekPrzeciwny[i]);
+	sort(przejazdy.begin(), przejazdy.end(), srt2);
+	vector <vector <pair <int, bool> > > wynik2;
+	for(int i=0; i<przejazdy.size(); i++)
 	{
-		plik<<"<table>";
-		for(int i=0; i<s5; i++)
-		{
-			plik<<"<tr>";
-			plik<<"<td>"<<lewakolumna[i]<<"</td>"<<endl;
-			for(int j=g*10; j<(g*10+10) && j<s6; j++)
-			{
-				plik<<"<td>";
-				if(tabelka[j].size()>i)
-					plik<<tabelka[j][i];
-				plik<<"</td>";
-			}
-			plik<<"</tr>\n";
-		}
-		plik<<"</table></br>";
+		wynik2.push_back(tabelaRuchuPoc2(przejazdy[i]));
 	}
-	plik<<"</body>\n";
-	plik<<"</html>";
-	plik.close();*/
+	string wynik;
+	string gora;
+	string gora1;
+	gora+=(htmlgen::div("tortable_cell_time", "", ""));
+	gora+=(htmlgen::div("tortable_cell_text", "", ""));
+	gora+=(htmlgen::div("tortable_cell_znaczek", "", ""));
+	gora1+=(htmlgen::div("tortable_cell_time", "", ""));
+	gora1+=(htmlgen::div("tortable_cell_text", "", ""));
+	gora1+=(htmlgen::div("tortable_cell_znaczek", "", ""));
+	gora+=(htmlgen::div("tortable_cell_time", "", stacjaLink(ruch->tor->getStacjaPoczatkowa())));
+	gora1+=htmlgen::div("tortable_cell_time", "", "0");
+	for(int i=0; i<ruch->tor->getPrzystanki().size(); i++)
+	{
+		gora+=htmlgen::div("tortable_cell_time", "", przystanekLink(ruch->tor->getPrzystanki()[i].second));
+		gora1+=htmlgen::div("tortable_cell_time", "", inttostring((ruch->tor->getPrzystanki()[i].first)));
+	}
+	gora+=htmlgen::div("tortable_cell_time", "", stacjaLink(ruch->tor->getStacjaKoncowa()));
+	gora1+=htmlgen::div("tortable_cell_time", "", inttostring((ruch->tor->getDlugoscWMetrach())));
+	gora+=(htmlgen::div("tortable_cell_znaczek", "", ""));
+	gora+=(htmlgen::div("tortable_cell_text", "", ""));
+	gora1+=(htmlgen::div("tortable_cell_znaczek", "", ""));
+	gora1+=(htmlgen::div("tortable_cell_text", "", ""));
+	wynik+=htmlgen::div("tortable_line_h2", "", gora);
+	wynik+=htmlgen::div("tortable_line_h1", "", gora1);
+	for(int i=0; i<wynik2.size(); i++)
+	{
+		string foo=tabelaRuchuPoc(wynik2[i]);
+		string znaczek = "&#8594;";
+		if(!przejazdy[i]->czyWlasciwyKierunekJazdy)
+		{
+			znaczek = "&#8592;";
+			foo=htmlgen::div("tortable_cell_znaczek", "", znaczek)+foo;
+			foo=foo+htmlgen::div("tortable_cell_znaczek", "", znaczek);
+			foo+=htmlgen::div("tortable_cell_text", "", stacjaLink(przejazdy[i]->pociag->getStacjaPoczatkowa()));
+			foo=htmlgen::div("tortable_cell_text", "", stacjaLink(przejazdy[i]->pociag->getStacjaKoncowa()))+foo;
+		}
+		else
+		{
+			foo=htmlgen::div("tortable_cell_znaczek", "", znaczek)+foo;
+			foo=foo+htmlgen::div("tortable_cell_znaczek", "", znaczek);
+			foo+=htmlgen::div("tortable_cell_text", "", stacjaLink(przejazdy[i]->pociag->getStacjaKoncowa()));
+			foo=htmlgen::div("tortable_cell_text", "", stacjaLink(przejazdy[i]->pociag->getStacjaPoczatkowa()))+foo;
+		}
+		foo=htmlgen::div("tortable_cell_time", "", htmlgen::link("pociag"+przejazdy[i]->pociag->getIdPociagu()+".html", przejazdy[i]->pociag->getIdPociagu()))+foo;
+		wynik+=htmlgen::div("tortable_line", "", foo);
+	}
+	wynik+=htmlgen::div("tortable_line_h2", "", gora);
+	return htmlgen::div("tortable", "", wynik);
+}
+void generujtorhtml (BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab, int nkol)
+{
+	string str="data/linia"+inttostring(nkol)+".html";
+	stringstream plik;
+	vector <TorSzlakowy*> torySzlakowe = bazaa->wszystkieTory();
+	int stacja_pocz=torySzlakowe[nkol]->getStacjaPoczatkowa()->getId();
+	int stacja_konc=torySzlakowe[nkol]->getStacjaKoncowa()->getId();
+	RuchPociagowPoTorzeSzlakowym* ruch = bazab->torToRuch[torySzlakowe[nkol]];
+	TorSzlakowy* tor = ruch->tor;
+	plik<<htmlgen::div("header", "", "Tor "+inttostring(tor->getId())+" "+ignoruj_podkreslniki(tor->getStacjaPoczatkowa()->getNazwa())+" - "+ignoruj_podkreslniki(tor->getStacjaKoncowa()->getNazwa()))<<endl;
+
+	plik<<tabelaRuchu(ruch);
+	htmlgen::zlozHtml(plik.str(), str, "style.css");
 }
 #endif

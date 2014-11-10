@@ -42,6 +42,10 @@ class TorSzlakowy
 	double predkoscMaksymalnaWKPH;
 	SBL sbl;
 	public:
+	int getId()
+	{
+		return id;
+	}
 	TorSzlakowy(TorSzlakowyBuilder builder);
 	int getDlugoscWMetrach();
 	StacjaKolejowa* getStacjaPoczatkowa();
@@ -94,6 +98,10 @@ class StacjaKolejowa
 	int getId()
 	{
 		return id;
+	}
+	set<TorSzlakowy*> getToryWychodzace()
+	{
+		return toryWychodzace;
 	}
 };
 

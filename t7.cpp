@@ -7,16 +7,19 @@
 using namespace std;
 int main(int argc, char** argv)
 {
+	srand(time(NULL));
 	string baza_sciezka;
 	cin>>baza_sciezka;
-	baza_sieci bazaa(baza_sciezka);
+	
+	BazaInfryKolejowejFromFile bui(baza_sciezka);
+	BazaInfryKolejowej* bazaa = new BazaInfryKolejowej(bui);
 	string abc;
 	vector <string> lista_plikow;
 	while(cin>>abc)
 	{
 		lista_plikow.push_back(abc);
 	}
-	algopoc alg(8, 25, 5, 5, &bazaa, lista_plikow);
+	algopoc alg(8, 25, 5, 5, bazaa, lista_plikow);
 	vector <int> wynik=alg.get_wynik(50);
 	int s9=wynik.size();
 	fstream plik;

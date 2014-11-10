@@ -7,51 +7,59 @@
 #include "pkpbaza.hpp"
 #include "bazainfry.hpp"
 #include "genalg.hpp"
+#include "PreferowaneLinie.hpp"
 #include <cmath>
 struct kand_pociag_roz
 {
 	vector <pair <int, int> > pdata; // ID LICZBY LOSOWEJ, MODULO LICZBY
 	int dodsuma; //DODATKOWA LICZBA DO CZASU
 	kand_pociag kand;
-	kand_pociag_roz(fstream& alpha)
+	int stringtoint(string cos)
 	{
-		dodsuma=0;
+		stringstream foo;
+		foo<<cos;
+		int wynik;
+		foo>>wynik;
+		return wynik;
+	}
+	kand_pociag_roz(stringstream& alpha, int kod, PreferowaneLinie& pref)
+	{
 		char a0[10000];
-		char a1[10000];
-		char a2[10000];
-		char a3[10000];
-		alpha.getline(a0, 10000);
-		alpha.getline(a1, 10000);
-		alpha.getline(a2, 10000);
-		alpha.getline(a3, 10000);
-		stringstream b0, b1, b2, b3;
-		b0<<a0;
-		b1<<a1;
-		b2<<a2;
-		b3<<a3;
-		b0>>kand.kod;
-		b0>>kand.przyspieszenie;
-		b0>>kand.vmaxkph;
-		b0>>kand.czas_postoju_przystanek;
-		b0>>kand.stacja_srodkowa;
-		int k1;
-		while(b1>>k1)
+		string from;
+		string to;
+		alpha>>from;
+		alpha>>to;
+		alpha>>dodsuma;
+		stringstream kodall;
+		kodall<<pref.getKod1()<<kod<<"_"<<pref.getKod2();
+		kodall>>kand.kod;
+		kand.przyspieszenie=pref.getPrzyspieszenie();
+		kand.vmaxkph=pref.getvmax();
+		kand.czas_postoju_przystanek=pref.getCzasPostojuPrzystanek();
+		kand.stacja_srodkowa=pref.getStacjaSrodkowa();
+		kand.tory_przejazdowe=pref.toryPosrednie(from, to);
+		for(int i=0; i<kand.tory_przejazdowe.size(); i++)
 		{
+			cout<<"tory"<<kand.tory_przejazdowe[i]<<endl;
+		}
+		kand.przystanki_postojowe=pref.przystankiPosrednie(from, to);
+		kand.stacje_postojowe=pref.stacjePosrednie(from, to);
+		for(int i=0; i<kand.stacje_postojowe.size(); i++)
+		{
+			cout<<"stacje"<<kand.stacje_postojowe[i].first<<" "<<kand.stacje_postojowe[i].second<<endl;
+		}
+		cout<<kand.kod<<" "<<dodsuma<<endl;
+		string teraz;
+		alpha>>teraz;
+		while(teraz[0]!='#')
+		{
+			int k1=stringtoint(teraz);
 			int k2;
-			b1>>k2;
+			alpha>>k2;
 			pdata.push_back(pair<int, int>(k1, k2));
+			alpha>>teraz;
 		}
-		while(b2>>k1)
-		{
-			dodsuma+=k1;
-		}
-		string k3;
-		vector <string> gamma;
-		while(b3>>k3)
-		{
-			gamma.push_back(k3);
-		}
-		kand.wypelnijtrase(gamma);
+		cout<<"kuniec"<<endl;
 	}
 	kand_pociag generuj(vector <int> losowe)
 	{
@@ -76,35 +84,45 @@ class algopoc : genalgo
 	BazaInfryKolejowej* baz;
 	vector <string> sciezki;
 	vector <kand_pociag_roz> kandydaci;
+	PreferowaneLinie aktConfig;
 	int ocen(vector <int> przyklad)
 	{
+		for(int i=0; i<przyklad.size(); i++)
+		{
+			cout<<przyklad[i]<<"; ";
+		}
+		cout<<endl;
 		int wynik=0;
-		BazaRuchuKolejowego* przykladowa=new BazaRuchuKolejowego(baz);
 		int s1=kandydaci.size();
+		vector <kand_pociag> kandydaci2;
 		for(int i=0; i<s1; i++)
 		{
 			kand_pociag kanx=kandydaci[i].generuj(przyklad);
-			przykladowa->dodaj_pociag(kanx);
+			kandydaci2.push_back(kanx);
 		}
+		BazaRuchuKolejowego* przykladowa=new BazaRuchuKolejowego(kandydaci2, baz);
 		vector <Pociag*> pociagi=przykladowa->getPociagi();
 		for(int i=0; i<s1; i++)
 		{
+			cout<<pociagi[i]->getCzasStart()<<", ";
 			wynik+=pociagi[i]->czasPrzejazdu();
 		}
-		//TODO DELETE
+		cout<<endl;
+		delete przykladowa;
 		cout<<"OCENA "<<wynik/60<<endl;
 		return 2000000-wynik/500;
 	}
 	public:
 	BazaRuchuKolejowego* generuj(vector <int> lista)
 	{
-		BazaRuchuKolejowego* wynik=new BazaRuchuKolejowego(baz);
 		int s1=kandydaci.size();
+		vector <kand_pociag> kandydaci2;
 		for(int i=0; i<s1; i++)
 		{
 			kand_pociag kanx=kandydaci[i].generuj(lista);
-			wynik->dodaj_pociag(kanx);
+			kandydaci2.push_back(kanx);
 		}
+		BazaRuchuKolejowego* wynik=new BazaRuchuKolejowego(kandydaci2, baz);
 		return wynik;
 	}
 	algopoc(int liczba_genow, int liczba_osobnikow, int ile_wywalic, int do_mutacji, BazaInfryKolejowej* baza, vector <string> pocdata) : genalgo(liczba_genow, liczba_osobnikow, ile_wywalic, do_mutacji), baz(baza), sciezki(pocdata)
@@ -114,16 +132,24 @@ class algopoc : genalgo
 		{
 			fstream plik;
 			plik.open(pocdata[g].c_str());
-			char t1[10000];
-			plik.getline(t1, 10000);
-			stringstream tp1;
-			tp1<<t1;
-			int tp2;
-			tp1>>tp2;
-			for(int i=0; i<tp2; i++)
+			int i=0;
+			while(!plik.eof())
 			{
-				kand_pociag_roz nowy(plik);
-				kandydaci.push_back(nowy);
+				char data[10000];
+				plik.getline(data, 10000);
+				stringstream olx;
+				olx<<data;
+				string first;
+				olx>>first;
+				cout<<first<<endl;
+				if(first=="@")
+					aktConfig=PreferowaneLinie(baza, olx);
+				if(first=="#")
+				{
+					kand_pociag_roz nowy(olx, i, aktConfig);
+					kandydaci.push_back(nowy);
+					i++;
+				}
 			}
 		}
 	}
@@ -142,83 +168,5 @@ class algopoc : genalgo
 		}
 		return thebest;
 	}
-	void generujprostrze(string prefix, int lpowtorzen)
-	{
-		vector <int> gw=get_wynik(lpowtorzen);
-		int s1=sciezki.size();
-		for(int i=0; i<s1; i++)
-		{
-			fstream plik;
-			string nowasciezka=prefix+sciezki[i];
-			fstream output(nowasciezka.c_str(), fstream::trunc | fstream::out);
-			plik.open(sciezki[i].c_str());
-			char tmp1[10000];
-			plik.getline(tmp1, 10000);
-			stringstream iter1;
-			iter1<<tmp1;
-			int s2;
-			iter1>>s2;
-			output<<tmp1<<endl;
-			for(int j=0; j<s2; j++)
-			{
-				char tmp2[10000];
-				plik.getline(tmp2, 10000);
-				char tmp3a[10000];
-				plik.getline(tmp3a, 10000);
-				char tmp3b[10000];
-				plik.getline(tmp3b, 10000);
-				output<<tmp2<<endl<<endl;
-				stringstream data1, data2;
-				data1<<tmp3a;
-				data2<<tmp3b;
-				int aktliczba;
-				data2>>aktliczba;
-				int ck1, ck2;
-				while(data1>>ck1)
-				{
-					data1>>ck2;
-					aktliczba+=gw[ck1]%ck2;
-				}
-				output<<aktliczba<<endl;
-				char tmp4[10000];
-				plik.getline(tmp4, 10000);
-				output<<tmp4<<endl;
-			}
-			plik.close();
-			output.close();
-		}
-	}
 };
-
-/*
-baza_pociagow utworzbaze (baza_sieci* baza, vector <string> pocdata)
-{
-	vector <kand_pociag_roz> kandydaci;
-	int s9=pocdata.size();
-	for(int g=0; g<s9; g++)
-	{
-		fstream plik;
-		plik.open(pocdata[g].c_str());
-		char t1[10000];
-		plik.getline(t1, 10000);
-		stringstream tp1;
-		tp1<<t1;
-		int tp2;
-		tp1>>tp2;
-		for(int i=0; i<tp2; i++)
-		{
-			kand_pociag_roz nowy(plik);
-			kandydaci.push_back(nowy);
-		}
-	}
-	baza_pociagow wynik=baza->generuj_baze();
-	int s1=kandydaci.size();
-	for(int i=0; i<s1; i++)
-	{
-		kand_pociag kanx=kandydaci[i].generuj();
-		wynik.dodaj_pociag(kanx);
-	}
-	return wynik;
-
-}*/
 #endif

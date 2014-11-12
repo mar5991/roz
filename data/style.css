@@ -1,0 +1,99 @@
+a
+{
+	color: blue;
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+body
+{
+	font-family: sans-serif;
+}
+div.tortime
+{
+	background-color: lightblue;
+}
+div.header
+{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 30px;
+	font-weight: bold;
+}
+div.header2
+{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 20px;
+}
+div.ruch_stacja_pociag, div.tortable, div.tabelazajetosci
+{
+	display: table;
+	border: 1px solid black;
+}
+div.tortable_line_h1, div.tortable_line_h2, div.tortable_line, div.head_line, div.normal_line, div.start_line, div.stop_line, div.nostop_line, div.tabelazajetosci_line, div.tabelazajetosci_linelead
+{
+	display: table-row;
+}
+div.ruch_stacja_pociag_text, div.ruch_stacja_pociag_time, div.tortable_cell, div.tortable_cell_znaczek, div.tortable_cell_text, div.tortable_cell_time, div.tortable_cell_time_nonstop, div.tabelazajetosci_time1, div.tabelazajetosci_l1, div.tabelazajetosci_l2, div.tabelazajetosci_lead
+{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+div.tortable_cell_time_nonstop
+{
+	background: lightblue;
+}
+div.tabelazajetosci_lead, div.tabelazajetosci_l2
+{
+	background-color: black;
+	color: white;
+}
+div.tabelazajetosci_time1
+{
+	width: 80px;
+}
+div.tabelazajetosci_l1, div.tabelazajetosci_l2
+{
+	width: 40px;
+}
+div.ruch_stacja_pociag_text, div.tortable_cell_text
+{
+	width: 15%;
+}
+div.ruch_stacja_pociag_time, div.tortable_cell_time
+{
+	width: 4%;
+}
+div.tortable_cell_znaczek
+{
+	width: 3%;
+}
+div.start_line
+{
+	background-color: lightgreen;
+}
+div.head_line, div.tortable_line_h1, div.tortable_line_h2
+{
+	color: white;
+	background-color: black;
+}
+div.tortable_line_h1 a, div.tortable_line_h2 a
+{
+	color: white;
+}
+div.stop_line
+{
+	background-color: yellow;
+}
+div.nostop_line
+{
+	background-color: lightblue;
+}

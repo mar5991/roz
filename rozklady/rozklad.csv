@@ -1,0 +1,618 @@
+	@ A KM 0.5 120 20 2 rozklady/PilawaGrodzisk.trasa						
+#	Warszawa_Wschodnia	Grodzisk_Mazowiecki	310	0 30	1 5	#	05:10:00
+#	Pilawa	Grodzisk_Mazowiecki	330	0 30	1 5	#	05:30:00
+#	Warszawa_Wschodnia	Pruszków	340	0 30	1 5	#	05:40:00
+#	Warszawa_Wschodnia	Grodzisk_Mazowiecki	350	0 30	1 5	#	05:50:00
+#	Otwock	Grodzisk_Mazowiecki	360	0 30	1 5	#	06:00:00
+#	Warszawa_Wschodnia	Grodzisk_Mazowiecki	370	0 30	1 5	#	06:10:00
+#	Otwock	Grodzisk_Mazowiecki	380	0 30	1 5	#	06:20:00
+#	Pilawa	Grodzisk_Mazowiecki	390	0 30	1 5	#	06:30:00
+#	Otwock	Grodzisk_Mazowiecki	400	0 30	1 5	#	06:40:00
+#	Otwock	Grodzisk_Mazowiecki	410	0 30	1 5	#	06:50:00
+#	Celestynów	Grodzisk_Mazowiecki	420	0 30	1 5	#	07:00:00
+#	Otwock	Grodzisk_Mazowiecki	430	0 30	1 5	#	07:10:00
+#	Otwock	Grodzisk_Mazowiecki	440	0 30	1 5	#	07:20:00
+#	Pilawa	Pruszków	450	0 30	1 5	#	07:30:00
+#	Otwock	Grodzisk_Mazowiecki	460	0 30	1 5	#	07:40:00
+#	Otwock	Pruszków	470	0 30	1 5	#	07:50:00
+#	Celestynów	Warszawa_Zachodnia	480	0 30	1 5	#	08:00:00
+#	Otwock	Grodzisk_Mazowiecki	490	0 30	1 5	#	08:10:00
+#	Otwock	Warszawa_Zachodnia	500	0 30	1 5	#	08:20:00
+#	Pilawa	Pruszków	510	0 30	1 5	#	08:30:00
+#	Otwock	Grodzisk_Mazowiecki	525	0 30		#	08:45:00
+#	Otwock	Pruszków	540	0 30		#	09:00:00
+#	Otwock	Grodzisk_Mazowiecki	555	0 30		#	09:15:00
+#	Pilawa	Pruszków	570	0 30		#	09:30:00
+#	Otwock	Grodzisk_Mazowiecki	585	0 30		#	09:45:00
+#	Otwock	Pruszków	600	0 30		#	10:00:00
+#	Otwock	Grodzisk_Mazowiecki	615	0 30		#	10:15:00
+#	Pilawa	Pruszków	630	0 30		#	10:30:00
+#	Otwock	Grodzisk_Mazowiecki	645	0 30		#	10:45:00
+#	Otwock	Pruszków	660	0 30		#	11:00:00
+#	Otwock	Grodzisk_Mazowiecki	675	0 30		#	11:15:00
+#	Pilawa	Pruszków	690	0 30		#	11:30:00
+#	Otwock	Grodzisk_Mazowiecki	705	0 30		#	11:45:00
+#	Otwock	Pruszków	720	0 30		#	12:00:00
+#	Otwock	Grodzisk_Mazowiecki	735	0 30		#	12:15:00
+#	Pilawa	Pruszków	750	0 30		#	12:30:00
+#	Otwock	Grodzisk_Mazowiecki	765	0 30		#	12:45:00
+#	Otwock	Pruszków	780	0 30		#	13:00:00
+#	Otwock	Grodzisk_Mazowiecki	795	0 30		#	13:15:00
+#	Pilawa	Pruszków	810	0 30		#	13:30:00
+#	Otwock	Grodzisk_Mazowiecki	825	0 30		#	13:45:00
+#	Otwock	Pruszków	840	0 30		#	14:00:00
+#	Otwock	Grodzisk_Mazowiecki	855	0 30		#	14:15:00
+#	Pilawa	Pruszków	870	0 30		#	14:30:00
+#	Otwock	Grodzisk_Mazowiecki	885	0 30		#	14:45:00
+#	Otwock	Pruszków	900	0 30	1 5	#	15:00:00
+#	Otwock	Grodzisk_Mazowiecki	910	0 30	1 5	#	15:10:00
+#	Warszawa_Wschodnia	Pruszków	920	0 30	1 5	#	15:20:00
+#	Pilawa	Grodzisk_Mazowiecki	930	0 30	1 5	#	15:30:00
+#	Otwock	Grodzisk_Mazowiecki	940	0 30	1 5	#	15:40:00
+#	Warszawa_Wawer	Grodzisk_Mazowiecki	950	0 30	1 5	#	15:50:00
+#	Otwock	Grodzisk_Mazowiecki	960	0 30	1 5	#	16:00:00
+#	Otwock	Grodzisk_Mazowiecki	970	0 30	1 5	#	16:10:00
+#	Warszawa_Falenica	Grodzisk_Mazowiecki	980	0 30	1 5	#	16:20:00
+#	Pilawa	Grodzisk_Mazowiecki	990	0 30	1 5	#	16:30:00
+#	Otwock	Grodzisk_Mazowiecki	1000	0 30	1 5	#	16:40:00
+#	Otwock	Grodzisk_Mazowiecki	1010	0 30	1 5	#	16:50:00
+#	Warszawa_Wawer	Grodzisk_Mazowiecki	1020	0 30	1 5	#	17:00:00
+#	Otwock	Grodzisk_Mazowiecki	1030	0 30	1 5	#	17:10:00
+#	Otwock	Grodzisk_Mazowiecki	1040	0 30	1 5	#	17:20:00
+#	Pilawa	Grodzisk_Mazowiecki	1050	0 30	1 5	#	17:30:00
+#	Otwock	Grodzisk_Mazowiecki	1060	0 30	1 5	#	17:40:00
+#	Otwock	Pruszków	1070	0 30	1 5	#	17:50:00
+#	Otwock	Grodzisk_Mazowiecki	1080	0 30	1 5	#	18:00:00
+#	Otwock	Pruszków	1095	0 30		#	18:15:00
+#	Celestynów	Warszawa_Zachodnia	1095	0 30		#	18:15:00
+#	Pilawa	Grodzisk_Mazowiecki	1110	0 30		#	18:30:00
+#	Otwock	Pruszków	1125	0 30		#	18:45:00
+#	Otwock	Grodzisk_Mazowiecki	1140	0 30		#	19:00:00
+#	Otwock	Pruszków	1155	0 30		#	19:15:00
+#	Pilawa	Grodzisk_Mazowiecki	1170	0 30		#	19:30:00
+#	Otwock	Pruszków	1185	0 30		#	19:45:00
+#	Otwock	Grodzisk_Mazowiecki	1200	0 30		#	20:00:00
+#	Otwock	Pruszków	1215	0 30		#	20:15:00
+#	Pilawa	Grodzisk_Mazowiecki	1230	0 30		#	20:30:00
+#	Otwock	Warszawa_Zachodnia	1245	0 30		#	20:45:00
+#	Otwock	Grodzisk_Mazowiecki	1260	0 30		#	21:00:00
+#	Otwock	Warszawa_Zachodnia	1275	0 30		#	21:15:00
+#	Pilawa	Grodzisk_Mazowiecki	1290	0 30		#	21:30:00
+#	Otwock	Warszawa_Zachodnia	1305	0 30		#	21:45:00
+#	Otwock	Pruszków	1320	0 30		#	22:00:00
+#	Pilawa	Grodzisk_Mazowiecki	1350	0 30		#	22:30:00
+#	Otwock	Warszawa_Zachodnia	1380	0 30		#	23:00:00
+#	Otwock	Grodzisk_Mazowiecki	1410	0 30		#	23:30:00
+	@ B KM 0.5 120 20 2 rozklady/GrodziskPilawa.trasa						
+#	Warszawa_Zachodnia	Pilawa	300	2 30		#	05:00:00
+#	Warszawa_Zachodnia	Otwock	315	2 30		#	05:15:00
+#	Warszawa_Zachodnia	Otwock	330	2 30	3 5	#	05:30:00
+#	Grodzisk_Mazowiecki	Otwock	340	2 30	3 5	#	05:40:00
+#	Warszawa_Zachodnia	Otwock	350	2 30	3 5	#	05:50:00
+#	Pruszków	Pilawa	360	2 30	3 5	#	06:00:00
+#	Grodzisk_Mazowiecki	Otwock	370	2 30	3 5	#	06:10:00
+#	Pruszków	Otwock	380	2 30	3 5	#	06:20:00
+#	Grodzisk_Mazowiecki	Otwock	390	2 30	3 5	#	06:30:00
+#	Grodzisk_Mazowiecki	Warszawa_Falenica	400	2 30	3 5	#	06:40:00
+#	Grodzisk_Mazowiecki	Otwock	410	2 30	3 5	#	06:50:00
+#	Grodzisk_Mazowiecki	Pilawa	420	2 30	3 5	#	07:00:00
+#	Grodzisk_Mazowiecki	Warszawa_Wawer	430	2 30	3 5	#	07:10:00
+#	Grodzisk_Mazowiecki	Otwock	440	2 30	3 5	#	07:20:00
+#	Grodzisk_Mazowiecki	Otwock	450	2 30	3 5	#	07:30:00
+#	Grodzisk_Mazowiecki	Warszawa_Wawer	460	2 30	3 5	#	07:40:00
+#	Grodzisk_Mazowiecki	Otwock	470	2 30	3 5	#	07:50:00
+#	Grodzisk_Mazowiecki	Pilawa	480	2 30	3 5	#	08:00:00
+#	Grodzisk_Mazowiecki	Otwock	490	2 30	3 5	#	08:10:00
+#	Pruszków	Warszawa_Wschodnia	500	2 30	3 5	#	08:20:00
+#	Grodzisk_Mazowiecki	Otwock	510	2 30	3 5	#	08:30:00
+#	Pruszków	Otwock	525	2 30		#	08:45:00
+#	Grodzisk_Mazowiecki	Pilawa	540	2 30		#	09:00:00
+#	Pruszków	Otwock	555	2 30		#	09:15:00
+#	Grodzisk_Mazowiecki	Otwock	570	2 30		#	09:30:00
+#	Pruszków	Otwock	585	2 30		#	09:45:00
+#	Grodzisk_Mazowiecki	Pilawa	600	2 30		#	10:00:00
+#	Pruszków	Otwock	615	2 30		#	10:15:00
+#	Grodzisk_Mazowiecki	Otwock	630	2 30		#	10:30:00
+#	Pruszków	Otwock	645	2 30		#	10:45:00
+#	Grodzisk_Mazowiecki	Pilawa	660	2 30		#	11:00:00
+#	Pruszków	Otwock	675	2 30		#	11:15:00
+#	Grodzisk_Mazowiecki	Otwock	690	2 30		#	11:30:00
+#	Pruszków	Otwock	705	2 30		#	11:45:00
+#	Grodzisk_Mazowiecki	Pilawa	720	2 30		#	12:00:00
+#	Pruszków	Otwock	735	2 30		#	12:15:00
+#	Grodzisk_Mazowiecki	Otwock	750	2 30		#	12:30:00
+#	Pruszków	Otwock	765	2 30		#	12:45:00
+#	Grodzisk_Mazowiecki	Pilawa	780	2 30		#	13:00:00
+#	Pruszków	Otwock	795	2 30		#	13:15:00
+#	Grodzisk_Mazowiecki	Otwock	810	2 30		#	13:30:00
+#	Pruszków	Otwock	825	2 30		#	13:45:00
+#	Grodzisk_Mazowiecki	Pilawa	840	2 30		#	14:00:00
+#	Pruszków	Otwock	855	2 30		#	14:15:00
+#	Grodzisk_Mazowiecki	Otwock	870	2 30		#	14:30:00
+#	Pruszków	Otwock	885	2 30		#	14:45:00
+#	Grodzisk_Mazowiecki	Pilawa	900	2 30	3 5	#	15:00:00
+#	Warszawa_Zachodnia	Otwock	910	2 30	3 5	#	15:10:00
+#	Pruszków	Otwock	920	2 30	3 5	#	15:20:00
+#	Grodzisk_Mazowiecki	Celestynów	930	2 30	3 5	#	15:30:00
+#	Pruszków	Otwock	940	2 30	3 5	#	15:40:00
+#	Pruszków	Otwock	950	2 30	3 5	#	15:50:00
+#	Grodzisk_Mazowiecki	Pilawa	960	2 30	3 5	#	16:00:00
+#	Warszawa_Zachodnia	Otwock	970	2 30	3 5	#	16:10:00
+#	Grodzisk_Mazowiecki	Otwock	980	2 30	3 5	#	16:20:00
+#	Grodzisk_Mazowiecki	Celestynów	990	2 30	3 5	#	16:30:00
+#	Grodzisk_Mazowiecki	Otwock	1000	2 30	3 5	#	16:40:00
+#	Grodzisk_Mazowiecki	Otwock	1010	2 30	3 5	#	16:50:00
+#	Grodzisk_Mazowiecki	Pilawa	1020	2 30	3 5	#	17:00:00
+#	Grodzisk_Mazowiecki	Otwock	1030	2 30	3 5	#	17:10:00
+#	Grodzisk_Mazowiecki	Otwock	1040	2 30	3 5	#	17:20:00
+#	Grodzisk_Mazowiecki	Celestynów	1050	2 30	3 5	#	17:30:00
+#	Grodzisk_Mazowiecki	Otwock	1060	2 30	3 5	#	17:40:00
+#	Grodzisk_Mazowiecki	Otwock	1070	2 30	3 5	#	17:50:00
+#	Grodzisk_Mazowiecki	Pilawa	1080	2 30	3 5	#	18:00:00
+#	Grodzisk_Mazowiecki	Otwock	1095	2 30		#	18:15:00
+#	Grodzisk_Mazowiecki	Otwock	1110	2 30		#	18:30:00
+#	Grodzisk_Mazowiecki	Otwock	1125	2 30		#	18:45:00
+#	Grodzisk_Mazowiecki	Pilawa	1140	2 30		#	19:00:00
+#	Pruszków	Warszawa_Wschodnia	1140	2 30		#	19:00:00
+#	Grodzisk_Mazowiecki	Otwock	1155	2 30		#	19:15:00
+#	Pruszków	Otwock	1170	2 30		#	19:30:00
+#	Grodzisk_Mazowiecki	Otwock	1185	2 30		#	19:45:00
+#	Pruszków	Pilawa	1200	2 30		#	20:00:00
+#	Grodzisk_Mazowiecki	Otwock	1220	2 30		#	20:20:00
+#	Grodzisk_Mazowiecki	Warszawa_Wschodnia	1230	2 30		#	20:30:00
+#	Pruszków	Otwock	1240	2 30		#	20:40:00
+#	Grodzisk_Mazowiecki	Pilawa	1260	2 30		#	21:00:00
+#	Pruszków	Warszawa_Wschodnia	1275	2 30		#	21:15:00
+#	Grodzisk_Mazowiecki	Otwock	1290	2 30		#	21:30:00
+#	Grodzisk_Mazowiecki	Pilawa	1320	2 30		#	22:00:00
+#	Pruszków	Otwock	1350	2 30		#	22:30:00
+#	Grodzisk_Mazowiecki	Otwock	1395	2 30		#	23:15:00
+	@ C KM 0.5 120 20 2 rozklady/CzachowekMinsk.trasa						
+#	Warszawa_Zachodnia	Mińsk_Mazowiecki	300	4 30		#	05:00:00
+#	Warszawa_Zachodnia	Sulejówek_Miłosna	315	4 30		#	05:15:00
+#	Warszawa_Zachodnia	Mińsk_Mazowiecki	330	4 30		#	05:30:00
+#	Warszawa_Zachodnia	Sulejówek_Miłosna	345	4 30		#	05:45:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	360	4 30	5 5	#	06:00:00
+#	Warszawa_Zachodnia	Sulejówek_Miłosna	370	4 30	5 5	#	06:10:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	380	4 30	5 5	#	06:20:00
+#	Góra_Kalwaria	Sulejówek_Miłosna	390	4 30	5 5	#	06:30:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	400	4 30	5 5	#	06:40:00
+#	Czachówek_Południowy	Sulejówek_Miłosna	410	4 30	5 5	#	06:50:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	420	4 30	5 5	#	07:00:00
+#	Czachówek_Południowy	Sulejówek_Miłosna	430	4 30	5 5	#	07:10:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	440	4 30	5 5	#	07:20:00
+#	Góra_Kalwaria	Sulejówek_Miłosna	450	4 30	5 5	#	07:30:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	460	4 30	5 5	#	07:40:00
+#	Czachówek_Południowy	Sulejówek_Miłosna	470	4 30	5 5	#	07:50:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	480	4 30	5 5	#	08:00:00
+#	Czachówek_Południowy	Mińsk_Mazowiecki	490	4 30	5 5	#	08:10:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	500	4 30	5 5	#	08:20:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	510	4 30	5 5	#	08:30:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	520	4 30	5 5	#	08:40:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	540	4 30		#	09:00:00
+#	Czachówek_Południowy	Warszawa_Wschodnia	550	4 30		#	09:10:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	555	4 30		#	09:15:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	570	4 30		#	09:30:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	580	4 30		#	09:40:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	585	4 30		#	09:45:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	600	4 30		#	10:00:00
+#	Czachówek_Południowy	Warszawa_Wschodnia	610	4 30		#	10:10:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	615	4 30		#	10:15:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	630	4 30		#	10:30:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	640	4 30		#	10:40:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	645	4 30		#	10:45:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	660	4 30		#	11:00:00
+#	Czachówek_Południowy	Warszawa_Wschodnia	670	4 30		#	11:10:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	675	4 30		#	11:15:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	690	4 30		#	11:30:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	700	4 30		#	11:40:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	705	4 30		#	11:45:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	720	4 30		#	12:00:00
+#	Czachówek_Południowy	Warszawa_Wschodnia	730	4 30		#	12:10:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	735	4 30		#	12:15:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	750	4 30		#	12:30:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	760	4 30		#	12:40:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	765	4 30		#	12:45:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	780	4 30		#	13:00:00
+#	Czachówek_Południowy	Warszawa_Wschodnia	790	4 30		#	13:10:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	795	4 30		#	13:15:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	810	4 30		#	13:30:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	820	4 30		#	13:40:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	825	4 30		#	13:45:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	840	4 30		#	14:00:00
+#	Czachówek_Południowy	Warszawa_Wschodnia	850	4 30		#	14:10:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	855	4 30		#	14:15:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	870	4 30		#	14:30:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	880	4 30		#	14:40:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	885	4 30		#	14:45:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	900	4 30	5 5	#	15:00:00
+#	Warszawa_Zachodnia	Sulejówek_Miłosna	910	4 30	5 5	#	15:10:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	920	4 30	5 5	#	15:20:00
+#	Góra_Kalwaria	Sulejówek_Miłosna	930	4 30	5 5	#	15:30:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	940	4 30	5 5	#	15:40:00
+#	Czachówek_Południowy	Sulejówek_Miłosna	950	4 30	5 5	#	15:50:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	960	4 30	5 5	#	16:00:00
+#	Czachówek_Południowy	Sulejówek_Miłosna	970	4 30	5 5	#	16:10:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	980	4 30	5 5	#	16:20:00
+#	Góra_Kalwaria	Sulejówek_Miłosna	990	4 30	5 5	#	16:30:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1000	4 30	5 5	#	16:40:00
+#	Czachówek_Południowy	Sulejówek_Miłosna	1010	4 30	5 5	#	16:50:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1020	4 30	5 5	#	17:00:00
+#	Czachówek_Południowy	Sulejówek_Miłosna	1030	4 30	5 5	#	17:10:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1040	4 30	5 5	#	17:20:00
+#	Góra_Kalwaria	Sulejówek_Miłosna	1050	4 30	5 5	#	17:30:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1060	4 30	5 5	#	17:40:00
+#	Czachówek_Południowy	Sulejówek_Miłosna	1070	4 30	5 5	#	17:50:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1080	4 30	5 5	#	18:00:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	1090	4 30	5 5	#	18:10:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	1095	4 30		#	18:15:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1110	4 30		#	18:30:00
+#	Czachówek_Południowy	Warszawa_Wschodnia	1120	4 30		#	18:40:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	1125	4 30		#	18:45:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1140	4 30		#	19:00:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	1150	4 30		#	19:10:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	1155	4 30		#	19:15:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	1170	4 30		#	19:30:00
+#	Czachówek_Południowy	Warszawa_Wschodnia	1180	4 30		#	19:40:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1185	4 30		#	19:45:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	1200	4 30		#	20:00:00
+#	Czachówek_Południowy	Warszawa_Wschodnia	1210	4 30		#	20:10
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	1215	4 30		#	20:15:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1230	4 30		#	20:30:00
+#	Czachówek_Południowy	Sulejówek_Miłosna	1245	4 30		#	20:45:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	1260	4 30		#	21:00:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	1275	4 30		#	21:15:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1290	4 30		#	21:30:00
+#	Czachówek_Południowy	Warszawa_Wschodnia	1305	4 30		#	21:45:00
+#	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	1320	4 30		#	22:00:00
+#	Góra_Kalwaria	Warszawa_Wschodnia	1335	4 30		#	22:15:00
+#	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1350	4 30		#	22:30:00
+#	Czachówek_Południowy	Mińsk_Mazowiecki	1365	4 30		#	22:45:00
+#	Warszawa_Lotnisko_Chopina	Warszawa_Wschodnia	1380	4 30		#	23:00:00
+	@ C KM 0.5 120 20 0 rozklady/CzachowekMinsk.trasa						
+#	Czachówek_Południowy	Warszawa_Zachodnia	1400	4 30		#	23:20:00
+	@ D KM 0.5 120 20 2 rozklady/MinskCzachowek.trasa						
+#	Warszawa_Wschodnia	Góra_Kalwaria	300	6 30		#	05:00:00
+#	Mińsk_Mazowiecki	Czachówek_Południowy	330	6 30		#	05:30:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	340	6 30		#	05:40:00
+#	Warszawa_Wschodnia	Góra_Kalwaria	350	6 30	7 5	#	05:50:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	360	6 30	7 5	#	06:00:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	380	6 30	7 5	#	06:20:00
+#	Mińsk_Mazowiecki	Czachówek_Południowy	390	6 30	7 5	#	06:30:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	400	6 30	7 5	#	06:40:00
+#	Mińsk_Mazowiecki	Warszawa_Zachodnia	410	6 30	7 5	#	06:50:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	420	6 30	7 5	#	07:00:00
+#	Mińsk_Mazowiecki	Góra_Kalwaria	430	6 30	7 5	#	07:10:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	440	6 30	7 5	#	07:20:00
+#	Mińsk_Mazowiecki	Czachówek_Południowy	450	6 30	7 5	#	07:30:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	460	6 30	7 5	#	07:40:00
+#	Mińsk_Mazowiecki	Czachówek_Południowy	470	6 30	7 5	#	07:50:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	480	6 30	7 5	#	08:00:00
+#	Mińsk_Mazowiecki	Góra_Kalwaria	490	6 30	7 5	#	08:10:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	500	6 30	7 5	#	08:20:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	510	6 30	7 5	#	08:30:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	520	6 30	7 5	#	08:40:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	525	6 30	7 5	#	08:50
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	540	6 30		#	09:00:00
+#	Warszawa_Wschodnia	Góra_Kalwaria	550	6 30		#	09:10:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	555	6 30		#	09:15:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	570	6 30		#	09:30:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	580	6 30		#	09:40:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	585	6 30		#	09:45:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	600	6 30		#	10:00:00
+#	Warszawa_Wschodnia	Góra_Kalwaria	610	6 30		#	10:10:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	615	6 30		#	10:15:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	630	6 30		#	10:30:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	640	6 30		#	10:40:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	645	6 30		#	10:45:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	660	6 30		#	11:00:00
+#	Warszawa_Wschodnia	Góra_Kalwaria	670	6 30		#	11:10:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	675	6 30		#	11:15:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	690	6 30		#	11:30:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	700	6 30		#	11:40:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	705	6 30		#	11:45:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	720	6 30		#	12:00:00
+#	Warszawa_Wschodnia	Góra_Kalwaria	730	6 30		#	12:10:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	735	6 30		#	12:15:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	750	6 30		#	12:30:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	760	6 30		#	12:40:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	765	6 30		#	12:45:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	780	6 30		#	13:00:00
+#	Warszawa_Wschodnia	Góra_Kalwaria	790	6 30		#	13:10:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	795	6 30		#	13:15:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	810	6 30		#	13:30:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	820	6 30		#	13:40:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	825	6 30		#	13:45:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	840	6 30		#	14:00:00
+#	Warszawa_Wschodnia	Góra_Kalwaria	850	6 30		#	14:10:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	855	6 30		#	14:15:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	870	6 30		#	14:30:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	880	6 30		#	14:40:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	885	6 30		#	14:45:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	900	6 30	7 5	#	15:00:00
+#	Mińsk_Mazowiecki	Góra_Kalwaria	910	6 30	7 5	#	15:10:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	920	6 30	7 5	#	15:20:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	930	6 30	7 5	#	15:30:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	940	6 30	7 5	#	15:40:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	950	6 30	7 5	#	15:50:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	960	6 30	7 5	#	16:00:00
+#	Mińsk_Mazowiecki	Góra_Kalwaria	970	6 30	7 5	#	16:10:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	980	6 30	7 5	#	16:20:00
+#	Sulejówek_Miłosna	Czachówek_Południowy	990	6 30	7 5	#	16:30:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1000	6 30	7 5	#	16:40:00
+#	Sulejówek_Miłosna	Czachówek_Południowy	1010	6 30	7 5	#	16:50:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1020	6 30	7 5	#	17:00:00
+#	Sulejówek_Miłosna	Góra_Kalwaria	1030	6 30	7 5	#	17:10:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1040	6 30	7 5	#	17:20:00
+#	Sulejówek_Miłosna	Czachówek_Południowy	1050	6 30	7 5	#	17:30:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1060	6 30	7 5	#	17:40:00
+#	Sulejówek_Miłosna	Czachówek_Południowy	1070	6 30	7 5	#	17:50:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1080	6 30	7 5	#	18:00:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1095	6 30		#	18:15:00
+#	Sulejówek_Miłosna	Warszawa_Zachodnia	1095	6 30		#	18:15:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	1105	6 30		#	18:25:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	1110	6 30		#	18:30:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1125	6 30		#	18:45:00
+#	Warszawa_Wschodnia	Góra_Kalwaria	1135	6 30		#	18:55:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	1140	6 30		#	19:00:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1155	6 30		#	19:15:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	1165	6 30		#	19:25:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	1170	6 30		#	19:30:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1185	6 30		#	19:45:00
+#	Sulejówek_Miłosna	Góra_Kalwaria	1200	6 30		#	20:00:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1215	6 30		#	20:15:00
+#	Sulejówek_Miłosna	Czachówek_Południowy	1230	6 30		#	20:30:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	1245	6 30		#	20:45:00
+#	Mińsk_Mazowiecki	Góra_Kalwaria	1260	6 30		#	21:00:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	1275	6 30		#	21:15:00
+#	Sulejówek_Miłosna	Czachówek_Południowy	1290	6 30		#	21:30:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1305	6 30		#	21:45:00
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	1335	6 30		#	22:15:00
+#	Warszawa_Wschodnia	Czachówek_Południowy	1350	6 30		#	22:30:00
+#	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	1365	6 30		#	22:45:00
+#	Sulejówek_Miłosna	Warszawa_Zachodnia	1395	6 30		#	23:15:00
+#	Mińsk_Mazowiecki	Warszawa_Zachodnia	1425	6 30		#	23:45:00
+	@ E KM 0.5 120 20 180 rozklady/LegionowoWarszawa.trasa						
+#	Legionowo	Warszawa_Zachodnia	345	8 20		#	05:45:00
+#	Nasielsk	Warszawa_Zachodnia	360	8 20		#	06:00:00
+#	Radzymin	Warszawa_Zachodnia	375	8 20		#	06:15:00
+#	Nasielsk	Warszawa_Zachodnia	390	8 20		#	06:30:00
+#	Wieliszew	Warszawa_Zachodnia	400	8 20		#	06:40:00
+#	Legionowo	Warszawa_Zachodnia	410	8 20		#	06:50:00
+#	Nasielsk	Warszawa_Zachodnia	420	8 20		#	07:00:00
+#	Radzymin	Warszawa_Zachodnia	430	8 20		#	07:10:00
+#	Legionowo	Warszawa_Zachodnia	440	8 20		#	07:20:00
+#	Nasielsk	Warszawa_Zachodnia	450	8 20		#	07:30:00
+#	Wieliszew	Warszawa_Zachodnia	460	8 20		#	07:40:00
+#	Legionowo	Warszawa_Zachodnia	470	8 20		#	07:50:00
+#	Nasielsk	Warszawa_Zachodnia	480	8 20		#	08:00:00
+#	Radzymin	Warszawa_Zachodnia	490	8 20		#	08:10:00
+#	Legionowo	Warszawa_Zachodnia	500	8 20		#	08:20:00
+#	Nasielsk	Warszawa_Zachodnia	510	8 20		#	08:30:00
+#	Wieliszew	Warszawa_Zachodnia	525	8 20		#	08:45:00
+#	Nasielsk	Warszawa_Zachodnia	540	8 20		#	09:00:00
+#	Radzymin	Warszawa_Zachodnia	555	8 20		#	09:15:00
+#	Legionowo	Warszawa_Zachodnia	570	8 20		#	09:30:00
+#	Legionowo_Piaski	Warszawa_Zachodnia	585	8 20		#	09:45:00
+#	Nasielsk	Warszawa_Zachodnia	600	8 20		#	10:00:00
+#	Radzymin	Warszawa_Zachodnia	615	8 20		#	10:15:00
+#	Legionowo	Warszawa_Zachodnia	630	8 20		#	10:30:00
+#	Legionowo_Piaski	Warszawa_Zachodnia	645	8 20		#	10:45:00
+#	Nasielsk	Warszawa_Zachodnia	660	8 20		#	11:00:00
+#	Radzymin	Warszawa_Zachodnia	675	8 20		#	11:15:00
+#	Legionowo	Warszawa_Zachodnia	690	8 20		#	11:30:00
+#	Legionowo_Piaski	Warszawa_Zachodnia	705	8 20		#	11:45:00
+#	Nasielsk	Warszawa_Zachodnia	720	8 20		#	12:00:00
+#	Radzymin	Warszawa_Zachodnia	735	8 20		#	12:15:00
+#	Legionowo	Warszawa_Zachodnia	750	8 20		#	12:30:00
+#	Legionowo_Piaski	Warszawa_Zachodnia	765	8 20		#	12:45:00
+#	Nasielsk	Warszawa_Zachodnia	780	8 20		#	13:00:00
+#	Radzymin	Warszawa_Zachodnia	795	8 20		#	13:15:00
+#	Legionowo	Warszawa_Zachodnia	810	8 20		#	13:30:00
+#	Legionowo_Piaski	Warszawa_Zachodnia	825	8 20		#	13:45:00
+#	Nasielsk	Warszawa_Zachodnia	840	8 20		#	14:00:00
+#	Radzymin	Warszawa_Zachodnia	855	8 20		#	14:15:00
+#	Legionowo	Warszawa_Zachodnia	870	8 20		#	14:30:00
+#	Legionowo_Piaski	Warszawa_Zachodnia	885	8 20		#	14:45:00
+#	Nasielsk	Warszawa_Zachodnia	900	8 20		#	15:00:00
+#	Radzymin	Warszawa_Zachodnia	915	8 20		#	15:15:00
+#	Legionowo	Warszawa_Zachodnia	930	8 20		#	15:30:00
+#	Legionowo_Piaski	Warszawa_Zachodnia	945	8 20		#	15:45:00
+#	Nasielsk	Warszawa_Zachodnia	960	8 20		#	16:00:00
+#	Radzymin	Warszawa_Zachodnia	975	8 20		#	16:15:00
+#	Legionowo	Warszawa_Zachodnia	990	8 20		#	16:30:00
+#	Legionowo_Piaski	Warszawa_Zachodnia	1000	8 20		#	16:40:00
+#	Legionowo	Warszawa_Zachodnia	1010	8 20		#	16:50:00
+#	Nasielsk	Warszawa_Zachodnia	1020	8 20		#	17:00:00
+#	Radzymin	Warszawa_Zachodnia	1030	8 20		#	17:10:00
+#	Legionowo	Warszawa_Zachodnia	1040	8 20		#	17:20:00
+#	Nasielsk	Warszawa_Zachodnia	1050	8 20		#	17:30:00
+#	Wieliszew	Warszawa_Zachodnia	1060	8 20		#	17:40:00
+#	Legionowo	Warszawa_Zachodnia	1070	8 20		#	17:50:00
+#	Nasielsk	Warszawa_Zachodnia	1080	8 20		#	18:00:00
+#	Radzymin	Warszawa_Zachodnia	1090	8 20		#	18:10:00
+#	Legionowo	Warszawa_Zachodnia	1100	8 20		#	18:20:00
+#	Nasielsk	Warszawa_Zachodnia	1110	8 20		#	18:30:00
+#	Wieliszew	Warszawa_Zachodnia	1120	8 20		#	18:40:00
+#	Legionowo	Warszawa_Zachodnia	1130	8 20		#	18:50:00
+#	Nasielsk	Warszawa_Zachodnia	1140	8 20		#	19:00:00
+#	Radzymin	Warszawa_Zachodnia	1155	8 20		#	19:15:00
+#	Nasielsk	Warszawa_Zachodnia	1170	8 20		#	19:30:00
+#	Legionowo	Warszawa_Zachodnia	1185	8 20		#	19:45:00
+#	Nasielsk	Warszawa_Zachodnia	1200	8 20		#	20:00:00
+#	Radzymin	Warszawa_Zachodnia	1215	8 20		#	20:15:00
+#	Legionowo_Piaski	Warszawa_Zachodnia	1230	8 20		#	20:30:00
+#	Legionowo	Warszawa_Zachodnia	1245	8 20		#	20:45:00
+#	Nasielsk	Warszawa_Zachodnia	1260	8 20		#	21:00:00
+#	Radzymin	Warszawa_Zachodnia	1275	8 20		#	21:15:00
+#	Legionowo_Piaski	Warszawa_Zachodnia	1290	8 20		#	21:30:00
+#	Legionowo	Warszawa_Zachodnia	1305	8 20		#	21:45:00
+#	Nasielsk	Warszawa_Zachodnia	1320	8 20		#	22:00:00
+#	Radzymin	Warszawa_Zachodnia	1350	8 20		#	22:30:00
+#	Legionowo	Warszawa_Zachodnia	1380	8 20		#	23:00:00
+#	Radzymin	Warszawa_Zachodnia	1410	8 20		#	23:30:00
+	@ F KM 0.5 120 20 180 rozklady/WarszawaLegionowo.trasa						
+#	Warszawa_Zachodnia	Nasielsk	300	9 20		#	05:00:00
+#	Warszawa_Zachodnia	Radzymin	315	9 20		#	05:15:00
+#	Warszawa_Zachodnia	Nasielsk	330	9 20		#	05:30:00
+#	Warszawa_Zachodnia	Wieliszew	340	9 20		#	05:40:00
+#	Warszawa_Zachodnia	Legionowo	350	9 20		#	05:50:00
+#	Warszawa_Zachodnia	Nasielsk	360	9 20		#	06:00:00
+#	Warszawa_Zachodnia	Radzymin	370	9 20		#	06:10:00
+#	Warszawa_Zachodnia	Legionowo	380	9 20		#	06:20:00
+#	Warszawa_Zachodnia	Nasielsk	390	9 20		#	06:30:00
+#	Warszawa_Zachodnia	Wieliszew	400	9 20		#	06:40:00
+#	Warszawa_Zachodnia	Legionowo	410	9 20		#	06:50:00
+#	Warszawa_Zachodnia	Nasielsk	420	9 20		#	07:00:00
+#	Warszawa_Zachodnia	Radzymin	435	9 20		#	07:15:00
+#	Warszawa_Zachodnia	Legionowo	450	9 20		#	07:30:00
+#	Warszawa_Zachodnia	Wieliszew	465	9 20		#	07:45:00
+#	Warszawa_Zachodnia	Nasielsk	480	9 20		#	08:00:00
+#	Warszawa_Zachodnia	Radzymin	495	9 20		#	08:15:00
+#	Warszawa_Zachodnia	Legionowo	510	9 20		#	08:30:00
+#	Warszawa_Zachodnia	Legionowo_Piaski	525	9 20		#	08:45:00
+#	Warszawa_Zachodnia	Nasielsk	540	9 20		#	09:00:00
+#	Warszawa_Zachodnia	Radzymin	555	9 20		#	09:15:00
+#	Warszawa_Zachodnia	Legionowo	570	9 20		#	09:30:00
+#	Warszawa_Zachodnia	Legionowo_Piaski	585	9 20		#	09:45:00
+#	Warszawa_Zachodnia	Nasielsk	600	9 20		#	10:00:00
+#	Warszawa_Zachodnia	Radzymin	615	9 20		#	10:15:00
+#	Warszawa_Zachodnia	Legionowo	630	9 20		#	10:30:00
+#	Warszawa_Zachodnia	Legionowo_Piaski	645	9 20		#	10:45:00
+#	Warszawa_Zachodnia	Nasielsk	660	9 20		#	11:00:00
+#	Warszawa_Zachodnia	Radzymin	675	9 20		#	11:15:00
+#	Warszawa_Zachodnia	Legionowo	690	9 20		#	11:30:00
+#	Warszawa_Zachodnia	Legionowo_Piaski	705	9 20		#	11:45:00
+#	Warszawa_Zachodnia	Nasielsk	720	9 20		#	12:00:00
+#	Warszawa_Zachodnia	Radzymin	735	9 20		#	12:15:00
+#	Warszawa_Zachodnia	Legionowo	750	9 20		#	12:30:00
+#	Warszawa_Zachodnia	Legionowo_Piaski	765	9 20		#	12:45:00
+#	Warszawa_Zachodnia	Nasielsk	780	9 20		#	13:00:00
+#	Warszawa_Zachodnia	Radzymin	795	9 20		#	13:15:00
+#	Warszawa_Zachodnia	Legionowo	810	9 20		#	13:30:00
+#	Warszawa_Zachodnia	Legionowo_Piaski	825	9 20		#	13:45:00
+#	Warszawa_Zachodnia	Nasielsk	840	9 20		#	14:00:00
+#	Warszawa_Zachodnia	Radzymin	855	9 20		#	14:15:00
+#	Warszawa_Zachodnia	Legionowo	870	9 20		#	14:30:00
+#	Warszawa_Zachodnia	Legionowo_Piaski	885	9 20		#	14:45:00
+#	Warszawa_Zachodnia	Nasielsk	900	9 20		#	15:00:00
+#	Warszawa_Zachodnia	Radzymin	910	9 20		#	15:10:00
+#	Warszawa_Zachodnia	Legionowo	920	9 20		#	15:20:00
+#	Warszawa_Zachodnia	Nasielsk	930	9 20		#	15:30:00
+#	Warszawa_Zachodnia	Legionowo_Piaski	940	9 20		#	15:40:00
+#	Warszawa_Zachodnia	Legionowo	950	9 20		#	15:50:00
+#	Warszawa_Zachodnia	Nasielsk	960	9 20		#	16:00:00
+#	Warszawa_Zachodnia	Radzymin	970	9 20		#	16:10:00
+#	Warszawa_Zachodnia	Legionowo	980	9 20		#	16:20:00
+#	Warszawa_Zachodnia	Nasielsk	990	9 20		#	16:30:00
+#	Warszawa_Zachodnia	Wieliszew	1000	9 20		#	16:40:00
+#	Warszawa_Zachodnia	Legionowo	1010	9 20		#	16:50:00
+#	Warszawa_Zachodnia	Nasielsk	1020	9 20		#	17:00:00
+#	Warszawa_Zachodnia	Radzymin	1030	9 20		#	17:10:00
+#	Warszawa_Zachodnia	Legionowo	1040	9 20		#	17:20:00
+#	Warszawa_Zachodnia	Nasielsk	1050	9 20		#	17:30:00
+#	Warszawa_Zachodnia	Wieliszew	1060	9 20		#	17:40:00
+#	Warszawa_Zachodnia	Legionowo	1070	9 20		#	17:50:00
+#	Warszawa_Zachodnia	Nasielsk	1080	9 20		#	18:00:00
+#	Warszawa_Zachodnia	Radzymin	1095	9 20		#	18:15:00
+#	Warszawa_Zachodnia	Legionowo	1110	9 20		#	18:30:00
+#	Warszawa_Zachodnia	Legionowo_Piaski	1125	9 20		#	18:45:00
+#	Warszawa_Zachodnia	Nasielsk	1140	9 20		#	19:00:00
+#	Warszawa_Zachodnia	Radzymin	1155	9 20		#	19:15:00
+#	Warszawa_Zachodnia	Legionowo	1170	9 20		#	19:30:00
+#	Warszawa_Zachodnia	Legionowo_Piaski	1185	9 20		#	19:45:00
+#	Warszawa_Zachodnia	Nasielsk	1200	9 20		#	20:00:00
+#	Warszawa_Zachodnia	Radzymin	1220	9 20		#	20:20:00
+#	Warszawa_Zachodnia	Legionowo	1240	9 20		#	20:40:00
+#	Warszawa_Zachodnia	Nasielsk	1260	9 20		#	21:00:00
+#	Warszawa_Zachodnia	Radzymin	1280	9 20		#	21:20:00
+#	Warszawa_Zachodnia	Legionowo	1300	9 20		#	21:40:00
+#	Warszawa_Zachodnia	Nasielsk	1320	9 20		#	22:00:00
+#	Warszawa_Zachodnia	Radzymin	1350	9 20		#	22:30:00
+#	Warszawa_Zachodnia	Legionowo	1380	9 20		#	23:00:00
+	@ G KM 0.5 120 20 2 rozklady/WarszawaBlonie.trasa						
+#	Warszawa_Wschodnia	Błonie	290	10 20		#	04:50
+#	Warszawa_Wschodnia	Błonie	310	10 20		#	05:10:00
+#	Warszawa_Wschodnia	Błonie	330	10 20		#	05:30:00
+#	Warszawa_Wschodnia	Błonie	350	10 20		#	05:50:00
+#	Warszawa_Wschodnia	Błonie	370	10 20		#	06:10:00
+#	Warszawa_Wschodnia	Błonie	390	10 20		#	06:30:00
+#	Warszawa_Wschodnia	Błonie	410	10 20		#	06:50:00
+#	Warszawa_Wschodnia	Błonie	450	10 20		#	07:30:00
+#	Warszawa_Wschodnia	Błonie	470	10 20		#	07:50:00
+#	Warszawa_Wschodnia	Błonie	510	10 20		#	08:30:00
+#	Warszawa_Wschodnia	Błonie	540	10 20		#	09:00:00
+#	Warszawa_Wschodnia	Błonie	570	10 20		#	09:30:00
+#	Warszawa_Wschodnia	Błonie	600	10 20		#	10:00:00
+#	Warszawa_Wschodnia	Błonie	630	10 20		#	10:30:00
+#	Warszawa_Wschodnia	Błonie	660	10 20		#	11:00:00
+#	Warszawa_Wschodnia	Błonie	690	10 20		#	11:30:00
+#	Warszawa_Wschodnia	Błonie	720	10 20		#	12:00:00
+#	Warszawa_Wschodnia	Błonie	750	10 20		#	12:30:00
+#	Warszawa_Wschodnia	Błonie	780	10 20		#	13:00:00
+#	Warszawa_Wschodnia	Błonie	810	10 20		#	13:30:00
+#	Warszawa_Wschodnia	Błonie	840	10 20		#	14:00:00
+#	Warszawa_Wschodnia	Błonie	870	10 20		#	14:30:00
+#	Warszawa_Wschodnia	Błonie	900	10 20		#	15:00:00
+#	Warszawa_Wschodnia	Błonie	920	10 20		#	15:20:00
+#	Warszawa_Wschodnia	Błonie	940	10 20		#	15:40:00
+#	Warszawa_Wschodnia	Błonie	960	10 20		#	16:00:00
+#	Warszawa_Wschodnia	Błonie	980	10 20		#	16:20:00
+#	Warszawa_Wschodnia	Błonie	1000	10 20		#	16:40:00
+#	Warszawa_Wschodnia	Błonie	1020	10 20		#	17:00:00
+#	Warszawa_Wschodnia	Błonie	1040	10 20		#	17:20:00
+#	Warszawa_Wschodnia	Błonie	1060	10 20		#	17:40:00
+#	Warszawa_Wschodnia	Błonie	1080	10 20		#	18:00:00
+#	Warszawa_Wschodnia	Błonie	1110	10 20		#	18:30:00
+#	Warszawa_Wschodnia	Błonie	1140	10 20		#	19:00:00
+#	Warszawa_Wschodnia	Błonie	1170	10 20		#	19:30:00
+#	Warszawa_Wschodnia	Błonie	1200	10 20		#	20:00:00
+#	Warszawa_Wschodnia	Błonie	1230	10 20		#	20:30:00
+#	Warszawa_Wschodnia	Błonie	1260	10 20		#	21:00:00
+#	Warszawa_Wschodnia	Błonie	1290	10 20		#	21:30:00
+#	Warszawa_Wschodnia	Błonie	1320	10 20		#	22:00:00
+#	Warszawa_Wschodnia	Błonie	1380	10 20		#	23:00:00
+	@ H KM 0.5 120 20 2 rozklady/BlonieWarszawa.trasa						
+#	Błonie	Warszawa_Wschodnia	360	11 20		#	06:00:00
+#	Błonie	Warszawa_Wschodnia	390	11 20		#	06:30:00
+#	Błonie	Warszawa_Wschodnia	410	11 20		#	06:50:00
+#	Błonie	Warszawa_Wschodnia	430	11 20		#	07:10:00
+#	Błonie	Warszawa_Wschodnia	450	11 20		#	07:30:00
+#	Błonie	Warszawa_Wschodnia	470	11 20		#	07:50:00
+#	Błonie	Warszawa_Wschodnia	490	11 20		#	08:10:00
+#	Błonie	Warszawa_Wschodnia	510	11 20		#	08:30:00
+#	Błonie	Warszawa_Wschodnia	540	11 20		#	09:00:00
+#	Błonie	Warszawa_Wschodnia	570	11 20		#	09:30:00
+#	Błonie	Warszawa_Wschodnia	600	11 20		#	10:00:00
+#	Błonie	Warszawa_Wschodnia	630	11 20		#	10:30:00
+#	Błonie	Warszawa_Wschodnia	660	11 20		#	11:00:00
+#	Błonie	Warszawa_Wschodnia	690	11 20		#	11:30:00
+#	Błonie	Warszawa_Wschodnia	720	11 20		#	12:00:00
+#	Błonie	Warszawa_Wschodnia	750	11 20		#	12:30:00
+#	Błonie	Warszawa_Wschodnia	780	11 20		#	13:00:00
+#	Błonie	Warszawa_Wschodnia	810	11 20		#	13:30:00
+#	Błonie	Warszawa_Wschodnia	840	11 20		#	14:00:00
+#	Błonie	Warszawa_Wschodnia	870	11 20		#	14:30:00
+#	Błonie	Warszawa_Wschodnia	900	11 20		#	15:00:00
+#	Błonie	Warszawa_Wschodnia	940	11 20		#	15:40:00
+#	Błonie	Warszawa_Wschodnia	960	11 20		#	16:00:00
+#	Błonie	Warszawa_Wschodnia	1000	11 20		#	16:40:00
+#	Błonie	Warszawa_Wschodnia	1020	11 20		#	17:00:00
+#	Błonie	Warszawa_Wschodnia	1040	11 20		#	17:20:00
+#	Błonie	Warszawa_Wschodnia	1060	11 20		#	17:40:00
+#	Błonie	Warszawa_Wschodnia	1080	11 20		#	18:00:00
+#	Błonie	Warszawa_Wschodnia	1110	11 20		#	18:30:00
+#	Błonie	Warszawa_Wschodnia	1110	11 20		#	18:30:00
+#	Błonie	Warszawa_Wschodnia	1140	11 20		#	19:00:00
+#	Błonie	Warszawa_Wschodnia	1170	11 20		#	19:30:00
+#	Błonie	Warszawa_Wschodnia	1200	11 20		#	20:00:00
+#	Błonie	Warszawa_Wschodnia	1230	11 20		#	20:30:00
+#	Błonie	Warszawa_Wschodnia	1260	11 20		#	21:00:00
+#	Błonie	Warszawa_Wschodnia	1290	11 20		#	21:30:00
+#	Błonie	Warszawa_Wschodnia	1320	11 20		#	22:00:00
+#	Błonie	Warszawa_Wschodnia	1350	11 20		#	22:30:00
+#	Błonie	Warszawa_Wschodnia	1380	11 20		#	23:00:00
+#	Błonie	Warszawa_Wschodnia	1410	11 20		#	23:30:00
+#	Błonie	Warszawa_Wschodnia	1470	11 20		#	24:30
+	@ P KM 0.5 120 20 2 rozklady/PendolinoPolnoc.trasa
+# Katowice Gdańsk_Główny 600 #						

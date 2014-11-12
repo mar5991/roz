@@ -16,7 +16,7 @@ int main()
 	BazaInfryKolejowej* bazaa = new BazaInfryKolejowej(bui);
 	vector <int> wynik;
 	int x;
-	for(int i=0; i<8; i++)
+	for(int i=0; i<20; i++)
 	{
 		cin>>x;
 		wynik.push_back(x);
@@ -27,7 +27,7 @@ int main()
 		abcx.push_back(abc);
 	}
 	cout<<"tutsi.."<<endl;
-	algopoc alg(8, 25, 5, 5, bazaa, abcx);
+	algopoc alg(20, 25, 5, 5, bazaa, abcx);
 	BazaRuchuKolejowego* bazab=alg.generuj(wynik);
 	vector <Pociag*> pociagiW=bazab->getPociagi();
 	int s1 = pociagiW.size();

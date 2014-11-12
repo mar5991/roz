@@ -81,6 +81,7 @@ struct kand_pociag_roz
 };
 class algopoc : genalgo
 {
+	int liczba_ocenionych;
 	BazaInfryKolejowej* baz;
 	vector <string> sciezki;
 	vector <kand_pociag_roz> kandydaci;
@@ -109,12 +110,14 @@ class algopoc : genalgo
 		}
 		cout<<endl;
 		delete przykladowa;
-		cout<<"OCENA "<<wynik/60<<endl;
+		liczba_ocenionych++;
+		cout<<liczba_ocenionych<<" OCENA "<<wynik/60<<endl;
 		return 2000000-wynik/500;
 	}
 	public:
 	BazaRuchuKolejowego* generuj(vector <int> lista)
 	{
+		liczba_ocenionych=0;
 		int s1=kandydaci.size();
 		vector <kand_pociag> kandydaci2;
 		for(int i=0; i<s1; i++)

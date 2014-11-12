@@ -9,6 +9,7 @@
 #include "genalg.hpp"
 #include "BazaObiegow.hpp"
 #include "LiczbaPociagowStacja.hpp"
+#include "plot.hpp"
 #include <cmath>
 using namespace std;
 
@@ -50,7 +51,7 @@ struct htmlgen
 		wynik+=id;
 		wynik+="\">";
 		wynik+=info;
-		wynik+="</div>";
+		wynik+="</div>\n";
 		return wynik;
 	}
 	static string link(string link, string info)
@@ -115,7 +116,9 @@ void generujpociag(int nkol, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* baz
 {
 	cout<<nkol<<endl;
 	Pociag* foo=(bazab->getPociagi())[nkol];
+	easyTrainPlot(foo);
 	string str="data/pociag"+foo->getIdPociagu()+".html";
+	string str2=foo->getIdPociagu()+".png";
 	cout<<"okok"<<endl;
 	stringstream plik;
 	vector <PostojPociagu> postoje = foo->getPostojePociagu();
@@ -133,6 +136,7 @@ void generujpociag(int nkol, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* baz
 		plik<<a2<<" ";
 		plik<<totimesec(po.timePrzyjazd)<<" "<<totimesec(po.timeOdjazd)<<"</br>"<<endl;
 	}
+	plik<<"<img src=\""<<str2<<"\"/>"<<endl;
 	htmlgen::zlozHtml(plik.str(), str, "style.css");
 	cout<<"FFFFF"<<endl;
 }
@@ -180,6 +184,20 @@ string tabelaZajetosciTorowStacyjnych(LiczbaPociagowStacja& lps, vector <string>
 {
 	string wynik;
 	vector <vector <int> > praLista=tabelaZajetosciTorowStacyjnych2(lps, typy);
+	string wynikLine0;
+	wynikLine0+=htmlgen::div("tabelazajetosci_lead", "", "");
+	wynikLine0+=htmlgen::div("tabelazajetosci_lead", "", "");
+	for(int j=0; j<typy.size(); j++)
+	{
+		wynikLine0+=htmlgen::div("tabelazajetosci_lead", "", typy[j]);
+	}
+	wynikLine0+=htmlgen::div("tabelazajetosci_lead", "", inttostring(lps.maksymalnaZajetoscOdstawczych()));
+	for(int j=0; j<typy.size(); j++)
+	{
+		wynikLine0+=htmlgen::div("tabelazajetosci_lead", "", typy[j]);
+	}
+	wynikLine0+=htmlgen::div("tabelazajetosci_lead", "", inttostring(lps.maksymalnaZajetoscWszystkich()));
+	wynik+=htmlgen::div("tabelazajetosci_linelead", "", wynikLine0);
 	for(int i=0; i<praLista.size(); i++)
 	{
 		string wynikLine;
@@ -342,11 +360,12 @@ void generujzestawienie (BazaObiegow& bazac, BazaInfryKolejowej* bazaa, BazaRuch
 	plik<<"<table>";
 	int s1=bazac.liczbaObiegow();
 	vector <string> obiegi_linijki;
+	plik<<htmlgen::div("header2", "", "Lista stacji");
 	plik<<zestawienieTabelaStacje(bazac, bazaa, bazab)<<endl;
+	plik<<htmlgen::div("header2", "", "Lista przystanków");
 	for(int i=0; i<bazaa->wszystkiePrzystanki().size(); i++)
 		plik<<i<<" "<<przystanekLink(bazaa->wszystkiePrzystanki()[i])<<"</br>"<<endl;
-	plik<<"</br>"<<endl;
-	
+	plik<<htmlgen::div("header2", "", "Lista torów");
 	for(int i=0; i<bazaa->wszystkieTory().size(); i++)
 	{
 		plik<<torLinkLong(bazaa->wszystkieTory()[i])<<" >> "<<endl;
@@ -357,6 +376,7 @@ void generujzestawienie (BazaObiegow& bazac, BazaInfryKolejowej* bazaa, BazaRuch
 		}
 		plik<<"</br>"<<endl;
 	}
+	plik<<htmlgen::div("header2", "", "Lista obiegów");
 	for(int i=0; i<s1; i++)
 	{
 		int obieg_distance=0;
@@ -411,7 +431,8 @@ void generujzestawienie (BazaObiegow& bazac, BazaInfryKolejowej* bazaa, BazaRuch
 		string a27="<td>"+totimemin(obieg_czas_stop)+"</td>";
 		obiegi_linijki.push_back("<tr>"+a2+a21+a22+a23+a24+a26+a25+a27+"</tr>");
 	}
-	plik<<"</table><table>"<<endl;
+	plik<<"</table>";
+	plik<<htmlgen::div("header2", "", "Zestawienie obiegów")<<"<table>"<<endl;
 	for(int i=0; i<s1; i++)
 	{
 		plik<<obiegi_linijki[i]<<endl;

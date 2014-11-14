@@ -13,6 +13,18 @@
 #include <cmath>
 using namespace std;
 
+string textPoc()
+{
+
+string str1="<div style=\"position: relative;\"><canvas id=\"mycanvas\" width=\"400\" height=\"400\" style=\"position: absolute; left: 0; top: 0; z-index: 0;\"></canvas>";
+string str2=" <canvas id=\"canvas2\" width=\"400\" height=\"400\"  style=\"position: absolute; left: 0; top: 0; z-index: 1;\"></canvas>";
+string str3="</div><div style=\"position: fixed; left: 400px;\"><input type=\"text\" id=\"xwal\"></input>";
+string str4="<input type=\"text\" id=\"ywal\"></input><input type=\"text\" id=\"zwal\"></input>";
+string str5="<button id =\"kupa\" onclick=\"updateinfo()\" >What is the time?</button></div>";
+string str6="<script src=\"obr.js\"></script>";
+return str1+str2+str3+str4+str5+str6;
+}
+
 struct htmlgen
 {
 	static string zlozTabele(string tableclass, string lineclass, string cellclass, vector <vector <string> > tabela)
@@ -116,11 +128,11 @@ void generujpociag(int nkol, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* baz
 {
 	cout<<nkol<<endl;
 	Pociag* foo=(bazab->getPociagi())[nkol];
-	easyTrainPlot(foo);
 	string str="data/pociag"+foo->getIdPociagu()+".html";
 	string str2=foo->getIdPociagu()+".png";
 	cout<<"okok"<<endl;
 	stringstream plik;
+	plik<<easyTrainPlot(foo);
 	vector <PostojPociagu> postoje = foo->getPostojePociagu();
 	int s1=postoje.size();
 	for(int j=0; j<s1; j++)
@@ -137,6 +149,7 @@ void generujpociag(int nkol, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* baz
 		plik<<totimesec(po.timePrzyjazd)<<" "<<totimesec(po.timeOdjazd)<<"</br>"<<endl;
 	}
 	plik<<"<img src=\""<<str2<<"\"/>"<<endl;
+	plik<<textPoc();
 	htmlgen::zlozHtml(plik.str(), str, "style.css");
 	cout<<"FFFFF"<<endl;
 }

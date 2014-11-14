@@ -11,6 +11,14 @@ body
 {
 	font-family: sans-serif;
 }
+img
+{
+	display:none;
+}
+div#lines, div#ytics, div#xtics
+{
+	display:none;
+}
 div.tortime
 {
 	background-color: lightblue;

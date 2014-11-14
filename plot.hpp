@@ -12,6 +12,7 @@ struct plot_odc
 	int xStop;
 	int yStop;
 	int style;
+	string name;
 };
 
 struct Plot
@@ -21,7 +22,10 @@ struct Plot
 	vector <pair <double, string> > xTics;
 	vector <pair <double, string> > yTics;
 	double xMin, xMax, yMin, yMax;
+	private:
+	map<string, vector <int> > odcname;
 	vector <plot_odc> odcinki;
+	public:
 	Plot(int rozX, int rozY, double xMinW, double xMaxW, double yMinW, double yMaxW)
 	{
 		rozdzielczoscX=rozX;
@@ -31,8 +35,23 @@ struct Plot
 		yMin=yMinW;
 		yMax=yMaxW;
 	}
+	string listaPodobnych(string name)
+	{
+		stringstream plik;
+		plik<<"[";
+		vector <int> lol=odcname[name];
+		for(int i=0; i<lol.size(); i++)
+		{
+			plik<<"\""<<lol[i]<<"\"";
+			if(i<(lol.size()-1))
+				plik<<", ";
+		}
+		plik<<"]";
+		return plik.str();
+	}
 	void dodajOdcinek(plot_odc odc)
 	{
+		odcname[odc.name].push_back(odcinki.size());
 		odcinki.push_back(odc);
 	}
 	void dodajXTic(double wart, string name)
@@ -52,6 +71,7 @@ struct Plot
 		}
 		alfa<<")"<<endl;
 	}
+	
 	void drawYTic(fstream& alfa)
 	{
 		alfa<<"set ytics (";
@@ -95,6 +115,37 @@ struct Plot
 		system("rm pom.txt");
 		system("rm pom2.txt");
 	}
+	string draw2()
+	{
+		stringstream wyn;
+		wyn<<"<div id=\"xtics\">[";
+		for(int i=0; i<xTics.size(); i++)
+		{
+			wyn<<"{ poz:"<<xTics[i].first<<", name:\""<<xTics[i].second<<"\"}";
+			if(i<xTics.size()-1)
+				wyn<<",";
+		}
+		wyn<<"]</div>"<<endl;
+		wyn<<"<div id=\"ytics\">["<<endl;
+		for(int i=0; i<yTics.size(); i++)
+		{
+			wyn<<"{ poz:"<<yTics[i].first<<", name:\""<<yTics[i].second<<"\"}";
+			if(i<yTics.size()-1)
+				wyn<<","<<endl;
+		}
+		wyn<<"]</div>"<<endl;
+		wyn<<"<div id=\"lines\">["<<endl;
+		for(int i=0; i<odcinki.size(); i++)
+		{
+			wyn<<"{ \"x1\":"<<odcinki[i].xStart<<", \"x2\":"<<odcinki[i].xStop<<", \"y1\":"<<odcinki[i].yStart<<", \"y2\":"<<odcinki[i].yStop;
+			wyn<<", \"podobne\":"<<listaPodobnych(odcinki[i].name);
+			wyn<<", \"link\":\""<<"pociag"<<odcinki[i].name<<".html"<<"\""<<"}";
+			if(i<odcinki.size()-1)
+				wyn<<","<<endl;
+		}
+		wyn<<"]</div>"<<endl;;
+		return wyn.str();
+	}
 };
 void easyTorPlot(Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, int stop, bool wlasciwy)
 {
@@ -114,6 +165,7 @@ void easyTorPlot(Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, i
 		plc.xStop=przej->czasWjazduNaTor;
 		plc.xStart=przej->czasWyjazduZToru;
 	}
+	plc.name=przej->pociag->getIdPociagu();
 	plo.dodajOdcinek(plc);
 }
 void easyTorPlot(Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, int stop)
@@ -130,7 +182,7 @@ void easyTorPlot(Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, i
 		easyTorPlot(plo, akt, start, stop, przej->czyWlasciwyKierunekJazdy);
 	}
 }
-void easyTrainPlot(Pociag* poc)
+string easyTrainPlot(Pociag* poc)
 {
 	int distance=0;
 	Plot plo(1600, 3200, poc->getCzasStart()-30*60,  poc->getCzasStop()+30*60, 0, poc->getDistance());
@@ -145,7 +197,9 @@ void easyTrainPlot(Pociag* poc)
 		distance+=poc->przejazdyPrzezTorSzlakowy[i]->ruchPoTorze->tor->getDlugoscWMetrach();
 		plc.yStop=distance;
 		plc.style=1;
+		plc.name=poc->getIdPociagu();
 		plo.dodajOdcinek(plc);
 	}
-	plo.draw("data/"+poc->getIdPociagu()+".png");
+	//plo.draw("data/"+poc->getIdPociagu()+".png");
+	return plo.draw2();
 }

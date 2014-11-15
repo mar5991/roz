@@ -12,6 +12,10 @@ struct plot_odc
 	int xStop;
 	int yStop;
 	int style;
+	string from;
+	string to;
+	int fromtime;
+	int totime;
 	string name;
 };
 
@@ -25,6 +29,16 @@ struct Plot
 	private:
 	map<string, vector <int> > odcname;
 	vector <plot_odc> odcinki;
+	string ignoruj_podkreslniki(string data)
+	{
+		int s1=data.length();
+		for(int i=0; i<s1; i++)
+		{
+			if(data[i]=='_')
+				data[i]=' ';
+		}
+		return data;
+	}
 	public:
 	Plot(int rozX, int rozY, double xMinW, double xMaxW, double yMinW, double yMaxW)
 	{
@@ -121,7 +135,7 @@ struct Plot
 		wyn<<"<div id=\"xtics\">[";
 		for(int i=0; i<xTics.size(); i++)
 		{
-			wyn<<"{ poz:"<<xTics[i].first<<", name:\""<<xTics[i].second<<"\"}";
+			wyn<<"{ \"poz\":"<<xTics[i].first<<", \"name\":\""<<ignoruj_podkreslniki(xTics[i].second)<<"\"}";
 			if(i<xTics.size()-1)
 				wyn<<",";
 		}
@@ -129,7 +143,7 @@ struct Plot
 		wyn<<"<div id=\"ytics\">["<<endl;
 		for(int i=0; i<yTics.size(); i++)
 		{
-			wyn<<"{ poz:"<<yTics[i].first<<", name:\""<<yTics[i].second<<"\"}";
+			wyn<<"{ \"poz\":"<<yTics[i].first<<", \"name\":\""<<ignoruj_podkreslniki(yTics[i].second)<<"\"}";
 			if(i<yTics.size()-1)
 				wyn<<","<<endl;
 		}
@@ -139,7 +153,11 @@ struct Plot
 		{
 			wyn<<"{ \"x1\":"<<odcinki[i].xStart<<", \"x2\":"<<odcinki[i].xStop<<", \"y1\":"<<odcinki[i].yStart<<", \"y2\":"<<odcinki[i].yStop;
 			wyn<<", \"podobne\":"<<listaPodobnych(odcinki[i].name);
-			wyn<<", \"link\":\""<<"pociag"<<odcinki[i].name<<".html"<<"\""<<"}";
+			wyn<<", \"link\":\""<<"pociag"<<odcinki[i].name<<".html"<<"\"";
+			wyn<<", \"from\":\""<<ignoruj_podkreslniki(odcinki[i].from)<<"\"";
+			wyn<<", \"fromtime\":\""<<odcinki[i].fromtime<<"\"";
+			wyn<<", \"totime\":\""<<odcinki[i].totime<<"\"";
+			wyn<<", \"to\":\""<<ignoruj_podkreslniki(odcinki[i].to)<<"\""<<"}";
 			if(i<odcinki.size()-1)
 				wyn<<","<<endl;
 		}
@@ -166,6 +184,11 @@ void easyTorPlot(Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, i
 		plc.xStart=przej->czasWyjazduZToru;
 	}
 	plc.name=przej->pociag->getIdPociagu();
+	plc.from=przej->pociag->getStacjaPoczatkowa()->getNazwa();
+	plc.fromtime=przej->pociag->getCzasStart();
+	plc.totime=przej->pociag->getCzasStop();
+	//plc.fromtime=przej->pociag->getStacjaPoczatkowa();
+	plc.to=przej->pociag->getStacjaKoncowa()->getNazwa();
 	plo.dodajOdcinek(plc);
 }
 void easyTorPlot(Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, int stop)
@@ -197,6 +220,10 @@ string easyTrainPlot(Pociag* poc)
 		distance+=poc->przejazdyPrzezTorSzlakowy[i]->ruchPoTorze->tor->getDlugoscWMetrach();
 		plc.yStop=distance;
 		plc.style=1;
+		plc.from=poc->getStacjaPoczatkowa()->getNazwa();
+		plc.fromtime=poc->getCzasStart();
+		plc.totime=poc->getCzasStop();
+		plc.to=poc->getStacjaKoncowa()->getNazwa();
 		plc.name=poc->getIdPociagu();
 		plo.dodajOdcinek(plc);
 	}

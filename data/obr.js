@@ -1,11 +1,50 @@
 var linie = [];
+var ytics = [];
 var canvas = document.getElementById('mycanvas');
 var canvas2 = document.getElementById('canvas2');
+var canvas3 = document.getElementById('canvas3');
 var ctx = canvas.getContext('2d');
 var cty = canvas2.getContext('2d');
+var ctz = canvas3.getContext('2d');
+var minX = 0;
+var minY = 0;
+var maxX = 1000;
+var maxY = 0;
 var myoffsetX = 0;
 var myoffsetY = 0;
-var zoom = 1;
+var zoomX = 1;
+var zoomY = 1;
+var clickCzahaX = 0;
+var clickCzahaY = 0;
+var clickTryb = 0;
+function toMatrixX(wart)
+{
+	return ((wart-myoffsetX)*zoomX);
+}
+function toMatrixY(wart)
+{
+	return ((wart-myoffsetY)*zoomY);
+}
+function fromMatrixX(wart)
+{
+	return wart/zoomX+myoffsetX;
+}
+function fromMatrixY(wart)
+{
+	return wart/zoomY+myoffsetY;
+}
+function setMinMax()
+{
+	for(i=0; i<linie.length; i++)
+	{
+		maxY=Math.max(maxY, linie[i].y1);
+		maxY=Math.max(maxY, linie[i].y2);
+	}
+}
+function setRegion(x1, x2, y1, y2)
+{
+	//canvas.width canvas.height
+}
 function defineLineAsRect(x1, y1, x2, y2, lineWidth) 
 {
 	var dx = x2 - x1; // deltaX used in length and angle calculations 
@@ -44,7 +83,7 @@ function whatLineClicked(mouseX, mouseY)
 {
 	for(i=0; i<linie.length; i++)
 	{
-		var linet=new defineLineAsRect((linie[i].x1-myoffsetX)*zoom, (linie[i].y1-myoffsetY)*zoom, (linie[i].x2-myoffsetX)*zoom, (linie[i].y2-myoffsetY)*zoom, 4);
+		var linet=new defineLineAsRect(toMatrixX(linie[i].x1), toMatrixY(linie[i].y1), toMatrixX(linie[i].x2), toMatrixY(linie[i].y2), 4);
 		console.log('coona '+linet.rotation);
 		drawLineAsRect(linet, 'transparent');
 		if (ctx.isPointInPath(mouseX, mouseY)) 
@@ -53,6 +92,21 @@ function whatLineClicked(mouseX, mouseY)
 		}
 	}
 	return -1;
+}
+
+function totimemin(wart)
+{
+	var wynik='';
+	wynik+=parseInt(wart/3600, 10);
+	var wart2=wart%3600;
+	wart2/=60;
+	wynik+=':';
+	if(wart2<10)
+	{
+		wynik+='0';
+	}
+	wynik+=parseInt(wart2, 10);
+	return wynik;
 }
 
 function handleMouseMove(e) 
@@ -90,11 +144,16 @@ function handleMouseMove(e)
 		{
 			cty.beginPath();
 			cty.lineWidth = 5;
-			cty.moveTo((linie[linie[numb].podobne[i]].x1-myoffsetX)*zoom, (linie[linie[numb].podobne[i]].y1-myoffsetY)*zoom);
-			cty.lineTo((linie[linie[numb].podobne[i]].x2-myoffsetX)*zoom, (linie[linie[numb].podobne[i]].y2-myoffsetY)*zoom);
+			cty.moveTo(toMatrixX(linie[linie[numb].podobne[i]].x1), toMatrixY(linie[linie[numb].podobne[i]].y1));
+			cty.lineTo(toMatrixX(linie[linie[numb].podobne[i]].x2), toMatrixY(linie[linie[numb].podobne[i]].y2));
 			cty.strokeStyle = '#ff0000';
 			cty.stroke();
 		}
+		cty.fillStyle = '#ff0000';
+		cty.font = '16px sans-serif';
+		cty.textBaseline = 'bottom';
+		console.log(linie[numb].fromtime+' xxx '+linie[numb].totime);
+		cty.fillText(linie[numb].from+' '+totimemin(linie[numb].fromtime)+' - '+linie[numb].to+' '+totimemin(linie[numb].totime), mouseX+10, mouseY+10);
 	}
 }
 	
@@ -116,12 +175,62 @@ function handleMouseClick(e)
 	if(numb!=-1)
 	{
 		window.location=linie[i].link;
+		clickTryb=0;
+	}
+	else
+	{
+		console.log("SIEJBIK TO DEBIL");
+		if(clickTryb==0)
+		{
+			clickCzahaX=mouseX;
+			clickCzahaY=mouseY;
+			clickTryb=1;
+		}
+		else if(clickTryb==1)
+		{
+			var x1 = fromMatrixX(clickCzahaX);
+			var y1 = fromMatrixY(clickCzahaY);
+			var x2 = fromMatrixX(mouseX);
+			var y2 = fromMatrixY(mouseY);
+			console.log('SIEJBIK TORONTO '+x1+' '+y1+' '+x2+' '+y2);
+			var xLeft = Math.min(x1,x2);
+			var xRight = Math.max(x1,x2);
+			var yTop = Math.min(y1,y2);
+			var yBottom = Math.max(y1,y2);
+			myoffsetX=xLeft;
+			myoffsetY=yTop;
+			zoomX=1/(xRight-xLeft)*canvas.width;
+			zoomY=1/(yBottom-yTop)*canvas.height;
+			clickTryb=0;
+			repaint();
+		}
+	}
+}
+function yTicsRepaint()
+{
+	var czest=60*60;
+	var start=parseInt(fromMatrixX(0)/czest, 10);
+	var stop=parseInt(fromMatrixX(canvas3.width)/czest, 10);
+	console.log(start+' st '+stop);
+	for(i=start; i<=stop; i++)
+	{
+		ctx.beginPath()
+		ctx.strokeStyle = '#006600';
+		ctx.lineWidth = 1;
+		ctx.moveTo(toMatrixX(i*czest), 0);
+		ctx.lineTo(toMatrixX(i*czest), canvas3.height);
+		ctx.stroke();
+		ctz.fillStyle = '#006600';
+		ctz.font = '10px sans-serif';
+		ctz.textBaseline = 'top';
+		ctz.fillText(i, toMatrixX(i*czest), 5);
 	}
 }
 function repaint()
 {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	cty.clearRect(0, 0, canvas2.width, canvas2.height);
+	ctz.clearRect(0, 0, canvas3.width, canvas3.height);
 	for (i=0;i<linie.length;i++)
 	{
 		ctx.beginPath()
@@ -134,24 +243,64 @@ function repaint()
 		{
 			ctx.strokeStyle = '#000000';
 		}
-		ctx.moveTo((linie[i].x1-myoffsetX)*zoom, (linie[i].y1-myoffsetY)*zoom);
-		ctx.lineTo((linie[i].x2-myoffsetX)*zoom, (linie[i].y2-myoffsetY)*zoom);
+		ctx.moveTo(toMatrixX(linie[i].x1), toMatrixY(linie[i].y1));
+		ctx.lineTo(toMatrixX(linie[i].x2), toMatrixY(linie[i].y2));
 		ctx.stroke();
 	}
-
+	for(i=0; i<ytics.length; i++)
+	{
+		ctz.fillStyle = '#006600';
+		ctz.font = '10px sans-serif';
+		ctz.textBaseline = 'bottom';
+		if(i==0)
+			ctz.textBaseline = 'top';
+		ctz.fillText(ytics[i].name, 5, toMatrixY(ytics[i].poz));
+		ctx.beginPath()
+		ctx.strokeStyle = '#006600';
+		ctx.lineWidth = 1;
+		ctx.moveTo(0, toMatrixY(ytics[i].poz));
+		ctx.lineTo(canvas3.width, toMatrixY(ytics[i].poz));
+		ctx.stroke();
+	}
+	yTicsRepaint();
 }
-function updateinfo()
+function clearzoom()
 {
-	myoffsetX = parseInt(document.getElementById("xwal").value, 10);
-	myoffsetY = parseInt(document.getElementById("ywal").value, 10);
-	zoom = parseFloat(document.getElementById("zwal").value, 10);
+	zoomX=1/(1440*60)*canvas.width;
+	zoomY=1/maxY*canvas.height;
+	myoffsetX=0;
+	myoffsetY=0;
+	repaint();
+}
+ window.addEventListener('resize', resizeCanvas, false);
+
+function resizeCanvas()
+{
+	canvas.width = window.innerWidth;
+	canvas2.width = window.innerWidth;
+	canvas3.width = window.innerWidth;
+	canvas.height = Math.min(600, window.innerWidth);
+	canvas2.height = Math.min(600, window.innerWidth);
+	canvas3.height = Math.min(600, window.innerWidth);
 	repaint();
 }
 function init()
 {
+	canvas.width = window.innerWidth;
+	canvas2.width = window.innerWidth;
+	canvas3.width = window.innerWidth;
+	canvas.height = Math.min(600, window.innerWidth);
+	canvas2.height = Math.min(600, window.innerWidth);
+	canvas3.height = Math.min(600, window.innerWidth);
+	
 	var str1=document.getElementById("lines").innerText;
-	console.log(str1);
 	linie=JSON.parse(str1);
+	var str2=document.getElementById("ytics").innerText;
+	ytics=JSON.parse(str2);
+	setMinMax();
+	zoomX=1/(1440*60)*canvas.width;
+	zoomY=1/maxY*canvas.height;
+	console.log("ZOOMX"+zoomX);
 	/*for(i=0; i<30; i++)
 	{
 		linie[i]={link: 'http://facebook.com', x1: Math.floor(Math.random()*300), y1:Math.floor(Math.random()*300), x2:Math.floor(Math.random()*300), y2:Math.floor(Math.random()*300)};
@@ -160,6 +309,8 @@ function init()
 	canvas.addEventListener('click', handleMouseClick, false);
 	canvas2.addEventListener('mousemove', handleMouseMove, false);
 	canvas2.addEventListener('click', handleMouseClick, false);
+	canvas3.addEventListener('mousemove', handleMouseMove, false);
+	canvas3.addEventListener('click', handleMouseClick, false);
 }
 init();
 repaint();

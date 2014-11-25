@@ -140,6 +140,7 @@ void generujpociag(int nkol, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* baz
 		string a2;
 		if(po.typ==0)
 		{
+			plik<<foo->czasPostojuPlanowego[po.stacja]<<" ";
 			a2="<a href=\"stacja"+inttostring(po.stacja->getId())+".html\">"+ignoruj_podkreslniki(po.stacja->getNazwa())+"</a>";
 }
 		else
@@ -281,6 +282,13 @@ void generujstacje(int nkol, BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* baz
 				if(ruch->przejazdy[i].first->czasWyjazduZToru==ruch->przejazdy[i].second->czasWjazduNaTor)
 				{
 					type="nostop_line";
+				}
+				else
+				{
+					if(abs(ruch->przejazdy[i].first->czasWyjazduZToru-ruch->przejazdy[i].second->czasWjazduNaTor)!=poc->czasPostojuPlanowego[stanica])
+					{
+						type="waiting_line";
+					}
 				}
 			}
 			acc4=totimesec(ruch->przejazdy[i].second->czasWjazduNaTor);

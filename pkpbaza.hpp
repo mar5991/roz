@@ -54,6 +54,7 @@ struct Pociag
 	private:
 	string idPociagu;
 	public:
+	map <StacjaKolejowa*, int> czasPostojuPlanowego;
 	Pociag(string id)
 	{
 		idPociagu=id;
@@ -396,6 +397,13 @@ struct BazaRuchuKolejowego
 			delete it1.second;
 	}
 	private:
+	void wypelnijPostojePlanowe(Pociag* p, vector <pair<int, int> > stacje)
+	{
+		for(int i=0; i<stacje.size(); i++)
+		{
+			p->czasPostojuPlanowego[bazaInfry->stacje[stacje[i].first]]=stacje[i].second;
+		}
+	}
 	void uzupelnijPociagiStacje(Pociag* p)
 	{
 		for(int i=0; i<(p->przejazdyPrzezTorSzlakowy.size()-1); i++)
@@ -506,6 +514,9 @@ struct BazaRuchuKolejowego
 			int s3=posrednie.size();
 			int ostposredni=0;
 			int timeruchu=0;
+			double maxVPociagu=double(kand.vmaxkph/3.6);
+			double maxVToru=double(tory[kand.tory_przejazdowe[i]]->tor->getPredkoscMaksymalnaWKPH())/3.6;
+			double maxV=min(maxVPociagu, maxVToru);
 			for(int j=0; j<s3; j++)
 			{
 				double ap1=0;
@@ -513,11 +524,11 @@ struct BazaRuchuKolejowego
 				{
 					if(kand.stacje_postojowe[i].second==0)
 					{
-						ap1=double(tory[kand.tory_przejazdowe[i]]->tor->getPredkoscMaksymalnaWKPH())/3.6;
+						ap1=maxV;
 					}
 				}
 
-				timeruchu+=czasPrzejazduWSekundach(ap1, 0, double(tory[kand.tory_przejazdowe[i]]->tor->getPredkoscMaksymalnaWKPH())/3.6, posrednie[j]-ostposredni, kand.przyspieszenie);
+				timeruchu+=czasPrzejazduWSekundach(ap1, 0, maxV, posrednie[j]-ostposredni, kand.przyspieszenie);
 				timeruchu+=kand.czas_postoju_przystanek;
 				ostposredni=posrednie[j];
 			}
@@ -527,16 +538,16 @@ struct BazaRuchuKolejowego
 
 				if(kand.stacje_postojowe[i].second==0)
 				{
-					ap1=double(tory[kand.tory_przejazdowe[i]]->tor->getPredkoscMaksymalnaWKPH())/3.6;
+					ap1=maxV;
 				}
 			}
 
 			double ap2=0;
 			if(kand.stacje_postojowe[i+1].second==0)
 			{
-				ap2=double(tory[kand.tory_przejazdowe[i]]->tor->getPredkoscMaksymalnaWKPH())/3.6;
+				ap2=maxV;
 			}
-			int add=czasPrzejazduWSekundach(ap1, ap2, double(tory[kand.tory_przejazdowe[i]]->tor->getPredkoscMaksymalnaWKPH())/3.6, l1-ostposredni, kand.przyspieszenie);
+			int add=czasPrzejazduWSekundach(ap1, ap2, maxV, l1-ostposredni, kand.przyspieszenie);
 			timeruchu+=add;
 
 			czasyprzejazdu.push_back(timeruchu);
@@ -547,6 +558,7 @@ struct BazaRuchuKolejowego
 	void dodaj_pociag(kand_pociag kand)
 	{
 		Pociag* nowy = new Pociag(kand.kod);
+		wypelnijPostojePlanowe(nowy, kand.stacje_postojowe);
 		vector <int> czasyprzejazdu=wyznacz_czasy_przejazdu(kand);
 		int s1=kand.tory_przejazdowe.size();
 		int akttime=kand.time_start;

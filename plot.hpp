@@ -157,6 +157,7 @@ struct Plot
 			wyn<<", \"from\":\""<<ignoruj_podkreslniki(odcinki[i].from)<<"\"";
 			wyn<<", \"fromtime\":\""<<odcinki[i].fromtime<<"\"";
 			wyn<<", \"totime\":\""<<odcinki[i].totime<<"\"";
+			wyn<<", \"style\":\""<<odcinki[i].style<<"\"";
 			wyn<<", \"to\":\""<<ignoruj_podkreslniki(odcinki[i].to)<<"\""<<"}";
 			if(i<odcinki.size()-1)
 				wyn<<","<<endl;
@@ -165,7 +166,7 @@ struct Plot
 		return wyn.str();
 	}
 };
-void easyTorPlot(Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, int stop, bool wlasciwy)
+void easyTorPlot(Pociag* permission, Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, int stop, bool wlasciwy)
 {
 	plot_odc plc;
 	plc.xStart=przej->czasWjazduNaTor;
@@ -189,20 +190,21 @@ void easyTorPlot(Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, i
 	plc.totime=przej->pociag->getCzasStop();
 	//plc.fromtime=przej->pociag->getStacjaPoczatkowa();
 	plc.to=przej->pociag->getStacjaKoncowa()->getNazwa();
-	plo.dodajOdcinek(plc);
+	if(przej->pociag!=permission)
+		plo.dodajOdcinek(plc);
 }
-void easyTorPlot(Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, int stop)
+void easyTorPlot(Pociag* permission, Plot& plo, PrzejazdPociaguPrzezTorSzlakowy* przej, int start, int stop)
 {
 	RuchPociagowPoTorzeSzlakowym* ruch = przej->ruchPoTorze;
 	for(int i=0; i<ruch->ruchKierunekNormalny.size(); i++)
 	{
 		PrzejazdPociaguPrzezTorSzlakowy* akt=ruch->ruchKierunekNormalny[i];
-		easyTorPlot(plo, akt, start, stop, przej->czyWlasciwyKierunekJazdy);
+		easyTorPlot(permission, plo, akt, start, stop, przej->czyWlasciwyKierunekJazdy);
 	}
 	for(int i=0; i<ruch->ruchKierunekPrzeciwny.size(); i++)
 	{
 		PrzejazdPociaguPrzezTorSzlakowy* akt=ruch->ruchKierunekPrzeciwny[i];
-		easyTorPlot(plo, akt, start, stop, przej->czyWlasciwyKierunekJazdy);
+		easyTorPlot(permission, plo, akt, start, stop, przej->czyWlasciwyKierunekJazdy);
 	}
 }
 string easyTrainPlot(Pociag* poc)
@@ -211,7 +213,7 @@ string easyTrainPlot(Pociag* poc)
 	Plot plo(1600, 3200, poc->getCzasStart()-30*60,  poc->getCzasStop()+30*60, 0, poc->getDistance());
 	for(int i=0; i<poc->przejazdyPrzezTorSzlakowy.size(); i++)
 	{
-		easyTorPlot(plo, poc->przejazdyPrzezTorSzlakowy[i], distance, distance+poc->przejazdyPrzezTorSzlakowy[i]->ruchPoTorze->tor->getDlugoscWMetrach());
+		easyTorPlot(poc, plo, poc->przejazdyPrzezTorSzlakowy[i], distance, distance+poc->przejazdyPrzezTorSzlakowy[i]->ruchPoTorze->tor->getDlugoscWMetrach());
 		plot_odc plc;
 		plc.yStart=distance;
 		plo.dodajYTic(distance, poc->przejazdyPrzezTorSzlakowy[i]->getStacjaPoczatkowa()->getNazwa());

@@ -41,7 +41,7 @@ div.ruch_stacja_pociag, div.tortable, div.tabelazajetosci
 	display: table;
 	border: 1px solid black;
 }
-div.tortable_line_h1, div.tortable_line_h2, div.tortable_line, div.head_line, div.normal_line, div.start_line, div.stop_line, div.nostop_line, div.tabelazajetosci_line, div.tabelazajetosci_linelead
+div.tortable_line_h1, div.tortable_line_h2, div.tortable_line, div.head_line, div.normal_line, div.start_line, div.stop_line, div.nostop_line, div.waiting_line, div.tabelazajetosci_line, div.tabelazajetosci_linelead
 {
 	display: table-row;
 }
@@ -104,4 +104,8 @@ div.stop_line
 div.nostop_line
 {
 	background-color: lightblue;
+}
+div.waiting_line
+{
+	background-color: red;
 }

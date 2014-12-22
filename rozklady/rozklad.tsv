@@ -1,3 +1,162 @@
+	@ A EIP 0.5 200 20 2 rozklady/PendolinoPolnoc.trasa						
+#	Warszawa_Zachodnia	Gdynia_Główna	360	12 60		#	06:00:00
+#	Kraków_Główny_Osobowy	Gdynia_Główna	600	12 60		#	10:00:00
+#	Kraków_Główny_Osobowy	Gdynia_Główna	840	12 60		#	14:00:00
+#	Kraków_Główny_Osobowy	Gdynia_Główna	1080	12 60		#	18:00:00
+#	Kraków_Główny_Osobowy	Gdynia_Główna	1320	12 60		#	22:00:00
+#	Kraków_Główny_Osobowy	Warszawa_Wschodnia	1440	12 60		#	00:00:00
+	@ A EIP 0.5 200 20 2 rozklady/PendolinoPolnoc10.trasa						
+#	Katowice	Gdynia_Główna	480	12 60		#	08:00:00
+#	Katowice	Gdynia_Główna	720	12 60		#	12:00:00
+#	Katowice	Gdynia_Główna	960	12 60		#	16:00:00
+#	Katowice	Gdynia_Główna	1200	12 60		#	20:00:00
+	@ A EIP 0.5 200 20 2 rozklady/PendolinoPoludnie.trasa						
+#	Warszawa_Wschodnia	Kraków_Główny_Osobowy	360	13 60		#	06:00:00
+#	Gdynia_Główna	Kraków_Główny_Osobowy	600	13 60		#	10:00:00
+#	Gdynia_Główna	Kraków_Główny_Osobowy	840	13 60		#	14:00:00
+#	Gdynia_Główna	Kraków_Główny_Osobowy	1080	13 60		#	18:00:00
+#	Gdynia_Główna	Kraków_Główny_Osobowy	1320	13 60		#	22:00:00
+#	Gdynia_Główna	Warszawa_Zachodnia	1440	13 60		#	00:00:00
+	@ A EIP 0.5 200 20 2 rozklady/PendolinoPoludnie10.trasa						
+#	Gdynia_Główna	Katowice	480	13 60		#	08:00:00
+#	Gdynia_Główna	Katowice	720	13 60		#	12:00:00
+#	Gdynia_Główna	Katowice	960	13 60		#	16:00:00
+#	Gdynia_Główna	Katowice	1200	13 60		#	20:00:00
+	@ A EIP 0.5 200 20 2 rozklady/PendolinoPolnoc10.trasa						
+#	Kraków_Główny_Osobowy	Warszawa_Wschodnia	486	12 60		#	
+#	Kraków_Główny_Osobowy	Warszawa_Wschodnia	1206	12 60		#	
+#	Kraków_Główny_Osobowy	Warszawa_Wschodnia	726	12 60		#	
+#	Kraków_Główny_Osobowy	Warszawa_Wschodnia	966	12 60		#	
+	@ A EIP 0.5 200 20 2 rozklady/PendolinoPolnoc15.trasa						
+#	Katowice	Warszawa_Wschodnia	606	12 60		#	
+#	Katowice	Warszawa_Wschodnia	846	12 60		#	
+#	Katowice	Warszawa_Wschodnia	1086	12 60		#	
+#	Katowice	Warszawa_Wschodnia	1326	12 60		#	
+#	Katowice	Warszawa_Wschodnia	1446	12 60		#	
+	@ A EIP 0.5 200 20 2 rozklady/PendolinoPoludnie10.trasa						
+#	Warszawa_Wschodnia	Kraków_Główny_Osobowy	474	13 60		#	
+#	Warszawa_Wschodnia	Kraków_Główny_Osobowy	1194	13 60		#	
+#	Warszawa_Wschodnia	Kraków_Główny_Osobowy	714	13 60		#	
+#	Warszawa_Wschodnia	Kraków_Główny_Osobowy	954	13 60		#	
+	@ A EIP 0.5 200 20 2 rozklady/PendolinoPoludnie15.trasa						
+#	Warszawa_Wschodnia	Katowice	354	13 60		#	
+#	Warszawa_Wschodnia	Katowice	594	13 60		#	
+#	Warszawa_Wschodnia	Katowice	834	13 60		#	
+#	Warszawa_Wschodnia	Katowice	1074	13 60		#	
+#	Warszawa_Wschodnia	Katowice	1314	13 60		#	
+	@ A RE1 0.5 160 20 2 rozklady/RE11Olsztyn.trasa						
+#	Warszawa_Zachodnia	Olsztyn_Główny	360	14 60		#	06:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	480	14 60		#	08:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	600	14 60		#	10:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	720	14 60		#	12:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	840	14 60		#	14:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	960	14 60		#	16:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	1080	14 60		#	18:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	1200	14 60		#	20:00:00
+#	Warszawa_Zachodnia	Iława Główna	1320	14 60		#	22:00:00
+	@ A RE1 0.5 160 20 2 rozklady/RE11Warszawa.trasa						
+#	Iława_Główna	Warszawa_Zachodnia	420	15 60		#	07:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	540	15 60		#	09:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	660	15 60		#	11:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	780	15 60		#	13:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	900	15 60		#	15:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	1020	15 60		#	17:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	1140	15 60		#	19:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	1260	15 60		#	21:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	1380	15 60		#	23:00:00
+	@ A RE1 0.5 160 20 2 rozklady/RE12Olsztyn.trasa						
+#	Iława_Główna	Olsztyn_Główny	180	14 60		#	03:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	300	14 60		#	05:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	420	14 60		#	07:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	540	14 60		#	09:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	660	14 60		#	11:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	780	14 60		#	13:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	900	14 60		#	15:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	1020	14 60		#	17:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	1140	14 60		#	19:00:00
+#	Warszawa_Zachodnia	Olsztyn_Główny	1260	14 60		#	21:00:00
+#	Warszawa_Zachodnia	Działdowo	1380	14 60		#	23:00:00
+	@ A RE1 0.5 160 20 2 rozklady/RE12Warszawa.trasa						
+#	Działdowo	Warszawa_Zachodnia	480	15 60		#	06:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	480	15 60		#	08:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	600	15 60		#	10:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	720	15 60		#	12:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	840	15 60		#	14:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	960	15 60		#	16:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	1080	15 60		#	18:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	1200	15 60		#	20:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	1320	15 60		#	22:00:00
+#	Olsztyn_Główny	Warszawa_Zachodnia	1440	15 60		#	24:00
+#	Olsztyn_Główny	Iława Główna	1560	15 60		#	26:00
+	@ A RE1 0.5 160 20 70 rozklady/RE13Olsztyn.trasa						
+#	Toruń_Główny	Olsztyn_Główny	312	14 60		#	05:12:00
+#	Toruń_Główny	Olsztyn_Główny	432	14 60		#	07:12:00
+#	Toruń_Główny	Olsztyn_Główny	552	14 60		#	09:12:00
+#	Toruń_Główny	Olsztyn_Główny	672	14 60		#	11:12:00
+#	Toruń_Główny	Olsztyn_Główny	792	14 60		#	13:12:00
+#	Toruń_Główny	Olsztyn_Główny	912	14 60		#	15:12:00
+#	Toruń_Główny	Olsztyn_Główny	1032	14 60		#	17:12:00
+#	Toruń_Główny	Olsztyn_Główny	1152	14 60		#	19:12:00
+#	Toruń_Główny	Olsztyn_Główny	1272	14 60		#	21:12:00
+#	Toruń_Główny	Iława Główna	1392	14 60		#	23:12:00
+	@ A RE1 0.5 160 20 70 rozklady/RE13Torun.trasa						
+#	Olsztyn_Główny	Toruń_Główny	338	15 60		#	05:38:00
+#	Olsztyn_Główny	Toruń_Główny	458	15 60		#	07:38:00
+#	Olsztyn_Główny	Toruń_Główny	578	15 60		#	09:38:00
+#	Olsztyn_Główny	Toruń_Główny	698	15 60		#	11:38:00
+#	Olsztyn_Główny	Toruń_Główny	818	15 60		#	13:38:00
+#	Olsztyn_Główny	Toruń_Główny	938	15 60		#	15:38:00
+#	Olsztyn_Główny	Toruń_Główny	1058	15 60		#	17:38:00
+#	Olsztyn_Główny	Toruń_Główny	1178	15 60		#	19:38:00
+#	Olsztyn_Główny	Toruń_Główny	1298	15 60		#	21:38:00
+	@ A RE1 0.5 160 20 70 rozklady/RE14Gdynia.trasa						
+#	Toruń_Główny	Gdynia_Główna	372	14 60		#	06:12:00
+#	Toruń_Główny	Gdynia_Główna	492	14 60		#	08:12:00
+#	Toruń_Główny	Gdynia_Główna	612	14 60		#	10:12:00
+#	Toruń_Główny	Gdynia_Główna	732	14 60		#	12:12:00
+#	Toruń_Główny	Gdynia_Główna	852	14 60		#	14:12:00
+#	Toruń_Główny	Gdynia_Główna	972	14 60		#	16:12:00
+#	Toruń_Główny	Gdynia_Główna	1092	14 60		#	18:12:00
+#	Toruń_Główny	Gdynia_Główna	1212	14 60		#	20:12:00
+#	Toruń_Główny	Gdynia_Główna	1332	14 60		#	22:12:00
+	@ A RE1 0.5 160 20 70 rozklady/RE14Torun.trasa						
+#	Iława_Główna	Toruń_Główny	278	15 60		#	04:38:00
+#	Gdynia_Główna	Toruń_Główny	398	15 60		#	06:38:00
+#	Gdynia_Główna	Toruń_Główny	518	15 60		#	08:38:00
+#	Gdynia_Główna	Toruń_Główny	638	15 60		#	10:38:00
+#	Gdynia_Główna	Toruń_Główny	758	15 60		#	12:38:00
+#	Gdynia_Główna	Toruń_Główny	878	15 60		#	14:38:00
+#	Gdynia_Główna	Toruń_Główny	998	15 60		#	16:38:00
+#	Gdynia_Główna	Toruń_Główny	1118	15 60		#	18:38:00
+#	Gdynia_Główna	Toruń_Główny	1238	15 60		#	20:38:00
+#	Gdynia_Główna	Toruń_Główny	1358	15 60		#	22:38:00
+	@ A RE1 0.5 160 20 264 rozklady/RE15Olsztyn.trasa						
+#	Gdynia_Główna	Olsztyn_Główny	306	15 60		#	05:03:00
+#	Gdynia_Główna	Elbląg	366	15 60		#	06:03:00
+#	Gdynia_Główna	Olsztyn_Główny	426	15 60		#	07:03:00
+#	Gdynia_Główna	Olsztyn_Główny	546	15 60		#	09:03:00
+#	Gdynia_Główna	Olsztyn_Główny	666	15 60		#	11:03:00
+#	Gdynia_Główna	Olsztyn_Główny	786	15 60		#	13:03:00
+#	Gdynia_Główna	Olsztyn_Główny	906	15 60		#	15:03:00
+#	Gdynia_Główna	Elbląg	966	15 60		#	16:03:00
+#	Gdynia_Główna	Olsztyn_Główny	1026	15 60		#	17:03:00
+#	Gdynia_Główna	Elbląg	1086	15 60		#	18:03:00
+#	Gdynia_Główna	Olsztyn_Główny	1146	15 60		#	19:03:00
+#	Gdynia_Główna	Olsztyn_Główny	1266	15 60		#	21:03:00
+#	Gdynia_Główna	Elbląg	1386	15 60		#	23:03:00
+	@ A RE1 0.5 160 20 264 rozklady/RE15Gdynia.trasa						
+#	Elbląg	Gdynia_Główna	275	15 60		#	04:35:00
+#	Elbląg	Gdynia_Główna	342	15 60		#	05:42:00
+#	Elbląg	Gdynia_Główna	395	15 60		#	06:35:00
+#	Olsztyn_Główny	Gdynia_Główna	462	15 60		#	07:42:00
+#	Elbląg	Gdynia_Główna	515	15 60		#	08:35:00
+#	Olsztyn_Główny	Gdynia_Główna	582	15 60		#	09:42:00
+#	Olsztyn_Główny	Gdynia_Główna	702	15 60		#	11:42:00
+#	Olsztyn_Główny	Gdynia_Główna	822	15 60		#	13:42:00
+#	Olsztyn_Główny	Gdynia_Główna	942	15 60		#	15:42:00
+#	Olsztyn_Główny	Gdynia_Główna	1062	15 60		#	17:42:00
+#	Olsztyn_Główny	Gdynia_Główna	1182	15 60		#	19:42:00
+#	Olsztyn_Główny	Gdynia_Główna	1302	15 60		#	21:42:00
 	@ A KM 0.5 120 20 2 rozklady/PilawaGrodzisk.trasa						
 #	Warszawa_Wschodnia	Grodzisk_Mazowiecki	310	0 30	1 5	#	05:10:00
 #	Pilawa	Grodzisk_Mazowiecki	330	0 30	1 5	#	05:30:00
@@ -269,6 +428,7 @@
 #	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1350	4 30		#	22:30:00
 #	Czachówek_Południowy	Warszawa_Wschodnia	1365	4 30		#	22:45:00
 #	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	1380	4 30		#	23:00:00
+#	Warszawa_Zachodnia	Warszawa_Wschodnia	1365	6 30		#	23:15:00
 #	Czachówek_Południowy	Mińsk_Mazowiecki	1400	4 30		#	23:30:00
 	@ D KM 0.5 120 20 2 rozklady/MinskCzachowek.trasa						
 #	Warszawa_Wschodnia	Góra_Kalwaria	300	6 30		#	05:00:00
@@ -615,9 +775,172 @@
 #	Błonie	Warszawa_Wschodnia	1380	11 20		#	23:00:00
 #	Błonie	Warszawa_Wschodnia	1410	11 20		#	23:30:00
 #	Błonie	Warszawa_Wschodnia	1470	11 20		#	24:30
-	@ P KM 0.5 120 20 2 rozklady/PendolinoPolnoc.trasa						
-# Katowice Gdańsk_Główny 600 #							
-	@ P KM 0.5 200 20 2 rozklady/PendolinoPolnoc.trasa						
-# Katowice Gdańsk_Główny 660 #							
-	@ P KM 0.5 60 20 2 rozklady/PendolinoPolnoc.trasa						
-# Katowice Gdańsk_Główny 540 #							
+	@ I KM 0.5 120 20 125 rozklady/WolominWilenska.trasa						
+#	Tłuszcz	Warszawa_Wileńska	300			#	05:00:00
+#	Tłuszcz	Warszawa_Wileńska	330			#	05:30:00
+#	Tłuszcz	Warszawa_Wileńska	360			#	06:00:00
+#	Tłuszcz	Warszawa_Wileńska	375			#	06:15:00
+#	Tłuszcz	Warszawa_Wileńska	390			#	06:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	400			#	06:40:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	410			#	06:50:00
+#	Tłuszcz	Warszawa_Wileńska	420			#	07:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	430			#	07:10:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	440			#	07:20:00
+#	Tłuszcz	Warszawa_Wileńska	450			#	07:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	457			#	07:37:00
+#	Tłuszcz	Warszawa_Wileńska	465			#	07:45:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	472			#	07:52:00
+#	Tłuszcz	Warszawa_Wileńska	480			#	08:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	490			#	08:10:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	500			#	08:20:00
+#	Tłuszcz	Warszawa_Wileńska	510			#	08:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	520			#	08:40:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	530			#	08:50:00
+#	Tłuszcz	Warszawa_Wileńska	540			#	09:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	555			#	09:15:00
+#	Tłuszcz	Warszawa_Wileńska	570			#	09:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	585			#	09:45:00
+#	Tłuszcz	Warszawa_Wileńska	600			#	10:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	615			#	10:15:00
+#	Tłuszcz	Warszawa_Wileńska	630			#	10:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	645			#	10:45:00
+#	Tłuszcz	Warszawa_Wileńska	660			#	11:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	675			#	11:15:00
+#	Tłuszcz	Warszawa_Wileńska	690			#	11:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	705			#	11:45:00
+#	Tłuszcz	Warszawa_Wileńska	720			#	12:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	735			#	12:15:00
+#	Tłuszcz	Warszawa_Wileńska	750			#	12:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	765			#	12:45:00
+#	Tłuszcz	Warszawa_Wileńska	780			#	13:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	795			#	13:15:00
+#	Tłuszcz	Warszawa_Wileńska	810			#	13:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	825			#	13:45:00
+#	Tłuszcz	Warszawa_Wileńska	840			#	14:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	855			#	14:15:00
+#	Tłuszcz	Warszawa_Wileńska	870			#	14:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	885			#	14:45:00
+#	Tłuszcz	Warszawa_Wileńska	900			#	15:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	915			#	15:15:00
+#	Tłuszcz	Warszawa_Wileńska	930			#	15:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	940			#	15:40:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	950			#	15:50:00
+#	Tłuszcz	Warszawa_Wileńska	960			#	16:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	970			#	16:10:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	980			#	16:20:00
+#	Tłuszcz	Warszawa_Wileńska	990			#	16:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1000			#	16:40:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1010			#	16:50:00
+#	Tłuszcz	Warszawa_Wileńska	1020			#	17:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1030			#	17:10:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1040			#	17:20:00
+#	Tłuszcz	Warszawa_Wileńska	1050			#	17:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1060			#	17:40:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1070			#	17:50:00
+#	Tłuszcz	Warszawa_Wileńska	1080			#	18:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1090			#	18:10:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1100			#	18:20:00
+#	Tłuszcz	Warszawa_Wileńska	1110			#	18:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1125			#	18:45:00
+#	Tłuszcz	Warszawa_Wileńska	1140			#	19:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1155			#	19:15:00
+#	Tłuszcz	Warszawa_Wileńska	1170			#	19:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1185			#	19:45:00
+#	Tłuszcz	Warszawa_Wileńska	1200			#	20:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1215			#	20:15:00
+#	Tłuszcz	Warszawa_Wileńska	1230			#	20:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1245			#	20:45:00
+#	Tłuszcz	Warszawa_Wileńska	1260			#	21:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1275			#	21:15:00
+#	Tłuszcz	Warszawa_Wileńska	1290			#	21:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1305			#	21:45:00
+#	Tłuszcz	Warszawa_Wileńska	1320			#	22:00:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1335			#	22:15:00
+#	Tłuszcz	Warszawa_Wileńska	1350			#	22:30:00
+#	Wołomin_Słoneczna	Warszawa_Wileńska	1380			#	23:00:00
+#	Tłuszcz	Warszawa_Wileńska	1410			#	23:30:00
+							
+	@ J KM 0.5 120 20 125 rozklady/WilenskaWolomin.trasa						
+#	Warszawa_Wileńska	Tłuszcz	300			#	05:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	330			#	05:30:00
+#	Warszawa_Wileńska	Tłuszcz	360			#	06:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	370			#	06:10:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	380			#	06:20:00
+#	Warszawa_Wileńska	Tłuszcz	390			#	06:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	400			#	06:40:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	410			#	06:50:00
+#	Warszawa_Wileńska	Tłuszcz	420			#	07:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	430			#	07:10:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	440			#	07:20:00
+#	Warszawa_Wileńska	Tłuszcz	450			#	07:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	460			#	07:40:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	470			#	07:50:00
+#	Warszawa_Wileńska	Tłuszcz	480			#	08:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	490			#	08:10:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	500			#	08:20:00
+#	Warszawa_Wileńska	Tłuszcz	510			#	08:30:00
+#	Warszawa_Wileńska	Tłuszcz	520			#	08:40:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	530			#	08:50:00
+#	Warszawa_Wileńska	Tłuszcz	540			#	09:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	555			#	09:15:00
+#	Warszawa_Wileńska	Tłuszcz	570			#	09:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	585			#	09:45:00
+#	Warszawa_Wileńska	Tłuszcz	600			#	10:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	615			#	10:15:00
+#	Warszawa_Wileńska	Tłuszcz	630			#	10:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	645			#	10:45:00
+#	Warszawa_Wileńska	Tłuszcz	660			#	11:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	675			#	11:15:00
+#	Warszawa_Wileńska	Tłuszcz	690			#	11:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	705			#	11:45:00
+#	Warszawa_Wileńska	Tłuszcz	720			#	12:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	735			#	12:15:00
+#	Warszawa_Wileńska	Tłuszcz	750			#	12:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	765			#	12:45:00
+#	Warszawa_Wileńska	Tłuszcz	780			#	13:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	795			#	13:15:00
+#	Warszawa_Wileńska	Tłuszcz	810			#	13:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	825			#	13:45:00
+#	Warszawa_Wileńska	Tłuszcz	840			#	14:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	855			#	14:15:00
+#	Warszawa_Wileńska	Tłuszcz	870			#	14:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	885			#	14:45:00
+#	Warszawa_Wileńska	Tłuszcz	900			#	15:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	910			#	15:10:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	920			#	15:20:00
+#	Warszawa_Wileńska	Tłuszcz	930			#	15:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	940			#	15:40:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	950			#	15:50:00
+#	Warszawa_Wileńska	Tłuszcz	960			#	16:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	970			#	16:10:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	980			#	16:20:00
+#	Warszawa_Wileńska	Tłuszcz	990			#	16:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1000			#	16:40:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1010			#	16:50:00
+#	Warszawa_Wileńska	Tłuszcz	1020			#	17:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1030			#	17:10:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1040			#	17:20:00
+#	Warszawa_Wileńska	Tłuszcz	1050			#	17:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1060			#	17:40:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1070			#	17:50:00
+#	Warszawa_Wileńska	Tłuszcz	1080			#	18:00:00
+#	Warszawa_Wileńska	Tłuszcz	1095			#	18:15:00
+#	Warszawa_Wileńska	Tłuszcz	1110			#	18:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1125			#	18:45:00
+#	Warszawa_Wileńska	Tłuszcz	1140			#	19:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1155			#	19:15:00
+#	Warszawa_Wileńska	Tłuszcz	1170			#	19:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1185			#	19:45:00
+#	Warszawa_Wileńska	Tłuszcz	1200			#	20:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1215			#	20:15:00
+#	Warszawa_Wileńska	Tłuszcz	1230			#	20:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1245			#	20:45:00
+#	Warszawa_Wileńska	Tłuszcz	1260			#	21:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1275			#	21:15:00
+#	Warszawa_Wileńska	Tłuszcz	1290			#	21:30:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1305			#	21:45:00
+#	Warszawa_Wileńska	Tłuszcz	1320			#	22:00:00
+#	Warszawa_Wileńska	Wołomin_Słoneczna	1335			#	22:15:00
+#	Warszawa_Wileńska	Tłuszcz	1350			#	22:30:00
+#	Warszawa_Wileńska	Tłuszcz	1380			#	23:00:00
+#	Warszawa_Wileńska	Tłuszcz	1410			#	23:30:00

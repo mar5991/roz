@@ -24,6 +24,7 @@ class StacjaKolejowa;
 class PrzystanekKolejowy;
 struct TorSzlakowyBuilder
 {
+	string additive;
 	int id;
 	int dlugoscWMetrach;
 	vector <pair <int, PrzystanekKolejowy*> > przystanki; // odleglosc / id
@@ -34,6 +35,9 @@ struct TorSzlakowyBuilder
 };
 class TorSzlakowy
 {
+	public:
+	string additive;
+	private:
 	int id;
 	int dlugoscWMetrach;
 	vector <pair <int, PrzystanekKolejowy*> > przystanki; // odleglosc / id
@@ -173,8 +177,19 @@ class BazaInfryKolejowejFromFile : public BazaInfryKolejowejBuilder
 		int a1, a2;
 		while(alfa>>a1)
 		{
-			alfa>>a2;
-			builder.przystanki.push_back(pair<int, PrzystanekKolejowy*> (a1, przystanki[a2]));
+			if(a1==-1)
+			{
+				string txt;
+				while(alfa>>txt)
+				{
+					builder.additive+=txt+" ";
+				}
+			}
+			else
+			{
+				alfa>>a2;
+				builder.przystanki.push_back(pair<int, PrzystanekKolejowy*> (a1, przystanki[a2]));
+			}
 		}
 		tory.push_back(new TorSzlakowy(builder));
 	}

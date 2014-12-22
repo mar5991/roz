@@ -388,7 +388,7 @@ void generujzestawienie (BazaObiegow& bazac, BazaInfryKolejowej* bazaa, BazaRuch
 	plik<<htmlgen::div("header2", "", "Lista torów");
 	for(int i=0; i<bazaa->wszystkieTory().size(); i++)
 	{
-		plik<<torLinkLong(bazaa->wszystkieTory()[i])<<" >> "<<endl;
+		plik<<torLinkLong(bazaa->wszystkieTory()[i])<<" "<<bazaa->wszystkieTory()[i]->additive<<" >> "<<endl;
 		vector <pair <int, PrzystanekKolejowy*> > przyst=bazaa->wszystkieTory()[i]->getPrzystanki();
 		for(int j=0; j<przyst.size(); j++)
 		{
@@ -596,7 +596,7 @@ void generujtorhtml (BazaInfryKolejowej* bazaa, BazaRuchuKolejowego* bazab, int 
 	int stacja_konc=torySzlakowe[nkol]->getStacjaKoncowa()->getId();
 	RuchPociagowPoTorzeSzlakowym* ruch = bazab->torToRuch[torySzlakowe[nkol]];
 	TorSzlakowy* tor = ruch->tor;
-	plik<<htmlgen::div("header", "", "Tor "+inttostring(tor->getId())+" "+ignoruj_podkreslniki(tor->getStacjaPoczatkowa()->getNazwa())+" - "+ignoruj_podkreslniki(tor->getStacjaKoncowa()->getNazwa()))<<endl;
+	plik<<htmlgen::div("header", "", "Tor "+inttostring(tor->getId())+" "+ignoruj_podkreslniki(tor->getStacjaPoczatkowa()->getNazwa())+" - "+ignoruj_podkreslniki(tor->getStacjaKoncowa()->getNazwa()+" "+tor->additive))<<endl;
 
 	plik<<tabelaRuchu(ruch);
 	htmlgen::zlozHtml(plik.str(), str, "style.css");

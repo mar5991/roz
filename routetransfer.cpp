@@ -14,6 +14,7 @@ struct tor
 	int vmax;
 	int nast1;
 	int nast2;
+	string desc;
 	vector <pair<int, int> > przystanki;
 	void wczytaj(stringstream& alfa)
 	{
@@ -24,11 +25,23 @@ struct tor
 		alfa>>nast1;
 		alfa>>nast2;
 		int odl1;
+		cerr<<"TOR "<<endl;
 		while(alfa>>odl1)
 		{
-			int id;
-			alfa>>id;
-			przystanki.push_back(pair<int, int>(odl1, id));
+			if(odl1==-1)
+			{
+				string cos1;
+				while(alfa>>cos1)
+				{
+					desc+=cos1+" ";
+				}
+			}
+			else
+			{
+				int id;
+				alfa>>id;
+				przystanki.push_back(pair<int, int>(odl1, id));
+			}
 		}
 	}
 	void wypisz()
@@ -42,6 +55,10 @@ struct tor
 		for(int i=0; i<przystanki.size(); i++)
 		{
 			cout<<przystanki[i].first<<" "<<przystanki[i].second<<" ";
+		}
+		if(desc!="")
+		{
+			cout<<"-1 "<<desc;
 		}
 		cout<<endl;
 	}
@@ -173,6 +190,7 @@ void wczytajNowe(string sciez)
 	fstream plik(sciez.c_str());
 	while(!plik.eof())
 	{
+		cerr<<"a jednak"<<endl;
 		char data[10000];
 		plik.getline(data,10000);
 		stringstream dtx;
@@ -193,6 +211,7 @@ void wczytajNowe(string sciez)
 			dtx>>nowe_n2;
 			dtx>>odl;
 			nazwa=getNazwa(dtx);
+			cerr<<nazwa<<endl;
 			nazwy.push_back(pair<int, string>(odl, nazwa));
 			if(nazwy.size()>1)
 			{

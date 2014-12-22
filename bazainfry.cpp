@@ -10,6 +10,7 @@ TorSzlakowy::TorSzlakowy(TorSzlakowyBuilder builder)
 		sbl=builder.sbl;
 		stacjaPoczatkowa->dodajTor(this);
 		stacjaKoncowa->dodajTor(this);
+		additive=builder.additive;
 		for(int i=0; i<przystanki.size(); i++)
 		{
 			(przystanki[i].second)->dodajTor(this);

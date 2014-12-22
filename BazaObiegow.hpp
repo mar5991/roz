@@ -59,8 +59,11 @@ class BazaObiegow
 				{
 					if((pocakt-konakt)<minwynik)
 					{
-						minwynik=pocakt-konakt;
-						wynik=pair <Pociag*, Pociag*>(it1->first, it2->first);
+						if(it1->first->getTypPociagu()==it2->first->getTypPociagu())
+						{
+							minwynik=pocakt-konakt;
+							wynik=pair <Pociag*, Pociag*>(it1->first, it2->first);
+						}
 					}
 				}
 				it2++;

@@ -77,7 +77,7 @@
 #	Warszawa_Zachodnia	Olsztyn_Główny	1260	14 60		#	21:00:00
 #	Warszawa_Zachodnia	Działdowo	1380	14 60		#	23:00:00
 	@ A RE1 0.5 160 20 2 rozklady/RE12Warszawa.trasa						
-#	Działdowo	Warszawa_Zachodnia	480	15 60		#	06:00:00
+#	Działdowo	Warszawa_Zachodnia	360	15 60		#	06:00:00
 #	Olsztyn_Główny	Warszawa_Zachodnia	480	15 60		#	08:00:00
 #	Olsztyn_Główny	Warszawa_Zachodnia	600	15 60		#	10:00:00
 #	Olsztyn_Główny	Warszawa_Zachodnia	720	15 60		#	12:00:00
@@ -131,19 +131,19 @@
 #	Gdynia_Główna	Toruń_Główny	1238	15 60		#	20:38:00
 #	Gdynia_Główna	Toruń_Główny	1358	15 60		#	22:38:00
 	@ A RE1 0.5 160 20 264 rozklady/RE15Olsztyn.trasa						
-#	Gdynia_Główna	Olsztyn_Główny	306	15 60		#	05:03:00
-#	Gdynia_Główna	Elbląg	366	15 60		#	06:03:00
-#	Gdynia_Główna	Olsztyn_Główny	426	15 60		#	07:03:00
-#	Gdynia_Główna	Olsztyn_Główny	546	15 60		#	09:03:00
-#	Gdynia_Główna	Olsztyn_Główny	666	15 60		#	11:03:00
-#	Gdynia_Główna	Olsztyn_Główny	786	15 60		#	13:03:00
-#	Gdynia_Główna	Olsztyn_Główny	906	15 60		#	15:03:00
-#	Gdynia_Główna	Elbląg	966	15 60		#	16:03:00
-#	Gdynia_Główna	Olsztyn_Główny	1026	15 60		#	17:03:00
-#	Gdynia_Główna	Elbląg	1086	15 60		#	18:03:00
-#	Gdynia_Główna	Olsztyn_Główny	1146	15 60		#	19:03:00
-#	Gdynia_Główna	Olsztyn_Główny	1266	15 60		#	21:03:00
-#	Gdynia_Główna	Elbląg	1386	15 60		#	23:03:00
+#	Gdynia_Główna	Olsztyn_Główny	306	15 60		#	
+#	Gdynia_Główna	Elbląg	366	15 60		#	
+#	Gdynia_Główna	Olsztyn_Główny	426	15 60		#	
+#	Gdynia_Główna	Olsztyn_Główny	546	15 60		#	
+#	Gdynia_Główna	Olsztyn_Główny	666	15 60		#	
+#	Gdynia_Główna	Olsztyn_Główny	786	15 60		#	
+#	Gdynia_Główna	Olsztyn_Główny	906	15 60		#	
+#	Gdynia_Główna	Elbląg	966	15 60		#	
+#	Gdynia_Główna	Olsztyn_Główny	1026	15 60		#	
+#	Gdynia_Główna	Elbląg	1086	15 60		#	
+#	Gdynia_Główna	Olsztyn_Główny	1146	15 60		#	
+#	Gdynia_Główna	Olsztyn_Główny	1266	15 60		#	
+#	Gdynia_Główna	Elbląg	1386	15 60		#	
 	@ A RE1 0.5 160 20 264 rozklady/RE15Gdynia.trasa						
 #	Elbląg	Gdynia_Główna	275	15 60		#	04:35:00
 #	Elbląg	Gdynia_Główna	342	15 60		#	05:42:00
@@ -428,8 +428,8 @@
 #	Warszawa_Lotnisko_Chopina	Mińsk_Mazowiecki	1350	4 30		#	22:30:00
 #	Czachówek_Południowy	Warszawa_Wschodnia	1365	4 30		#	22:45:00
 #	Warszawa_Lotnisko_Chopina	Sulejówek_Miłosna	1380	4 30		#	23:00:00
-#	Warszawa_Zachodnia	Warszawa_Wschodnia	1365	6 30		#	23:15:00
-#	Czachówek_Południowy	Mińsk_Mazowiecki	1400	4 30		#	23:30:00
+#	Warszawa_Zachodnia	Warszawa_Wschodnia	1395	6 30		#	23:15:00
+#	Czachówek_Południowy	Mińsk_Mazowiecki	1410	4 30		#	23:30:00
 	@ D KM 0.5 120 20 2 rozklady/MinskCzachowek.trasa						
 #	Warszawa_Wschodnia	Góra_Kalwaria	300	6 30		#	05:00:00
 #	Mińsk_Mazowiecki	Czachówek_Południowy	330	6 30		#	05:30:00
@@ -452,7 +452,7 @@
 #	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	500	6 30	7 5	#	08:20:00
 #	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	510	6 30	7 5	#	08:30:00
 #	Warszawa_Wschodnia	Czachówek_Południowy	520	6 30	7 5	#	08:40:00
-#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	525	6 30	7 5	#	08:50
+#	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	530	6 30	7 5	#	08:50
 #	Mińsk_Mazowiecki	Warszawa_Lotnisko_Chopina	540	6 30		#	09:00:00
 #	Warszawa_Wschodnia	Góra_Kalwaria	550	6 30		#	09:10:00
 #	Sulejówek_Miłosna	Warszawa_Lotnisko_Chopina	555	6 30		#	09:15:00

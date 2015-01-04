@@ -89,9 +89,13 @@ struct PreferowaneLinie
 	{
 		return czasPrzyst;
 	}
-	int getStacjaSrodkowa()
+	int getStacjaSrodkowa(string from, string to)
 	{
 		return srodkowa;
+	}
+	int getDodSuma(string from, string to, int old)
+	{
+		return old;
 	}
 	string getKod1()
 	{

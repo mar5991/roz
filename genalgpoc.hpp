@@ -36,7 +36,8 @@ struct kand_pociag_roz
 		kand.przyspieszenie=pref.getPrzyspieszenie();
 		kand.vmaxkph=pref.getvmax();
 		kand.czas_postoju_przystanek=pref.getCzasPostojuPrzystanek();
-		kand.stacja_srodkowa=pref.getStacjaSrodkowa();
+		kand.stacja_srodkowa=pref.getStacjaSrodkowa(from, to);
+		dodsuma=pref.getDodSuma(from, to, dodsuma);
 		kand.tory_przejazdowe=pref.toryPosrednie(from, to);
 		for(int i=0; i<kand.tory_przejazdowe.size(); i++)
 		{
